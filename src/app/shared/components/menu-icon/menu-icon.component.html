@@ -1,0 +1,13 @@
+<button class="menu__icon" mat-button [matMenuTriggerFor]="menu">Menú
+   <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <!-- <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button> -->
+  <div class="menu">
+   <a mat-menu-item routerLink="/home" routerLinkActive="active">Home </a>
+ <a mat-menu-item routerLink="/boquilla"routerLinkActive="active">Boquilla </a>
+ <a mat-menu-item routerLink="/winder"routerLinkActive="active">Winder</a>
+  <a mat-menu-item routerLink="/extrusor"routerLinkActive="active">Extrusor</a>
+  </div>
+</mat-menu>

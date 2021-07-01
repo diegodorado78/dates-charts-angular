@@ -1,0 +1,30 @@
+mat-card-header{
+justify-content: center;
+}
+.card__container{
+ display: flex;
+justify-content: center;
+ margin: 5px auto;
+ width:80%;
+ height: 90%;
+ border: 1px solid red;
+}
+
+@media (max-width: 768px) {
+ .card__container{
+  width:98%;
+  margin:  auto 1%;
+  height: 100%;
+  #bar{
+    width: 100%;
+    margin:0;
+  }
+  ::ng-deep svg{
+ width: 90%;
+ margin-left: 10%;
+
+}
+ }
+
+
+}

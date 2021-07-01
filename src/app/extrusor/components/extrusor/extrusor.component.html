@@ -1,1 +1,17 @@
-<p>extrusor works!</p>
+<mat-card>
+  <h1 >Gráficos <strong>{{titulo}}</strong></h1>
+<mat-card-header>
+    <mat-card-title>Chart Title</mat-card-title>
+    <mat-card-subtitle> Chart subtitle</mat-card-subtitle>
+</mat-card-header>
+ <mat-card-content>
+  <!-- RENDER DEL GRAFICO -->
+    <div class="card__container">
+    <figure id="bar"></figure>
+    </div>
+ </mat-card-content>
+ <mat-card-actions>
+ <a mat-raised-button color="basic" [routerLink]=""> ver detalle</a>
+ <!-- <button  mat-raised-button color="basic" type="button" (click)="updateGraphData()">Cambiar Datos</button> -->
+  </mat-card-actions>
+</mat-card>

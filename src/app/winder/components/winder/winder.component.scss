@@ -1,0 +1,85 @@
+mat-card-header{
+justify-content: center;
+}
+.card__container{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+ margin: auto;
+ padding: 2%;
+ width:60%;
+ height: 60vh;
+//  height: 100%; reduce el espacio de card
+ border: 1px solid red;
+}
+.svg__chart__container{
+  display: flex;
+   align-items: center;
+  width: 100%;
+  height: 100%;
+margin: 0 5%;
+justify-content: center;
+
+}
+
+::ng-deep svg{
+    width: 90%;
+    height: 100%;
+    margin:5% 0 10% 5%;
+  }
+/* 13. Basic Styling with CSS */
+
+/* Style the lines by removing the fill and applying a stroke */
+::ng-deep .line {
+    fill: none;
+    stroke: #ffab00;
+    stroke-width: 3;
+}
+
+::ng-deep .overlay {
+    fill: none;
+    pointer-events: all;
+}
+
+/* Style the dots by assigning a fill and stroke */
+::ng-deep .dot {
+    fill: #ffab00;
+    stroke: #fff;
+}
+
+::ng-deep .focus circle {
+    fill: none;
+    stroke: steelblue;
+}
+::ng-deep text{
+  font-size: 10px;
+  padding: auto 20%;
+}
+@media (max-width: 768px) {
+ .card__container{
+  width:90%;
+  height:100%;
+  margin: auto;
+  padding: 0;
+ }
+ .svg__chart__container{
+   width: 100%;
+   height: 100%;
+
+
+ }
+ ::ng-deep  svg{
+   max-width: 100%;
+   object-fit: contain;
+   margin:10% 5% 15% 10%;
+ }
+}
+
+// .chart {
+//     // width: 240px;
+//     // height: 230px;
+
+//     width: 100%;
+//     height: 100%;
+
+// }

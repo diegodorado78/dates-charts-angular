@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import {PreloadAllModules, Routes, RouterModule } from '@angular/router';
-import {LayoutComponent} from './layout/layout.component';
+import {LayoutComponent} from './pages/layout/layout.component';
 
 
 const routes: Routes = [
@@ -15,7 +15,7 @@ const routes: Routes = [
       },
       {
         path: 'home',
-        loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+        loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
       },
       {
         path: 'winder',
@@ -34,11 +34,14 @@ const routes: Routes = [
       },
     ]
   },
-
+  {
+    path: '**',
+    loadChildren: () => import('./pages/page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)
+  }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes,{
-   preloadingStrategy: PreloadAllModules // metodo para precargar componentes no usados
+  //  preloadingStrategy: PreloadAllModules // metodo para precargar componentes no usados
   })],
   exports: [RouterModule]
 })
