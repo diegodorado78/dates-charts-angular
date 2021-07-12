@@ -1,7 +1,7 @@
 .menu__icon{
  box-sizing: border-box;
  margin:15% 0;
- width: 100%;
+ width: 50%;
  font-size: 1.5rem;
  object-fit:contain ;
   color: #272A3A;
@@ -12,9 +12,15 @@ menu{
  font-weight: bold;
 
 }
+.white__icon{
+  color: white;
+  float: right;
+  margin:25% auto;
+}
 .active{
   background-color: #cccc;
 }
+
 @media (max-width: 768px) {
   .menu__icon{
    box-sizing: border-box;

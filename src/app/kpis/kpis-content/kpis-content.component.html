@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="linea__container">
+  <p>  1741 FRD - Line # {{line.number}} - 25um Plain</p>
+   </div>
+<div class="line__content">
+  <!-- <mat-card >Simple card</mat-card> -->
+  <div class="line__features">
+    <button (click)="size = '22.5'"> <span> 30% </span><br> Yield</button>
+    <button (click)="size = '75'"> <span>100%</span><br> Uptime</button>
+    <button (click)="size = '51'"><span> 68%</span><br> Capacity</button>
+  </div>
+  <div class="line__blank">
+
+  </div>
+
+  <div  class="line__data">
+    <div [style.height.vh]="size" id="lineData"></div>
+ </div>
+</div>
+</div>
+
+

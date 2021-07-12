@@ -1,0 +1,10 @@
+<div class="container">
+<div class="linea__container">
+  <p>  1741 FRD</p>
+   </div>
+
+   <!-- Contendor de seleccion de lineas -->
+   <div class="linea__seleccion">
+   <app-kpi-line  *ngFor="let line of lines" (LineClicked)="clickLine($event)" [line]="line" ></app-kpi-line>
+   </div>
+</div>

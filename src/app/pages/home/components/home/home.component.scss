@@ -1,5 +1,70 @@
 .container{
+ display: flex;
+flex-direction: column;
  width: 100%;
- background-color: white;
  height: 80vh;
+ background-color: white;
+ align-content: center;
+ // padding: 15% auto;
+}
+.linea__container{
+ background-color: #E4E4E4;
+ height: 5vh;
+ color: black;
+ text-align: left;
+ font-size: 1.5rem;
+ p{
+  margin:1vh auto;
+ }
+}
+.button__container{
+margin: auto;
+}
+a{
+display: flex;
+flex-direction: column;
+ align-content: center;
+ border: 3px solid black;
+ width: 150px;
+height: 150px;
+border-radius: 20px;
+margin:  10% auto;
+padding: auto;
+color: black;
+text-decoration: none;
+font-weight: bold;
+font-size: x-large;
+span{
+margin: auto;
+}
+}
+// a{
+//  display: flex;
+//  align-content: center;
+//  text-decoration: none;
+//  color: black;
+//  border: 2px solid black;
+// margin: 10% auto;
+//  width: 150px;
+//  height: 150px;
+//  border-radius: 20px;
+//  background-color: white;
+//  font-size: x-large;
+//  font-weight: bold;
+// p{
+//  margin:  auto;
+// }
+// }
+
+@media (min-width: 768px) {
+
+ .container{
+ height: 80vh;
+
+ }
+ a{
+   width: 250px;
+   height: 250px;
+ }
+
 }

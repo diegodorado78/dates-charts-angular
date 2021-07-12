@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class WinderService {
-winderData= [
+ winderData= [
 {"roll_id":"0A1602221603","FilmTension":132,"Setpoint":42.8,"Actual":29.4,},
 {"roll_id":"0A1602221748","FilmTension":139.1,"Setpoint":42.9,"Actual":31.4,},
 {"roll_id":"0A1602221932","FilmTension":135.3,"Setpoint":42.8,"Actual":30,}
@@ -194,7 +194,10 @@ winderData= [
 // {"roll_id":"0A1710112414","FilmTension":"104,5","Setpoint":"42,9","Actual":"23,9"},
 // {"roll_id":"0A1710120222","FilmTension":"125,6","Setpoint":"42,9","Actual":"28,1"},
 // {"roll_id":"0A1710120429","FilmTension":"164,5","Setpoint":"42,6","Actual":"35"}
-]
+ ];
+ gapWinding=[
+   {"W1-Tension-p1":"165","W2-Tension-p1":"165","W1-Tension-p2":"160","W2-Tension-p2":"160","W1-Tension-p3":"156","W2-Tension-p3":"156","W1-Tension-p4":"150","W2-Tension-p4":"150","W1-Tension-p5":"145","W2-Tension-p5":"100,6","W1-Tension-p6":"140","W2-Tension-p6":"140","W1-Tension-p7":"135","W2-Tension-p7":"135","W1-Tension-p8":"128","W2-Tension-p8":"128","W1-Tension-p9":"121,4","W2-Tension-p9":"121,4","W1-Tension-p10":"113,6","W2-Tension-p10":"113,6","W1-Tension-p11":"106,7","W2-Tension-p11":"106,7","W1-Tension-p12":null,"W2-Tension-p12":"100,6","W1-Tension-p13":"95,2","W2-Tension-p13":"95,2","W1-Tension-p14":"90,3","W2-Tension-p14":"90,3","W1-Tension-p15":"89,6","W2-Tension-p15":"89,6","W1-Tension-p16":"85","W2-Tension-p16":"85","W1-Tension-p17":"80,9","W2-Tension-p17":"80,9","W1-Tension-p18":"79,1","W2-Tension-p18":"79,1","W1-Tension-p19":"78,6","W2-Tension-p19":"78,6","W1-Tension-p20":"78,3","W2-Tension-p20":"78,3"},
+ ];
   constructor() { }
   getAllDataPoints(){
     return this.winderData;

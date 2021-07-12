@@ -1,41 +1,47 @@
 .layout__header{
 max-width: 100%;
-margin: 2% auto;
 justify-content: center;
-color: #272A3A;
+color: #f0f0f0;
+background-color: #393E4A;
+margin: 0 auto;
 }
 .header__nav  {
  display: flex;
 //  justify-content: space-between;
-border: 1px solid #cccc;
 border-radius: 5px;
-width: 90%;
+width: 100%;
 margin: 0.5rem;}
 
 .header__nav__links{
-  width: 10%;
+  display: flex;
   height: 100%;
+  margin: 0;
+  justify-content: right;
 }
 .header__nav_logo{
 display: flex;
   max-height: 75px;
   width: 90%;
   margin-bottom: 1%;
+  float: left;
   img {
     object-fit:contain ;
     height: 100%;
     width: 100%;
     object-position: left;
-    margin: 0 0.5rem;
+  }
+}
+.header__app-name {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  h1{
+    float: right;
+    text-align: right;
   }
 }
 
 @media (max-width: 768px) {
-   .layout__header{
-   width: 100%;
-  margin: 5% 0;
-
-  }
   .header__nav{
   height: 100%;
   width: 100%;

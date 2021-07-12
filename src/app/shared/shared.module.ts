@@ -5,21 +5,20 @@ import { MaterialModule } from '../material/material.module';
 import { HeaderComponent } from './components/header/header.component';
 import { MenuIconComponent } from './components/menu-icon/menu-icon.component';
 
-
-
-
 @NgModule({
   declarations: [
     HeaderComponent,
-    MenuIconComponent],
+    MenuIconComponent,
+    ],
   exports:[
     HeaderComponent,
-    MenuIconComponent
+    MenuIconComponent,
+
   ],
    imports: [
     CommonModule,
     RouterModule,
-    MaterialModule
+    MaterialModule,
   ]
 })
 export class SharedModule { }

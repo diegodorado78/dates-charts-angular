@@ -13,6 +13,7 @@ import { CoreModule } from './core/core.module';
   declarations: [
     AppComponent,
     LayoutComponent
+
   ],
   imports: [
     BrowserModule,

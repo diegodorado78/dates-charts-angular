@@ -20,18 +20,24 @@ const routes: Routes = [
       {
         path: 'winder',
         // canActivate: [AdminGuard],
-        loadChildren: () => import('./winder/winder.module').then(m => m.WinderModule)
+        loadChildren: () => import('./reports/winder/winder.module').then(m => m.WinderModule)
       },
       {
         path: 'extrusor',
         // canActivate: [AdminGuard],
-        loadChildren: () => import('./extrusor/extrusor.module').then(m => m.ExtrusorModule)
+        loadChildren: () => import('./reports/extrusor/extrusor.module').then(m => m.ExtrusorModule)
       },
       {
         path: 'boquilla',
         // canActivate: [AdminGuard],
-        loadChildren: () => import('./boquilla/boquilla.module').then(m => m.BoquillaModule)
+        loadChildren: () => import('./reports/boquilla/boquilla.module').then(m => m.BoquillaModule)
       },
+      {
+        path: 'kpis',
+        // canActivate: [AdminGuard],
+        loadChildren: () => import('./kpis/kpis.module').then(m => m.KpisModule)
+      },
+
     ]
   },
   {
