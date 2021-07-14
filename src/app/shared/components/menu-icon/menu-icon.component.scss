@@ -1,29 +1,15 @@
-.menu__icon{
- box-sizing: border-box;
- margin:15% 0;
- width: 50%;
- font-size: 1.5rem;
- object-fit:contain ;
-  color: #272A3A;
-}
-menu{
- display: flex;
- flex-direction: column;
- font-weight: bold;
-
-}
 .white__icon{
   color: white;
   float: right;
-  margin:25% auto;
+  margin:25% ;
 }
 .active{
   background-color: #cccc;
 }
 
-@media (max-width: 768px) {
-  .menu__icon{
+@media (min-width: 768px) {
+  .white__icon{
    box-sizing: border-box;
-   align-self: center;
+   align-self: right;
   margin: 5% auto;}
 }

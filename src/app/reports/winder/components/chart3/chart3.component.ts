@@ -1,17 +1,15 @@
 import { Component, OnInit, ElementRef,ViewChild} from '@angular/core';
 import * as d3 from 'd3';
 import { WinderService } from 'src/app/core/services/winder.service';
-import { HttpClient } from '@angular/common/http';
- import { Observable } from 'rxjs';
+
 @Component({
-  selector: 'app-chart2',
-  templateUrl: './chart2.component.html',
-  styleUrls: ['./chart2.component.scss']
+  selector: 'app-chart3',
+  templateUrl: './chart3.component.html',
+  styleUrls: ['./chart3.component.scss']
 })
-export class Chart2Component implements OnInit {
-public titulo="Tension Control";
-private winderData:any= [];
-// private weatherData:any=[];
+export class Chart3Component implements OnInit {
+titulo='Gap Winding';
+private gapWinding:any= [];
    @ViewChild("chart", { static: true }) protected chartContainer: ElementRef;
   svg: any;
   g: any;
@@ -24,7 +22,7 @@ private winderData:any= [];
   n:any=[];
   constructor(private winderService:WinderService) { }
   ngOnInit(): void {
-    this.winderData =this.winderService.getAllDataPoints();
+    this.gapWinding =this.winderService.getAllGapWinding();
     this.initChart();
     this.createChart();
   }
@@ -51,9 +49,9 @@ private winderData:any= [];
 
   createChart() {
     // The number of datapoints
-    var data =this.winderData;
+    var data =this.gapWinding;
     var dataRange= data.map((x)=>x.roll_id);
-    //console.log(dataRange);
+    console.log(dataRange);
     // 5. X scale will use the index of our data
     var xScale = d3.scalePoint()//scalepoint,scaleLinear
         .domain(data.map(d => d.roll_id))//hace una barra por framework
@@ -62,7 +60,7 @@ private winderData:any= [];
 
     // 6. Y scale will use the randomly generate number
     var yScale = d3.scaleLinear()
-      .domain([0, Math.max.apply(Math, data.map(roll => roll.Actual))+5])// data.map(d => d.FilmTension)rango y tomando cada posicion input
+      .domain([0,200])// data.map(d => d.FilmTension)rango y tomando cada posicion input
       .range([this.contentHeight, 0]); // output
     // 7. d3's line generator
     var line = d3.line()
@@ -71,19 +69,93 @@ private winderData:any= [];
       .curve(d3.curveMonotoneX) // apply smoothing to the line
 
     var line2 = d3.line()
-      .x(function (d:any, i:any) { return xScale(d.x); }) // set the x values for the line generator
-      .y(function (d: any) { return yScale(d.y); }) // set the y values for the line generator
-      .curve(d3.curveMonotoneX) // apply smoothing to the line
+      .x(function (d:any, i:any) { return xScale(d.x); })
+      .y(function (d: any) { return yScale(d.y); })
+      .curve(d3.curveMonotoneX)
+
+    var line3 = d3.line()
+      .x(function (d:any, i:any) { return xScale(d.x); })
+      .y(function (d: any) { return yScale(d.y); })
+      .curve(d3.curveMonotoneX)
+
+      var line4 = d3.line()
+      .x(function (d:any, i:any) { return xScale(d.x); })
+      .y(function (d: any) { return yScale(d.y); })
+      .curve(d3.curveMonotoneX)
+
+      var line5 = d3.line()
+      .x(function (d:any, i:any) { return xScale(d.x); })
+      .y(function (d: any) { return yScale(d.y); })
+      .curve(d3.curveMonotoneX)
+
+      var line6 = d3.line()
+      .x(function (d:any, i:any) { return xScale(d.x); })
+      .y(function (d: any) { return yScale(d.y); })
+      .curve(d3.curveMonotoneX)
+
+      var line7 = d3.line()
+      .x(function (d:any, i:any) { return xScale(d.x); })
+      .y(function (d: any) { return yScale(d.y); })
+      .curve(d3.curveMonotoneX)
+
+      var line8 = d3.line()
+      .x(function (d:any, i:any) { return xScale(d.x); })
+      .y(function (d: any) { return yScale(d.y); })
+      .curve(d3.curveMonotoneX)
+
+      var line9 = d3.line()
+      .x(function (d:any, i:any) { return xScale(d.x); })
+      .y(function (d: any) { return yScale(d.y); })
+      .curve(d3.curveMonotoneX)
+
+      var line10 = d3.line()
+      .x(function (d:any, i:any) { return xScale(d.x); })
+      .y(function (d: any) { return yScale(d.y); })
+      .curve(d3.curveMonotoneX)
+
 
       // 8. An array of objects of length N. Each object has key -> value pair, the key being "y" and the value is a random number
     var dataset =data.map((roll)=>{
-      return {y:roll.Setpoint,x:roll.roll_id
+      return {y:roll.w1Tensionp1,x:roll.roll_id
       }
     })
     var dataset2 =data.map((roll)=>{
-      return {y:roll.Actual,x:roll.roll_id
+      return {y:roll.w2Tensionp1,x:roll.roll_id
       }
     })
+    var dataset3 =data.map((roll)=>{
+      return {y:roll.w1Tensionp2,x:roll.roll_id
+      }
+    })
+    var dataset4 =data.map((roll)=>{
+      return {y:roll.w2Tensionp2,x:roll.roll_id
+      }
+    })
+    var dataset5 =data.map((roll)=>{
+      return {y:roll.w1Tensionp3,x:roll.roll_id
+      }
+    })
+     var dataset6 =data.map((roll)=>{
+      return {y:roll.w2Tensionp3,x:roll.roll_id
+      }
+    })
+     var dataset7 =data.map((roll)=>{
+      return {y:roll.w1Tensionp4,x:roll.roll_id
+      }
+    })
+     var dataset8 =data.map((roll)=>{
+      return {y:roll.w2Tensionp4,x:roll.roll_id
+      }
+    })
+     var dataset9 =data.map((roll)=>{
+      return {y:roll.w1Tensionp5,x:roll.roll_id
+      }
+    })
+     var dataset10 =data.map((roll)=>{
+      return {y:roll.w2Tensionp5,x:roll.roll_id
+      }
+    })
+
     //d3.range(data.length).map(function (d) { return { "y": d3.randomUniform(300)() } })
     // console.log(dataset)
 //{ "y": d3.randomUniform(300)() }
@@ -113,21 +185,51 @@ private winderData:any= [];
       .datum(dataset2 )
       .attr("class", "line2")
       .attr("d", line2);
-    // 12. Appends a circle for each datapoint
-    // this.g.selectAll(".dot")
-    //   .data(dataset)
-    //   .enter().append("circle") // Uses the enter().append() method
-    //   .attr("class", "dot") // Assign a class for styling
-    //   .attr("cx", function (d, i) { return xScale(d.x) })
-    //   .attr("cy", function (d) { return yScale(d.y) })
-    //   .attr("r", 3)
-    //   .on("mouseover", function (a, b, c) {
-    //     console.log(a)
-    //     this.attr('class', 'focus')
-    //   })
-    //   .on("mouseout", function () { })
-    //   //modificar texto
+
+      this.g.append("path")
+      .datum(dataset3 )
+      .attr("class", "line3")
+      .attr("d", line3);
+
+      this.g.append("path")
+      .datum(dataset4 )
+      .attr("class", "line4")
+      .attr("d", line4);
+
+      this.g.append("path")
+      .datum(dataset5 )
+      .attr("class", "line5")
+      .attr("d", line5);
+
+      this.g.append("path")
+      .datum(dataset6 )
+      .attr("class", "line6")
+      .attr("d", line6);
+
+      this.g.append("path")
+      .datum(dataset7 )
+      .attr("class", "line7")
+      .attr("d", line7);
+
+      this.g.append("path")
+      .datum(dataset8 )
+      .attr("class", "line8")
+      .attr("d", line8);
+
+      this.g.append("path")
+      .datum(dataset9 )
+      .attr("class", "line9")
+      .attr("d", line9);
+
+      this.g.append("path")
+      .datum(dataset10)
+      .attr("class", "line10")
+      .attr("d", line10);
+
+
+
 
   }
+
 
 }

@@ -12,9 +12,9 @@ data2 =[];
 private line: any;
   private svg:any;
   private d:any;
-  private margin = 30;
-  private width = 800- this.margin ;
-  private height = 350- this.margin ;
+  private margin = 20;
+  private width = 400- this.margin ;
+  private height = 200- this.margin ;
 
   constructor(private extrusorService:ExtrusorService ) {} // instacncio el service para que este disponible en el onINIT
 // metodo para seleccionar el elemnto del dom e insertar el svg

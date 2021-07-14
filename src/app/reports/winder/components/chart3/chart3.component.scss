@@ -12,6 +12,7 @@ justify-content: center;
 //  height: 100%; reduce el espacio de card
  border: 1px solid #ccc;
 }
+
 .svg__chart__container{
   display: flex;
    align-items: center;
@@ -21,14 +22,6 @@ justify-content: center;
   justify-content: center;
 
 }
-
-::ng-deep svg{
-    width: 90%;
-    height: 100%;
-    margin:5% 5% 10% 10%;
-  }
-/* 13. Basic Styling with CSS */
-
 /* Style the lines by removing the fill and applying a stroke */
 ::ng-deep .line {
     fill: none;
@@ -41,6 +34,57 @@ justify-content: center;
     stroke: #A64C49;
     stroke-width: 3;
 }
+::ng-deep .line3 {
+    fill: none;
+    stroke: green;
+    stroke-width: 3;
+}
+::ng-deep .line4 {
+    fill: none;
+    stroke: purple;
+    stroke-width: 3;
+}
+::ng-deep .line5 {
+    fill: none;
+    stroke: #DC9047;
+    stroke-width: 3;
+
+}::ng-deep .line6 {
+    fill: none;
+    stroke: #C8A4A2;
+    stroke-width: 3;
+
+}::ng-deep .line7 {
+    fill: none;
+    stroke: #534470;
+    stroke-width: 3;
+
+}::ng-deep .line8 {
+    fill: none;
+    stroke: #84974B;
+    stroke-width: 3;
+}
+::ng-deep .line8 {
+    fill: none;
+    stroke: #B6773A;
+    stroke-width: 3;
+}
+::ng-deep .line8 {
+    fill: none;
+    stroke: #893F3D;
+    stroke-width: 3;
+}
+::ng-deep .line9 {
+    fill: none;
+    stroke: #cccc;
+    stroke-width: 3;
+}
+::ng-deep .line10 {
+    fill: none;
+    stroke: #659AB2;
+    stroke-width: 3;
+}
+
 ::ng-deep .overlay {
     fill: none;
     pointer-events: all;

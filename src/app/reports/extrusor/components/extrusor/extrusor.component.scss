@@ -5,25 +5,32 @@ justify-content: center;
  display: flex;
 justify-content: center;
  margin: 5px auto;
- width:80%;
- height: 90%;
- border: 1px solid red;
+ width:90%;
+ height: 50vh;
+ border: 1px solid #cccc;
 }
-
-@media (max-width: 768px) {
+::ng-deep svg{
+  width: 100%;
+  margin-bottom: 10%;
+  max-height: 100%;
+}
+@media (min-width: 768px) {
  .card__container{
-  width:98%;
-  margin:  auto 1%;
-  height: 100%;
+  width:80%;
+  margin: 0 auto;
+  height: 70vh;
+  align-content: center;
+  padding: 0 auto;
+
+  ::ng-deep svg{
+ width: 80%;
+ height: 90%;
+ margin: 5% auto;
+}
   #bar{
     width: 100%;
-    margin:0;
+    margin:0 auto;
   }
-  ::ng-deep svg{
- width: 90%;
- margin-left: 10%;
-
-}
  }
 
 

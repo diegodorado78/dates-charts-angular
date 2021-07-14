@@ -12,6 +12,7 @@ justify-content: center;
 //  height: 100%; reduce el espacio de card
  border: 1px solid #ccc;
 }
+
 .svg__chart__container{
   display: flex;
    align-items: center;
@@ -21,24 +22,26 @@ justify-content: center;
   justify-content: center;
 
 }
-
-::ng-deep svg{
-    width: 90%;
-    height: 100%;
-    margin:5% 5% 10% 10%;
-  }
-/* 13. Basic Styling with CSS */
-
 /* Style the lines by removing the fill and applying a stroke */
-::ng-deep .line {
+::ng-deep .linea {
     fill: none;
-    stroke: #5D7DB8;
+    stroke: #753634;
     stroke-width: 3;
 }
 
-::ng-deep .line2 {
+::ng-deep .linea2 {
     fill: none;
-    stroke: #A64C49;
+    stroke: #534470;
+    stroke-width: 3;
+}
+::ng-deep .linea3 {
+    fill: none;
+    stroke:#9E6733 ;
+    stroke-width: 3;
+}
+::ng-deep .linea4 {
+    fill: none;
+    stroke: #84974B;
     stroke-width: 3;
 }
 ::ng-deep .overlay {

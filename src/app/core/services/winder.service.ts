@@ -60,149 +60,58 @@ export class WinderService {
 {"roll_id":"0A1609082155","FilmTension":230.5,"Setpoint":42.8,"Actual":50.3,},
 {"roll_id":"0A1609082300","FilmTension":230.9,"Setpoint":42.8,"Actual":49.8,},
 {"roll_id":"0A1609090252","FilmTension":212.3,"Setpoint":42.8,"Actual":46.1,},
-// {"roll_id":"0A1609090709","FilmTension":"203,2","Setpoint":"42,7","Actual":"43,4"},
-// {"roll_id":"0A1609090916","FilmTension":"212,3","Setpoint":42.8,"Actual":"46,1"},
-// {"roll_id":"0A1609091227","FilmTension":"224,5","Setpoint":42.8,"Actual":"48,6"},
-// {"roll_id":"0A1609091539","FilmTension":"210,3","Setpoint":42.8,"Actual":"45,4"},
-// {"roll_id":"0A1609091643","FilmTension":"243","Setpoint":42.8,"Actual":"52,3"},
-// {"roll_id":"0A1609092321","FilmTension":"216,7","Setpoint":"42,8","Actual":"47,1"},
-// {"roll_id":"0A1609100800","FilmTension":"219","Setpoint":"42,8","Actual":"47,7"},
-// {"roll_id":"0A1609101154","FilmTension":"274,5","Setpoint":"42,8","Actual":"59,6"},
-// {"roll_id":"0A1609101208","FilmTension":"247,5","Setpoint":"42,8","Actual":"53,2"},
-// {"roll_id":"0A1609101749","FilmTension":"237,9","Setpoint":"42,8","Actual":"51,3"},
-// {"roll_id":"0A1609102207","FilmTension":"234,6","Setpoint":"42,8","Actual":"50,8"},
-// {"roll_id":"0A1609110121","FilmTension":"248,9","Setpoint":"42,8","Actual":"53,6"},
-// {"roll_id":"0A1610100446","FilmTension":"191","Setpoint":"42,6","Actual":"40,8"},
-// {"roll_id":"0A1610100822","FilmTension":"170,9","Setpoint":42.9,"Actual":"37,2"},
-// {"roll_id":"0A1610101109","FilmTension":"214,8","Setpoint":"42,9","Actual":"45,3"},
-// {"roll_id":"0A1610101420","FilmTension":"179,1","Setpoint":"42,9","Actual":"38,4"},
-// {"roll_id":"0A1610101836","FilmTension":"184,1","Setpoint":"42,9","Actual":"39,3"},
-// {"roll_id":"0A1610102455","FilmTension":"171,9","Setpoint":"42,9","Actual":"37,2"},
-// {"roll_id":"0A1610110850","FilmTension":"190","Setpoint":"42,9","Actual":"40,6"},
-// {"roll_id":"0A1610111136","FilmTension":"209,5","Setpoint":"42,9","Actual":"45,1"},
-// {"roll_id":"0A1610111510","FilmTension":"200,3","Setpoint":"42,9","Actual":"42,5"},
-// {"roll_id":"0A1611150731","FilmTension":"200,2","Setpoint":"42,6","Actual":"42,5"},
-// {"roll_id":"0A1611150939","FilmTension":"200,5","Setpoint":"42,9","Actual":"42,9"},
-// {"roll_id":"0A1611151249","FilmTension":"233,3","Setpoint":"42,9","Actual":"49,5"},
-// {"roll_id":"0A1611151353","FilmTension":"218,8","Setpoint":"42,9","Actual":"46,7"},
-// {"roll_id":"0A1611151530","FilmTension":"236,9","Setpoint":"42,9","Actual":"49,8"},
-// {"roll_id":"0A1611152145","FilmTension":"235","Setpoint":"42,9","Actual":"49,4"},
-// {"roll_id":"0A1611152356","FilmTension":"258,1","Setpoint":"42,9","Actual":"56,6"},
-// {"roll_id":"0A1612051302","FilmTension":"157,2","Setpoint":"42,8","Actual":"34,3"},
-// {"roll_id":"0A1612051615","FilmTension":"195,3","Setpoint":"42,9","Actual":"41,3"},
-// {"roll_id":"0A1612051913","FilmTension":"166,2","Setpoint":"42,9","Actual":"35,8"},
-// {"roll_id":"0A1612052335","FilmTension":"179,9","Setpoint":"42,8","Actual":"39"},
-// {"roll_id":"0A1612060347","FilmTension":"220,4","Setpoint":"42,8","Actual":"47,8"},
-// {"roll_id":"0A1612060458","FilmTension":"185","Setpoint":"42,6","Actual":"39,3"},
-// {"roll_id":"0A1612060633","FilmTension":"192","Setpoint":"42,6","Actual":"40,7"},
-// {"roll_id":"0A1701171424","FilmTension":"173,3","Setpoint":"42,9","Actual":"37,7"},
-// {"roll_id":"0A1701171750","FilmTension":"173,7","Setpoint":"42,9","Actual":"38,2"},
-// {"roll_id":"0A1701172100","FilmTension":"183,2","Setpoint":"42,9","Actual":"40"},
-// {"roll_id":"0A1701172307","FilmTension":"185,3","Setpoint":"42,9","Actual":"40,5"},
-// {"roll_id":"0A1701180130","FilmTension":"186,5","Setpoint":"42,9","Actual":"40,7"},
-// {"roll_id":"0A1701180307","FilmTension":"187,3","Setpoint":"42,9","Actual":"40,9"},
-// {"roll_id":"0A1701180633","FilmTension":"181,7","Setpoint":"42,7","Actual":"38,7"},
-// {"roll_id":"0A1701180857","FilmTension":"169","Setpoint":"42,8","Actual":"36,8"},
-// {"roll_id":"0A1701181104","FilmTension":"174","Setpoint":"42,9","Actual":"38,5"},
-// {"roll_id":"0A1702261222","FilmTension":"177,4","Setpoint":"42,9","Actual":"38,9"},
-// {"roll_id":"0A1702270009","FilmTension":"249,6","Setpoint":"42,9","Actual":"54,1"},
-// {"roll_id":"0A1702271328","FilmTension":"221,3","Setpoint":"42,9","Actual":"47,9"},
-// {"roll_id":"0A1702271536","FilmTension":"199,1","Setpoint":"42,9","Actual":"43,3"},
-// {"roll_id":"0A1702272151","FilmTension":"193","Setpoint":"42,9","Actual":"42,4"},
-// {"roll_id":"0A1702272349","FilmTension":"187,8","Setpoint":"42,9","Actual":"41,4"},
-// {"roll_id":"0A1702281836","FilmTension":"190,6","Setpoint":"42,9","Actual":"41,9"},
-// {"roll_id":"0A1702282429","FilmTension":"201,9","Setpoint":"42,9","Actual":"44,8"},
-// {"roll_id":"0A1703010251","FilmTension":"190,4","Setpoint":"42,9","Actual":"42,6"},
-// {"roll_id":"0A1703010601","FilmTension":"204","Setpoint":"42,7","Actual":"43,5"},
-// {"roll_id":"0A1703011318","FilmTension":"196,9","Setpoint":"42,9","Actual":"43,6"},
-// {"roll_id":"0A1703011638","FilmTension":"228,6","Setpoint":"42,9","Actual":"49,3"},
-// {"roll_id":"0A1703012143","FilmTension":"205,8","Setpoint":"42,9","Actual":"44,9"},
-// {"roll_id":"0A1703020708","FilmTension":"181,4","Setpoint":"42,7","Actual":"42"},
-// {"roll_id":"0A1704221716","FilmTension":"242,1","Setpoint":"42,9","Actual":"52,7"},
-// {"roll_id":"0A1704221842","FilmTension":"202,9","Setpoint":"42,8","Actual":"44,1"},
-// {"roll_id":"0A1704221947","FilmTension":"185,5","Setpoint":"42,9","Actual":"40,9"},
-// {"roll_id":"0A1704222156","FilmTension":"194,7","Setpoint":"42,9","Actual":"42,7"},
-// {"roll_id":"0A1704222302","FilmTension":"213,6","Setpoint":"42,9","Actual":"46,5"},
-// {"roll_id":"0A1704230111","FilmTension":"230,2","Setpoint":"42,8","Actual":"49,7"},
-// {"roll_id":"0A1704230320","FilmTension":"206,8","Setpoint":"42,9","Actual":"45,2"},
-// {"roll_id":"0A1704230529","FilmTension":"200,2","Setpoint":"42,6","Actual":"42,6"},
-// {"roll_id":"0A1704230844","FilmTension":"183,6","Setpoint":"42,9","Actual":"40,3"},
-// {"roll_id":"0A1704230949","FilmTension":"211,8","Setpoint":"42,9","Actual":"46"},
-// {"roll_id":"0A1704231234","FilmTension":"225,9","Setpoint":"42,9","Actual":"49,2"},
-// {"roll_id":"0A1704231444","FilmTension":"214","Setpoint":"42,9","Actual":"46,3"},
-// {"roll_id":"0A1704231620","FilmTension":"181,8","Setpoint":"42,8","Actual":"39,6"},
-// {"roll_id":"0A1704231757","FilmTension":"213,2","Setpoint":"42,9","Actual":"46,3"},
-// {"roll_id":"0A1704232127","FilmTension":"185,1","Setpoint":"42,8","Actual":"40,6"},
-// {"roll_id":"0A1704240030","FilmTension":"211,9","Setpoint":"42,8","Actual":"45,7"},
-// {"roll_id":"0A1704240217","FilmTension":"217,1","Setpoint":"42,8","Actual":"47,1"},
-// {"roll_id":"0A1704240718","FilmTension":"203,1","Setpoint":"42,7","Actual":"43,2"},
-// {"roll_id":"0A1704240855","FilmTension":"202,6","Setpoint":"42,8","Actual":"43,7"},
-// {"roll_id":"0A1704241206","FilmTension":"202,9","Setpoint":"42,9","Actual":"44,6"},
-// {"roll_id":"0A1704241354","FilmTension":"211,1","Setpoint":"42,9","Actual":"46,3"},
-// {"roll_id":"0A1704241500","FilmTension":"224,4","Setpoint":"42,9","Actual":"48,7"},
-// {"roll_id":"0A1704241709","FilmTension":"217,8","Setpoint":"42,8","Actual":"47,3"},
-// {"roll_id":"0A1704241814","FilmTension":"204,4","Setpoint":"42,8","Actual":"44,5"},
-// {"roll_id":"0A1704241919","FilmTension":"221","Setpoint":"42,9","Actual":"47,9"},
-// {"roll_id":"0A1704242235","FilmTension":"206,3","Setpoint":"42,9","Actual":"45,2"},
-// {"roll_id":"0A1704242340","FilmTension":"210,9","Setpoint":"42,8","Actual":"46"},
-// {"roll_id":"0A1705180732","FilmTension":"164,2","Setpoint":"42,7","Actual":"34,8"},
-// {"roll_id":"0A1705181138","FilmTension":"182,7","Setpoint":"42,9","Actual":"39,7"},
-// {"roll_id":"0A1705181419","FilmTension":"173,7","Setpoint":"42,9","Actual":"38,2"},
-// {"roll_id":"0A1705181943","FilmTension":"128","Setpoint":"42,8","Actual":"28,6"},
-// {"roll_id":"0A1705190240","FilmTension":"126,5","Setpoint":"42,8","Actual":"27,9"},
-// {"roll_id":"0A1705190555","FilmTension":"195,6","Setpoint":"42,7","Actual":"41,7"},
-// {"roll_id":"0A1705190937","FilmTension":"195,2","Setpoint":"42,9","Actual":"42,3"},
-// {"roll_id":"0A1705191252","FilmTension":"127,7","Setpoint":"42,9","Actual":"28,8"},
-// {"roll_id":"0A1705191503","FilmTension":"133,4","Setpoint":"42,9","Actual":"30,1"},
-// {"roll_id":"0A1705191713","FilmTension":"131,2","Setpoint":"42,9","Actual":"29,6"},
-// {"roll_id":"0A1706041011","FilmTension":"198,3","Setpoint":"42,9","Actual":"43,5"},
-// {"roll_id":"0A1706042223","FilmTension":"212,7","Setpoint":"42,9","Actual":"46,4"},
-// {"roll_id":"0A1706050438","FilmTension":"199,8","Setpoint":"42,6","Actual":"42,6"},
-// {"roll_id":"0A1706050650","FilmTension":"195,6","Setpoint":"42,6","Actual":"41,5"},
-// {"roll_id":"0A1706050901","FilmTension":"202,5","Setpoint":"42,9","Actual":"43,7"},
-// {"roll_id":"0A1706051323","FilmTension":"207,7","Setpoint":"42,9","Actual":"45,1"},
-// {"roll_id":"0A1706051749","FilmTension":"209","Setpoint":"42,9","Actual":"45,4"},
-// {"roll_id":"0A1706052422","FilmTension":"202,8","Setpoint":"42,9","Actual":"44,1"},
-// {"roll_id":"0A1706060444","FilmTension":"194,1","Setpoint":"42,6","Actual":"41,3"},
-// {"roll_id":"0A1707200858","FilmTension":"231,7","Setpoint":"42,9","Actual":"49,8"},
-// {"roll_id":"0A1707200942","FilmTension":"155,8","Setpoint":"42,8","Actual":"34,4"},
-// {"roll_id":"0A1707201150","FilmTension":"145,4","Setpoint":"42,8","Actual":"32,3"},
-// {"roll_id":"0A1707201255","FilmTension":"199,9","Setpoint":"42,9","Actual":"43,5"},
-// {"roll_id":"0A1708192321","FilmTension":"185,7","Setpoint":"42,9","Actual":"41"},
-// {"roll_id":"0A1708192457","FilmTension":"145,6","Setpoint":"42,8","Actual":"32,7"},
-// {"roll_id":"0A1708201130","FilmTension":"141,5","Setpoint":"42,8","Actual":"31,6"},
-// {"roll_id":"0A1708201440","FilmTension":"139,5","Setpoint":"42,8","Actual":"31"},
-// {"roll_id":"0A1708201748","FilmTension":"141,9","Setpoint":"42,8","Actual":"31,9"},
-// {"roll_id":"0A1708202112","FilmTension":"188,3","Setpoint":"42,9","Actual":"41,2"},
-// {"roll_id":"0A1708202451","FilmTension":"136,2","Setpoint":"42,8","Actual":"30,2"},
-// {"roll_id":"0A1708210505","FilmTension":"186,1","Setpoint":"42,6","Actual":"39,6"},
-// {"roll_id":"0A1708212137","FilmTension":"155,8","Setpoint":"42,9","Actual":"34,6"},
-// {"roll_id":"0A1708212419","FilmTension":"146,5","Setpoint":"42,9","Actual":"33,7"},
-// {"roll_id":"0A1708220228","FilmTension":"155,7","Setpoint":"42,9","Actual":"34,7"},
-// {"roll_id":"0A1708220541","FilmTension":"191,1","Setpoint":"42,7","Actual":"40,6"},
-// {"roll_id":"0A1708221120","FilmTension":"191,2","Setpoint":"45,1","Actual":"41,6"},
-// {"roll_id":"0A1708221436","FilmTension":"150,2","Setpoint":"43,4","Actual":"33,4"},
-// {"roll_id":"0A1710110023","FilmTension":"98,6","Setpoint":"42,8","Actual":"22,4"},
-// {"roll_id":"0A1710110245","FilmTension":"134","Setpoint":"42,9","Actual":"29,6"},
-// {"roll_id":"0A1710110459","FilmTension":"162,1","Setpoint":"42,6","Actual":"34,3"},
-// {"roll_id":"0A1710110815","FilmTension":"129,4","Setpoint":"42,9","Actual":"28,5"},
-// {"roll_id":"0A1710111127","FilmTension":"130","Setpoint":"42,9","Actual":"29,3"},
-// {"roll_id":"0A1710111334","FilmTension":"130,7","Setpoint":"42,9","Actual":"29,3"},
-// {"roll_id":"0A1710111543","FilmTension":"125,2","Setpoint":"42,9","Actual":"27,8"},
-// {"roll_id":"0A1710111854","FilmTension":"116,1","Setpoint":"42,8","Actual":"26,5"},
-// {"roll_id":"0A1710112102","FilmTension":"127,2","Setpoint":"42,8","Actual":"29,1"},
-// {"roll_id":"0A1710112414","FilmTension":"104,5","Setpoint":"42,9","Actual":"23,9"},
-// {"roll_id":"0A1710120222","FilmTension":"125,6","Setpoint":"42,9","Actual":"28,1"},
-// {"roll_id":"0A1710120429","FilmTension":"164,5","Setpoint":"42,6","Actual":"35"}
+
  ];
  gapWinding=[
-   {"W1-Tension-p1":"165","W2-Tension-p1":"165","W1-Tension-p2":"160","W2-Tension-p2":"160","W1-Tension-p3":"156","W2-Tension-p3":"156","W1-Tension-p4":"150","W2-Tension-p4":"150","W1-Tension-p5":"145","W2-Tension-p5":"100,6","W1-Tension-p6":"140","W2-Tension-p6":"140","W1-Tension-p7":"135","W2-Tension-p7":"135","W1-Tension-p8":"128","W2-Tension-p8":"128","W1-Tension-p9":"121,4","W2-Tension-p9":"121,4","W1-Tension-p10":"113,6","W2-Tension-p10":"113,6","W1-Tension-p11":"106,7","W2-Tension-p11":"106,7","W1-Tension-p12":null,"W2-Tension-p12":"100,6","W1-Tension-p13":"95,2","W2-Tension-p13":"95,2","W1-Tension-p14":"90,3","W2-Tension-p14":"90,3","W1-Tension-p15":"89,6","W2-Tension-p15":"89,6","W1-Tension-p16":"85","W2-Tension-p16":"85","W1-Tension-p17":"80,9","W2-Tension-p17":"80,9","W1-Tension-p18":"79,1","W2-Tension-p18":"79,1","W1-Tension-p19":"78,6","W2-Tension-p19":"78,6","W1-Tension-p20":"78,3","W2-Tension-p20":"78,3"},
+{"roll_id":"0A1602221603","w1Tensionp1":185,"w2Tensionp1":172,"w1Tensionp2":160,"w2Tensionp2":120,"w1Tensionp3":156,"w2Tensionp3":110,"w1Tensionp4":130,"w2Tensionp4":150,"w1Tensionp5":145,"w2Tensionp5":100,"w1Tensionp6":130,"w2Tensionp6":140,"w1Tensionp7":135,"w2Tensionp7":135,"w1Tensionp8":128,"w2Tensionp8":128,"w1Tensionp9":121.4,"w2Tensionp9":121.4,"w1Tensionp10":113.6,"w2Tensionp10":113.6,"w1Tensionp11":106.7,"w2Tensionp11":106.7,"w1Tensionp12":0,"w2Tensionp12":100.6,"w1Tensionp13":95.2,"w2Tensionp13":95.2,"w1Tensionp14":90.3,"w2Tensionp14":90.3,"w1Tensionp15":89.6,"w2Tensionp15":89.6,"w1Tensionp16":85,"w2Tensionp16":85,"w1Tensionp17":80.9,"w2Tensionp17":80.9,"w1Tensionp18":79.1,"w2Tensionp18":79.1,"w1Tensionp19":78.6,"w2Tensionp19":78.6,"w1Tensionp20":78.3,"w2Tensionp20":78.3},
+{
+  "roll_id":"0A1602221555","w1Tensionp1":185,"w2Tensionp1":172,"w1Tensionp2":160,"w2Tensionp2":120,"w1Tensionp3":156,"w2Tensionp3":110,"w1Tensionp4":130,"w2Tensionp4":150,"w1Tensionp5":145,"w2Tensionp5":100,"w1Tensionp6":130,"w2Tensionp6":140,"w1Tensionp7":135,"w2Tensionp7":135,"w1Tensionp8":128,"w2Tensionp8":128,"w1Tensionp9":121.4,"w2Tensionp9":121.4,"w1Tensionp10":113.6,"w2Tensionp10":113.6,"w1Tensionp11":106.7,"w2Tensionp11":106.7,"w1Tensionp12":0,"w2Tensionp12":100.6,"w1Tensionp13":95.2,"w2Tensionp13":95.2,"w1Tensionp14":90.3,"w2Tensionp14":90.3,"w1Tensionp15":89.6,"w2Tensionp15":89.6,"w1Tensionp16":85,"w2Tensionp16":85,"w1Tensionp17":80.9,"w2Tensionp17":80.9,"w1Tensionp18":79.1,"w2Tensionp18":79.1,"w1Tensionp19":78.6,"w2Tensionp19":78.6,"w1Tensionp20":78.3,"w2Tensionp20":78.3
+},
+{
+  "roll_id":"0A1602221599","w1Tensionp1":185,"w2Tensionp1":172,"w1Tensionp2":160,"w2Tensionp2":120,"w1Tensionp3":156,"w2Tensionp3":110,"w1Tensionp4":130,"w2Tensionp4":150,"w1Tensionp5":145,"w2Tensionp5":100,"w1Tensionp6":130,"w2Tensionp6":140,"w1Tensionp7":135,"w2Tensionp7":135,"w1Tensionp8":128,"w2Tensionp8":128,"w1Tensionp9":121.4,"w2Tensionp9":121.4,"w1Tensionp10":113.6,"w2Tensionp10":113.6,"w1Tensionp11":106.7,"w2Tensionp11":106.7,"w1Tensionp12":0,"w2Tensionp12":100.6,"w1Tensionp13":95.2,"w2Tensionp13":95.2,"w1Tensionp14":90.3,"w2Tensionp14":90.3,"w1Tensionp15":89.6,"w2Tensionp15":89.6,"w1Tensionp16":85,"w2Tensionp16":85,"w1Tensionp17":80.9,"w2Tensionp17":80.9,"w1Tensionp18":79.1,"w2Tensionp18":79.1,"w1Tensionp19":78.6,"w2Tensionp19":78.6,"w1Tensionp20":78.3,"w2Tensionp20":78.3
+},
+{
+
+  "roll_id":"0A16022215111","w1Tensionp1":185,"w2Tensionp1":172,"w1Tensionp2":160,"w2Tensionp2":120,"w1Tensionp3":156,"w2Tensionp3":110,"w1Tensionp4":130,"w2Tensionp4":150,"w1Tensionp5":145,"w2Tensionp5":100,"w1Tensionp6":130,"w2Tensionp6":140,"w1Tensionp7":135,"w2Tensionp7":135,"w1Tensionp8":128,"w2Tensionp8":128,"w1Tensionp9":121.4,"w2Tensionp9":121.4,"w1Tensionp10":113.6,"w2Tensionp10":113.6,"w1Tensionp11":106.7,"w2Tensionp11":106.7,"w1Tensionp12":0,"w2Tensionp12":100.6,"w1Tensionp13":95.2,"w2Tensionp13":95.2,"w1Tensionp14":90.3,"w2Tensionp14":90.3,"w1Tensionp15":89.6,"w2Tensionp15":89.6,"w1Tensionp16":85,"w2Tensionp16":85,"w1Tensionp17":80.9,"w2Tensionp17":80.9,"w1Tensionp18":79.1,"w2Tensionp18":79.1,"w1Tensionp19":78.6,"w2Tensionp19":78.6,"w1Tensionp20":78.3,"w2Tensionp20":78.3
+
+},
+{
+
+  "roll_id":"0A16022215177","w1Tensionp1":185,"w2Tensionp1":172,"w1Tensionp2":160,"w2Tensionp2":120,"w1Tensionp3":156,"w2Tensionp3":110,"w1Tensionp4":130,"w2Tensionp4":150,"w1Tensionp5":145,"w2Tensionp5":100,"w1Tensionp6":130,"w2Tensionp6":140,"w1Tensionp7":135,"w2Tensionp7":135,"w1Tensionp8":128,"w2Tensionp8":128,"w1Tensionp9":121.4,"w2Tensionp9":121.4,"w1Tensionp10":113.6,"w2Tensionp10":113.6,"w1Tensionp11":106.7,"w2Tensionp11":106.7,"w1Tensionp12":0,"w2Tensionp12":100.6,"w1Tensionp13":95.2,"w2Tensionp13":95.2,"w1Tensionp14":90.3,"w2Tensionp14":90.3,"w1Tensionp15":89.6,"w2Tensionp15":89.6,"w1Tensionp16":85,"w2Tensionp16":85,"w1Tensionp17":80.9,"w2Tensionp17":80.9,"w1Tensionp18":79.1,"w2Tensionp18":79.1,"w1Tensionp19":78.6,"w2Tensionp19":78.6,"w1Tensionp20":78.3,"w2Tensionp20":78.3
+
+}
  ];
+contactWinding=[
+{
+  "roll_id":"0A160222150","w1Tensionp1":165,"w2Tensionp1":150,"w1Tensionp2":130,"w2Tensionp2":120,"w1Tensionp3":156,"w2Tensionp3":156,"w1Tensionp4":130,"w2Tensionp4":150,"w1Tensionp5":145,"w2Tensionp5":100.6,"w1Tensionp6":140,"w2Tensionp6":140,"w1Tensionp7":135,"w2Tensionp7":135,"w1Tensionp8":128,"w2Tensionp8":128,"w1Tensionp9":121.4,"w2Tensionp9":121.4,"w1Tensionp10":113.6,"w2Tensionp10":113.6,"w1Tensionp11":106.7,"w2Tensionp11":106.7,"w1Tensionp12":0,"w2Tensionp12":100.6,"w1Tensionp13":95.2,"w2Tensionp13":95.2,"w1Tensionp14":90.3,"w2Tensionp14":90.3,"w1Tensionp15":89.6,"w2Tensionp15":89.6,"w1Tensionp16":85,"w2Tensionp16":85,"w1Tensionp17":80.9,"w2Tensionp17":80.9,"w1Tensionp18":79.1,"w2Tensionp18":79.1,"w1Tensionp19":78.6,"w2Tensionp19":78.6,"w1Tensionp20":78.3,"w2Tensionp20":78.3
+},
+{
+  "roll_id":"0A16022217","w1Tensionp1":165,"w2Tensionp1":150,"w1Tensionp2":130,"w2Tensionp2":120,"w1Tensionp3":156,"w2Tensionp3":156,"w1Tensionp4":130,"w2Tensionp4":150,"w1Tensionp5":145,"w2Tensionp5":100.6,"w1Tensionp6":140,"w2Tensionp6":140,"w1Tensionp7":135,"w2Tensionp7":135,"w1Tensionp8":128,"w2Tensionp8":128,"w1Tensionp9":121.4,"w2Tensionp9":121.4,"w1Tensionp10":113.6,"w2Tensionp10":113.6,"w1Tensionp11":106.7,"w2Tensionp11":106.7,"w1Tensionp12":0,"w2Tensionp12":100.6,"w1Tensionp13":95.2,"w2Tensionp13":95.2,"w1Tensionp14":90.3,"w2Tensionp14":90.3,"w1Tensionp15":89.6,"w2Tensionp15":89.6,"w1Tensionp16":85,"w2Tensionp16":85,"w1Tensionp17":80.9,"w2Tensionp17":80.9,"w1Tensionp18":79.1,"w2Tensionp18":79.1,"w1Tensionp19":78.6,"w2Tensionp19":78.6,"w1Tensionp20":78.3,"w2Tensionp20":78.3
+},
+{
+  "roll_id":"0A16022218","w1Tensionp1":165,"w2Tensionp1":150,"w1Tensionp2":130,"w2Tensionp2":120,"w1Tensionp3":156,"w2Tensionp3":156,"w1Tensionp4":130,"w2Tensionp4":150,"w1Tensionp5":145,"w2Tensionp5":100.6,"w1Tensionp6":140,"w2Tensionp6":140,"w1Tensionp7":135,"w2Tensionp7":135,"w1Tensionp8":128,"w2Tensionp8":128,"w1Tensionp9":121.4,"w2Tensionp9":121.4,"w1Tensionp10":113.6,"w2Tensionp10":113.6,"w1Tensionp11":106.7,"w2Tensionp11":106.7,"w1Tensionp12":0,"w2Tensionp12":100.6,"w1Tensionp13":95.2,"w2Tensionp13":95.2,"w1Tensionp14":90.3,"w2Tensionp14":90.3,"w1Tensionp15":89.6,"w2Tensionp15":89.6,"w1Tensionp16":85,"w2Tensionp16":85,"w1Tensionp17":80.9,"w2Tensionp17":80.9,"w1Tensionp18":79.1,"w2Tensionp18":79.1,"w1Tensionp19":78.6,"w2Tensionp19":78.6,"w1Tensionp20":78.3,"w2Tensionp20":78.3
+},
+{
+  "roll_id":"0A1602221587","w1Tensionp1":165,"w2Tensionp1":150,"w1Tensionp2":130,"w2Tensionp2":120,"w1Tensionp3":156,"w2Tensionp3":156,"w1Tensionp4":130,"w2Tensionp4":150,"w1Tensionp5":145,"w2Tensionp5":100.6,"w1Tensionp6":140,"w2Tensionp6":140,"w1Tensionp7":135,"w2Tensionp7":135,"w1Tensionp8":128,"w2Tensionp8":128,"w1Tensionp9":121.4,"w2Tensionp9":121.4,"w1Tensionp10":113.6,"w2Tensionp10":113.6,"w1Tensionp11":106.7,"w2Tensionp11":106.7,"w1Tensionp12":0,"w2Tensionp12":100.6,"w1Tensionp13":95.2,"w2Tensionp13":95.2,"w1Tensionp14":90.3,"w2Tensionp14":90.3,"w1Tensionp15":89.6,"w2Tensionp15":89.6,"w1Tensionp16":85,"w2Tensionp16":85,"w1Tensionp17":80.9,"w2Tensionp17":80.9,"w1Tensionp18":79.1,"w2Tensionp18":79.1,"w1Tensionp19":78.6,"w2Tensionp19":78.6,"w1Tensionp20":78.3,"w2Tensionp20":78.3
+},
+{
+  "roll_id":"0A1602221556","w1Tensionp1":165,"w2Tensionp1":150,"w1Tensionp2":130,"w2Tensionp2":120,"w1Tensionp3":156,"w2Tensionp3":110,"w1Tensionp4":130,"w2Tensionp4":150,"w1Tensionp5":145,"w2Tensionp5":100.6,"w1Tensionp6":140,"w2Tensionp6":140,"w1Tensionp7":135,"w2Tensionp7":135,"w1Tensionp8":128,"w2Tensionp8":128,"w1Tensionp9":121.4,"w2Tensionp9":121.4,"w1Tensionp10":113.6,"w2Tensionp10":113.6,"w1Tensionp11":106.7,"w2Tensionp11":106.7,"w1Tensionp12":0,"w2Tensionp12":100.6,"w1Tensionp13":95.2,"w2Tensionp13":95.2,"w1Tensionp14":90.3,"w2Tensionp14":90.3,"w1Tensionp15":89.6,"w2Tensionp15":89.6,"w1Tensionp16":85,"w2Tensionp16":85,"w1Tensionp17":80.9,"w2Tensionp17":80.9,"w1Tensionp18":79.1,"w2Tensionp18":79.1,"w1Tensionp19":78.6,"w2Tensionp19":78.6,"w1Tensionp20":78.3,"w2Tensionp20":78.3
+},
+]
+
+
   constructor() { }
   getAllDataPoints(){
     return this.winderData;
   }
   getDataPoint(id:string){
     return this.winderData.find(item=>id=== item.roll_id); // busca y devuelve el item del param id
+  }
+
+  getAllGapWinding(){
+    return this.gapWinding;
+  }
+   getAllContactWinding(){
+    return this.contactWinding;
   }
 }

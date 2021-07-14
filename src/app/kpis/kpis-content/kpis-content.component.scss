@@ -24,7 +24,7 @@ flex-direction: column;
  flex-direction: row;
  margin: 10% 1vw 0 0.5vw ;
  align-content: space-between;
- border: 1px solid #cccc;
+ border: 1px solid black;
 
 }
 .line__features{
@@ -63,4 +63,20 @@ button:focus{
   background-color: green;
   height:30vh;
  }
+}
+
+@media (min-width: 768px) {
+  .line__content{
+    width: 60%;
+    margin: 5% auto;
+  }
+.line__features{
+ display: flex;
+ flex-direction: column;
+ padding: 0;
+button{
+  height: 25vh;
+  width: 25vw;
+}
+}
 }
