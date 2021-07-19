@@ -13,7 +13,7 @@ flex-direction: column;
  height: 5vh;
  color: black;
  text-align: center;
- font-size: 1.2rem;
+ font-size: 1.5rem;
  p{
   margin:1vh auto;
  }
@@ -24,8 +24,7 @@ flex-direction: column;
  flex-direction: row;
  margin: 10% 1vw 0 0.5vw ;
  align-content: space-between;
- border: 1px solid black;
-
+//  border: 1px solid black;
 }
 .line__features{
  display: flex;
@@ -34,36 +33,69 @@ flex-direction: column;
 button{
   height: 25vh;
   width: 33vw;
-  color:gray;
+  background-image:linear-gradient(#bbbb, #eeee);
 }
 span{
- font-size:2rem ;
+ font-size:2.5rem ;
 }
 button:focus{
- background-color: white;
+ background-image: linear-gradient(white,#eee);
   color: black;
+  font-weight: 600;
+  border-right: 1px solid white;
  span{
- font-size: 2.5rem;
+ font-size: 3rem;
  }
 }
 }
 .line__blank{
+  display: flex;
+  flex-direction: column;
+  align-content:space-between ;
  background-color: white;
  width: 33vw;
  height: 75vh;
-
+ div{
+   height: 50%;
+ }
+ p{
+      font-size: 2.5rem;
+ }
+ span{
+   font-size: 1rem;
+ }
+}
+.line__blank-total{
+  display: flex;
+  justify-content: right;
+}
+.line__blank-actual{
+  display: flex;
+  justify-content: right;
+align-items : flex-end;
+}
+.line__data-container{
+  display: flex;
+  flex-direction: row;
 }
 .line__data{
- background-color: #cccc;
- width: 33vw;
+ background-color: #91897C;
+ width: 32vw;
  display: flex;
  height: 75vh;
  flex-direction: column-reverse;
  #lineData{
   background-color: green;
   height:30vh;
+  border-top: solid 1px white;
  }
 }
+.verticalLine{
+  height: 74.7vh;
+  width: 2vw;
+  border: 1px solid black;
+  border-style: solid none solid solid;
+ }
 
 @media (min-width: 768px) {
   .line__content{
