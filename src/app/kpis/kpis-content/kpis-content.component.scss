@@ -51,7 +51,7 @@ button:focus{
 .line__blank{
   display: flex;
   flex-direction: column;
-  align-content:space-between ;
+  align-items: flex-end ;
  background-color: white;
  width: 33vw;
  height: 75vh;
@@ -65,13 +65,11 @@ button:focus{
    font-size: 1rem;
  }
 }
-.line__blank-total{
+.line__blank-total,.line__blank-actual{
   display: flex;
-  justify-content: right;
+  text-align: right;
 }
 .line__blank-actual{
-  display: flex;
-  justify-content: right;
 align-items : flex-end;
 }
 .line__data-container{
@@ -101,6 +99,9 @@ align-items : flex-end;
   .line__content{
     width: 60%;
     margin: 5% auto;
+    .bloque{
+      width: 33%;
+    }
   }
 .line__features{
  display: flex;
@@ -108,7 +109,7 @@ align-items : flex-end;
  padding: 0;
 button{
   height: 25vh;
-  width: 25vw;
+  width: 100%;
 }
 }
 }
