@@ -1,6 +1,5 @@
  import {NgModule} from '@angular/core';
  import {Routes, RouterModule,PreloadAllModules } from '@angular/router';
-import { Chart2Component } from './components/chart2/chart2.component';
  import { WinderComponent } from './components/winder/winder.component';
 
  const routes: Routes = [
@@ -8,9 +7,7 @@ import { Chart2Component } from './components/chart2/chart2.component';
   path: '',
   component: WinderComponent,
 
- },
- {path: 'chart',
-component: Chart2Component}
+ }
 ];
  @NgModule({
 imports: [
