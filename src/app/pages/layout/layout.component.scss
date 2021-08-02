@@ -1,13 +1,12 @@
+
 .container{
- width: 90%;
+ width: 100%;
  margin: auto;
+ 
 }
 // .footer{
 //  background-color: #3D404B;
 //  height: 10%;
 // }
-@media (max-width:720px) {
- .container{
- width: 100%;
-}
+@media (min-width:720px) {
 }

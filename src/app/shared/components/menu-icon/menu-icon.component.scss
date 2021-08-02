@@ -14,13 +14,16 @@
 //    align-self: right;
 //   margin: 5% auto;}
 // }
+
+// MENU CON WEBCOMPONENT
 dile-menu-hamburger{
   border-radius: 50%;
   border: 1.5px solid #B9BEBF;
   height: 35px;
   width: 35px;
-  margin: 10px;
+  margin: 7.5px auto;
   --dile-hamburger-color:#B9BEBF;
+  --dile-hamburger-width: 22px;
   --dile-app-drawer-background-color:#373A39;
   --dile-hamburger-padding-y:3.5px;
   --dile-hamburger-padding-x:0px;
@@ -31,4 +34,10 @@ dile-menu-hamburger{
   }
   .active{
     border-bottom: solid 1px #B9BEBF;}
+}
+
+@media (min-width: 768px) {
+dile-menu-hamburger{
+margin-bottom: 15px;
+}
 }
