@@ -4,7 +4,7 @@
   justify-content: space-between;
   max-width: 100%;
   color: #f0f0f0;
-  background-color: #393E4A;
+  background-color: #373A39;
   margin: 0 auto;
 }
 .header__nav_logo{
@@ -14,11 +14,10 @@ display: flex;
   margin: 2% ;
   float: left;
   img {
-    object-fit:contain ;
     height: 40px;
     width: 100%;
     object-position: left;
-    margin: 5% 0;
+    margin-top: 5px;
   }
 }
 .header__menu{
@@ -45,7 +44,7 @@ width: 95%;
   img {
     margin: 5% 10%;
     height: 50px;
-    width: 80%;
+    width: 100%;
   }
 }
 .header__menu{

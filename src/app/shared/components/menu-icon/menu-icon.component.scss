@@ -1,7 +1,10 @@
 .white__icon{
-  color: white;
+  color: #B9BEBF;
   float: right;
   margin:25% ;
+  border-radius: 50%;
+  border: 1.5px solid #B9BEBF;
+  padding: 5px;
 }
 .active{
   background-color: #cccc;
@@ -9,7 +12,6 @@
 
 @media (min-width: 768px) {
   .white__icon{
-   box-sizing: border-box;
    align-self: right;
   margin: 5% auto;}
 }
