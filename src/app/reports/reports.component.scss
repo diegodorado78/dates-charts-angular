@@ -20,8 +20,8 @@ flex-direction: column;
 }
 
 .ul__container{
- display:flex;
- flex-direction: column;
+display:flex;
+flex-direction: column;
 align-items: center;
 justify-items: center;
 
@@ -32,9 +32,9 @@ padding:0;
 }
 a{
 text-decoration: none;
-color: black;
+color: #373A39;
 font-size: 2rem;
-font-weight: 300;
+font-weight: 500;
 border-bottom: 1px solid #cccc;
 text-align: center;
 }

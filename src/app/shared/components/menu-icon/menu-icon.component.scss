@@ -1,17 +1,34 @@
-.white__icon{
-  color: #B9BEBF;
-  float: right;
-  margin:25% ;
+// .white__icon{
+//   color: #B9BEBF;
+//   float: right;
+//   margin:25% ;
+//   border-radius: 50%;
+//   border: 1.5px solid #B9BEBF;
+//   padding: 5px;
+// }
+// .active{
+// border-bottom: #B9BEBF;}
+
+// @media (min-width: 768px) {
+//   .white__icon{
+//    align-self: right;
+//   margin: 5% auto;}
+// }
+dile-menu-hamburger{
   border-radius: 50%;
   border: 1.5px solid #B9BEBF;
-  padding: 5px;
-}
-.active{
-  background-color: #cccc;
-}
-
-@media (min-width: 768px) {
-  .white__icon{
-   align-self: right;
-  margin: 5% auto;}
+  height: 35px;
+  width: 35px;
+  margin: 10px;
+  --dile-hamburger-color:#B9BEBF;
+  --dile-app-drawer-background-color:#373A39;
+  --dile-hamburger-padding-y:3.5px;
+  --dile-hamburger-padding-x:0px;
+  a{
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+  }
+  .active{
+    border-bottom: solid 1px #B9BEBF;}
 }
