@@ -11,16 +11,17 @@ background: linear-gradient(to right, #EAEAEA, #CCCC);;
  
  // padding: 15% auto;
 }
-// .linea__container{
-//  background-color: #E4E4E4;
-//  height: 5vh;
-//  color: black;
-//  text-align: left;
-//  font-size: 1.5rem;
-//  p{
-//   margin:1vh auto;
-//  }
-// }
+.linea__container{
+ background-color: #E4E4E4;
+ height: 5vh;
+ color: black;
+ text-align: left;
+ font-size: 2rem;
+ font-weight: 500;
+ p{
+  margin:1vh 10px;
+ }
+}
 
 .button__container{
   width: 50%;

@@ -1,14 +1,15 @@
-import { Component, OnInit, ElementRef,ViewChild} from '@angular/core';
+import { Component, OnInit,ViewChild,ElementRef} from '@angular/core';
 import * as d3 from 'd3';
-import { WinderService } from 'src/app/core/services/winder.service';
+import { BoquillaService } from 'src/app/core/services/boquilla.service';
 @Component({
-  selector: 'app-chart2',
-  templateUrl: './chart2.component.html',
-  styleUrls: ['./chart2.component.scss']
+  selector: 'app-chart1',
+  templateUrl: './chart1.component.html',
+  styleUrls: ['./chart1.component.scss']
 })
-export class Chart2Component implements OnInit {
-public titulo="Tension Control";
-private winderData:any= [];
+export class Chart1Component implements OnInit {
+
+  public titulo="Adapter 1";
+private boquillaData:any= [];
 // private weatherData:any=[];
    @ViewChild("chart", { static: true }) protected chartContainer: ElementRef;
   svg: any;
@@ -20,9 +21,9 @@ private winderData:any= [];
   width: number;
   height: number;
   n:any=[];
-  constructor(private winderService:WinderService) { }
+  constructor(private boquillaService:BoquillaService) { }
   ngOnInit(): void {
-    this.winderData =this.winderService.getAllDataPoints();
+    this.boquillaData =this.boquillaService.getAllDataPoints();
     this.initChart();
     this.createChart();
   }
@@ -49,7 +50,7 @@ private winderData:any= [];
 
   createChart() {
     // The number of datapoints
-    var data =this.winderData;
+    var data =this.boquillaData;
     var dataRange= data.map((x)=>x.roll_id);
     //console.log(dataRange);
     // 5. X scale will use the index of our data
@@ -60,7 +61,7 @@ private winderData:any= [];
 
     // 6. Y scale will use the randomly generate number
     var yScale = d3.scaleLinear()
-      .domain([0, Math.max.apply(Math, data.map(roll => roll.Actual))+5])// data.map(d => d.FilmTension)rango y tomando cada posicion input
+      .domain([0, Math.max.apply(Math, data.map(roll => roll.Setpoint1))+25])// data.map(d => d.FilmTension)rango y tomando cada posicion input
       .range([this.contentHeight, 0]); // output
     // 7. d3's line generator
     var line = d3.line()
@@ -75,11 +76,11 @@ private winderData:any= [];
 
       // 8. An array of objects of length N. Each object has key -> value pair, the key being "y" and the value is a random number
     var dataset =data.map((roll)=>{
-      return {y:roll.Setpoint,x:roll.roll_id
+      return {y:roll.Setpoint1,x:roll.roll_id
       }
     })
     var dataset2 =data.map((roll)=>{
-      return {y:roll.Actual,x:roll.roll_id
+      return {y:roll.Controller,x:roll.roll_id
       }
     })
     //d3.range(data.length).map(function (d) { return { "y": d3.randomUniform(300)() } })
@@ -111,20 +112,21 @@ private winderData:any= [];
       .datum(dataset2 )
       .attr("class", "line2")
       .attr("d", line2);
+      
     // 12. Appends a circle for each datapoint
-    // this.g.selectAll(".dot")
-    //   .data(dataset)
-    //   .enter().append("circle") // Uses the enter().append() method
-    //   .attr("class", "dot") // Assign a class for styling
-    //   .attr("cx", function (d, i) { return xScale(d.x) })
-    //   .attr("cy", function (d) { return yScale(d.y) })
-    //   .attr("r", 3)
-    //   .on("mouseover", function (a, b, c) {
-    //     console.log(a)
-    //     this.attr('class', 'focus')
-    //   })
-    //   .on("mouseout", function () { })
-    //   //modificar texto
+    this.g.selectAll(".dot")
+      .data(dataset)
+      .enter().append("circle") // Uses the enter().append() method
+      .attr("class", "dot") // Assign a class for styling
+      .attr("cx", function (d, i) { return xScale(d.x) })
+      .attr("cy", function (d) { return yScale(d.y) })
+      .attr("r", 3)
+      .on("mouseover", function (a, b, c) {
+        console.log(a)
+        this.attr('class', 'focus')
+      })
+      .on("mouseout", function () { })
+      //modificar texto
 
   }
 

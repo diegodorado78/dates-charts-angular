@@ -1,24 +1,6 @@
-<!-- <app-chart [titulo]="titulo"></app-chart> -->
-<mat-card>
-  <h1 > {{titulo}} Trends </h1>
-<mat-card-header>
-    <mat-card-title>Chart Title</mat-card-title>
-</mat-card-header>
- <mat-card-content>
-  <!-- RENDER DEL GRAFICO -->
-    <div class="card__container">
- <div>
-   <label>Data Displayed:</label> {{dataFields[activeField]}}
-  </div>
-  <div class="svg__chart__container">
-    <!-- <br /> -->
-    <svg class="svg-chart"  id="{{chartData.locationName}}">
-    </svg>
-  </div>
-    </div>
- </mat-card-content>
- <mat-card-actions>
- <!-- <a mat-button color="basic" [routerLink]=""> ver detalle</a> -->
- <button  mat-raised-button color="basic" type="button" (click)="updateGraphData()">Cambiar Datos</button>
-  </mat-card-actions>
-</mat-card>
+<div class="container">
+  <h1> Boquilla Trends</h1>
+  <app-chart1></app-chart1><br>
+  <app-chart2></app-chart2><br>
+  <app-chart3></app-chart3><br>
+</div>

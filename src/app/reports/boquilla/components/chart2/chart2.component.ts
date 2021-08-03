@@ -1,14 +1,16 @@
-import { Component, OnInit, ElementRef,ViewChild} from '@angular/core';
+import { Component, OnInit,ViewChild,ElementRef} from '@angular/core';
 import * as d3 from 'd3';
-import { WinderService } from 'src/app/core/services/winder.service';
+import { BoquillaService } from 'src/app/core/services/boquilla.service';
 @Component({
   selector: 'app-chart2',
   templateUrl: './chart2.component.html',
   styleUrls: ['./chart2.component.scss']
 })
 export class Chart2Component implements OnInit {
-public titulo="Tension Control";
-private winderData:any= [];
+
+  
+  public titulo="Adapter 2";
+private boquillaData:any= [];
 // private weatherData:any=[];
    @ViewChild("chart", { static: true }) protected chartContainer: ElementRef;
   svg: any;
@@ -20,9 +22,9 @@ private winderData:any= [];
   width: number;
   height: number;
   n:any=[];
-  constructor(private winderService:WinderService) { }
+  constructor(private boquillaService:BoquillaService) { }
   ngOnInit(): void {
-    this.winderData =this.winderService.getAllDataPoints();
+    this.boquillaData =this.boquillaService.getAllDataPoints();
     this.initChart();
     this.createChart();
   }
@@ -49,7 +51,7 @@ private winderData:any= [];
 
   createChart() {
     // The number of datapoints
-    var data =this.winderData;
+    var data =this.boquillaData;
     var dataRange= data.map((x)=>x.roll_id);
     //console.log(dataRange);
     // 5. X scale will use the index of our data
