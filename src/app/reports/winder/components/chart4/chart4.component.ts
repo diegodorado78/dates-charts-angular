@@ -82,7 +82,6 @@ titulo='Contact Winding';
       .y(function (d: any) { return yScale(d.y); }) // set the y values for the line generator
       .curve(d3.curveMonotoneX) // apply smoothing to the line
 
-
       // 8. An array of objects of length N. Each object has key -> value pair, the key being "y" and the value is a random number
     var dataset =data.map((roll)=>{
       return {y:roll.w1Tensionp1,x:roll.roll_id
@@ -121,23 +120,23 @@ titulo='Contact Winding';
     // 9. Append the path, bind the data, and call the line generator
     this.g.append("path")
       .datum(dataset ) // 10. Binds data to the line
-      .attr("class", "linea") // Assign a class for styling
+      .attr("class", "winder__c4-line1") // Assign a class for styling
       .attr("d", line); // 11. Calls the line generator
 
   //  agregar segunda linea al chart
     this.g.append("path")
       .datum(dataset2 )
-      .attr("class", "linea2")
+      .attr("class", "winder__c4-line2")
       .attr("d", line2);
 
       this.g.append("path")
       .datum(dataset3 )
-      .attr("class", "linea3")
+      .attr("class", "winder__c4-line3")
       .attr("d", line3);
 
       this.g.append("path")
       .datum(dataset4 )
-      .attr("class", "linea4")
+      .attr("class", "winder__c4-line4")
       .attr("d", line4);
 
 

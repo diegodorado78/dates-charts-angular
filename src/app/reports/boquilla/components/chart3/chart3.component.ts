@@ -59,7 +59,7 @@ private boquillaData:any= [];
 
     // 6. Y scale will use the randomly generate number
     var yScale = d3.scaleLinear()
-      .domain([0, Math.max.apply(Math, data.map(roll => roll.Actual))+5])// data.map(d => d.FilmTension)rango y tomando cada posicion input
+      .domain([0, Math.max.apply(Math, data.map(roll => roll.Setpoint2_3))+55])// data.map(d => d.FilmTension)rango y tomando cada posicion input
       .range([this.contentHeight, 0]); // output
     // 7. d3's line generator
     var line = d3.line()
@@ -74,11 +74,11 @@ private boquillaData:any= [];
 
       // 8. An array of objects of length N. Each object has key -> value pair, the key being "y" and the value is a random number
     var dataset =data.map((roll)=>{
-      return {y:roll.Setpoint,x:roll.roll_id
+      return {y:roll.Setpoint2_3,x:roll.roll_id
       }
     })
     var dataset2 =data.map((roll)=>{
-      return {y:roll.Actual,x:roll.roll_id
+      return {y:roll.Controller3,x:roll.roll_id
       }
     })
     //d3.range(data.length).map(function (d) { return { "y": d3.randomUniform(300)() } })
@@ -102,28 +102,15 @@ private boquillaData:any= [];
     // 9. Append the path, bind the data, and call the line generator
     this.g.append("path")
       .datum(dataset ) // 10. Binds data to the line
-      .attr("class", "line") // Assign a class for styling
+      .attr("class", "boquilla__c3-line1") // Assign a class for styling
       .attr("d", line); // 11. Calls the line generator
 
   //  agregar segunda linea al chart
     this.g.append("path")
       .datum(dataset2 )
-      .attr("class", "line2")
+      .attr("class", "boquilla__c3-line2")
       .attr("d", line2);
-    // 12. Appends a circle for each datapoint
-    // this.g.selectAll(".dot")
-    //   .data(dataset)
-    //   .enter().append("circle") // Uses the enter().append() method
-    //   .attr("class", "dot") // Assign a class for styling
-    //   .attr("cx", function (d, i) { return xScale(d.x) })
-    //   .attr("cy", function (d) { return yScale(d.y) })
-    //   .attr("r", 3)
-    //   .on("mouseover", function (a, b, c) {
-    //     console.log(a)
-    //     this.attr('class', 'focus')
-    //   })
-    //   .on("mouseout", function () { })
-    //   //modificar texto
+    
 
   }
 

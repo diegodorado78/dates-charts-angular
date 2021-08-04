@@ -116,44 +116,34 @@ private gapWinding:any= [];
 
       // 8. An array of objects of length N. Each object has key -> value pair, the key being "y" and the value is a random number
     var dataset =data.map((roll)=>{
-      return {y:roll.w1Tensionp1,x:roll.roll_id
-      }
+      return {y:roll.w1Tensionp1,x:roll.roll_id }
     })
     var dataset2 =data.map((roll)=>{
-      return {y:roll.w2Tensionp1,x:roll.roll_id
-      }
+      return {y:roll.w2Tensionp1,x:roll.roll_id }
     })
     var dataset3 =data.map((roll)=>{
-      return {y:roll.w1Tensionp2,x:roll.roll_id
-      }
+      return {y:roll.w1Tensionp2,x:roll.roll_id }
     })
     var dataset4 =data.map((roll)=>{
-      return {y:roll.w2Tensionp2,x:roll.roll_id
-      }
+      return {y:roll.w2Tensionp2,x:roll.roll_id }
     })
     var dataset5 =data.map((roll)=>{
-      return {y:roll.w1Tensionp3,x:roll.roll_id
-      }
+      return {y:roll.w1Tensionp3,x:roll.roll_id }
     })
      var dataset6 =data.map((roll)=>{
-      return {y:roll.w2Tensionp3,x:roll.roll_id
-      }
+      return {y:roll.w2Tensionp3,x:roll.roll_id}
     })
      var dataset7 =data.map((roll)=>{
-      return {y:roll.w1Tensionp4,x:roll.roll_id
-      }
+      return {y:roll.w1Tensionp4,x:roll.roll_id}
     })
      var dataset8 =data.map((roll)=>{
-      return {y:roll.w2Tensionp4,x:roll.roll_id
-      }
+      return {y:roll.w2Tensionp4,x:roll.roll_id}
     })
      var dataset9 =data.map((roll)=>{
-      return {y:roll.w1Tensionp5,x:roll.roll_id
-      }
+      return {y:roll.w1Tensionp5,x:roll.roll_id}
     })
      var dataset10 =data.map((roll)=>{
-      return {y:roll.w2Tensionp5,x:roll.roll_id
-      }
+      return {y:roll.w2Tensionp5,x:roll.roll_id}
     })
 
     //d3.range(data.length).map(function (d) { return { "y": d3.randomUniform(300)() } })
@@ -177,57 +167,54 @@ private gapWinding:any= [];
     // 9. Append the path, bind the data, and call the line generator
     this.g.append("path")
       .datum(dataset ) // 10. Binds data to the line
-      .attr("class", "line") // Assign a class for styling
+      .attr("class", "winder__c3-line1") // Assign a class for styling
       .attr("d", line); // 11. Calls the line generator
 
   //  agregar segunda linea al chart
     this.g.append("path")
       .datum(dataset2 )
-      .attr("class", "line2")
+      .attr("class", "winder__c3-line2")
       .attr("d", line2);
 
       this.g.append("path")
       .datum(dataset3 )
-      .attr("class", "line3")
+      .attr("class", "winder__c3-line3")
       .attr("d", line3);
 
       this.g.append("path")
       .datum(dataset4 )
-      .attr("class", "line4")
+      .attr("class", "winder__c3-line4")
       .attr("d", line4);
 
       this.g.append("path")
       .datum(dataset5 )
-      .attr("class", "line5")
+      .attr("class", "winder__c3-line5")
       .attr("d", line5);
 
       this.g.append("path")
       .datum(dataset6 )
-      .attr("class", "line6")
+      .attr("class", "winder__c3-line6")
       .attr("d", line6);
 
       this.g.append("path")
       .datum(dataset7 )
-      .attr("class", "line7")
+      .attr("class", "winder__c3-line7")
       .attr("d", line7);
 
       this.g.append("path")
       .datum(dataset8 )
-      .attr("class", "line8")
+      .attr("class", "winder__c3-line8")
       .attr("d", line8);
 
       this.g.append("path")
       .datum(dataset9 )
-      .attr("class", "line9")
+      .attr("class", "winder__c3-line9")
       .attr("d", line9);
 
       this.g.append("path")
       .datum(dataset10)
-      .attr("class", "line10")
+      .attr("class", "winder__c3-line10")
       .attr("d", line10);
-
-
-
 
   }
 

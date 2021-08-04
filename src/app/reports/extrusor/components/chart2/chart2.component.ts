@@ -2,12 +2,12 @@ import { Component, OnInit,ElementRef,ViewChild } from '@angular/core';
 import * as d3 from 'd3';
 import {ExtrusorService} from '../../../../core/services/extrusor.service'
 @Component({
-  selector: 'app-chart-e2',
-  templateUrl: './chart-e2.component.html',
-  styleUrls: ['./chart-e2.component.scss']
+  selector: 'app-chart2',
+  templateUrl: './chart2.component.html',
+  styleUrls: ['./chart2.component.scss']
 })
 
-export class ChartE2Component implements OnInit {
+export class Chart2Component implements OnInit {
 titulo="Coextrusor 1"
 private extrusorData:any= [];
 @ViewChild("chart", { static: true }) protected chartContainer: ElementRef;
@@ -108,18 +108,15 @@ createChart() {
  // 9. Append the path, bind the data, and call the line generator
  this.g.append("path")
    .datum(dataset ) // 10. Binds data to the line
-   .attr("class", "line") // Assign a class for styling
+   .attr("class", "extrusor__c2-line1") // Assign a class for styling
    .attr("d", line); // 11. Calls the line generator
 
 //  adding chart line 2
  this.g.append("path")
    .datum(dataset2 )
-   .attr("class", "line2")
+   .attr("class", "extrusor__c2-line2")
    .attr("d", line2);
 
-//    adding chart line 3
-
- 
 }
 
 }

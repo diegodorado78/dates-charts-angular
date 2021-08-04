@@ -1,16 +1,15 @@
 import { Component, OnInit,ElementRef,ViewChild } from '@angular/core';
 import * as d3 from 'd3';
 import {ExtrusorService} from '../../../../core/services/extrusor.service'
-
 @Component({
-  selector: 'app-chart-e3',
-  templateUrl: './chart-e3.component.html',
-  styleUrls: ['./chart-e3.component.scss']
+  selector: 'app-chart4',
+  templateUrl: './chart4.component.html',
+  styleUrls: ['./chart4.component.scss']
 })
-export class ChartE3Component implements OnInit {
+export class Chart4Component implements OnInit {
 
-  titulo="Main Extrusor"
-private mainExtrusorData:any= [];
+titulo="Main Extrusor"
+private extrusorData:any= [];
 @ViewChild("chart", { static: true }) protected chartContainer: ElementRef;
 svg: any;
 g: any;
@@ -23,7 +22,7 @@ height: number;
 n:any=[];
 constructor(private extrusorService:ExtrusorService) { }
 ngOnInit(): void {
- this.mainExtrusorData =this.extrusorService.getAllMainDataPoints();
+ this.extrusorData =this.extrusorService.getAllDataPoints();
  this.initChart();
  this.createChart();
 }
@@ -46,11 +45,10 @@ initChart() {
 
  this.g = this.svg.append("g").attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
 }
-// segundo metodo para crear el el chart con la info
 
 createChart() {
  // The number of datapoints
- var data =this.mainExtrusorData;
+ var data =this.extrusorData;
  var dataRange= data.map((x)=>x.roll_id);
 //  console.log(dataRange);
  // 5. X scale will use the index of our data
@@ -61,7 +59,7 @@ createChart() {
 
  // 6. Y scale will use the randomly generate number
  var yScale = d3.scaleLinear()
-   .domain([0, 350])// data.map(d => d.FilmTension)rango y tomando cada posicion input
+   .domain([0, Math.max.apply(Math, data.map(roll => roll.MeltTempetaruteActual))])// data.map(d => d.FilmTension)rango y tomando cada posicion input
    .range([this.contentHeight, 0]); // output
  // 7. d3's line generator
  var line = d3.line()
@@ -80,17 +78,13 @@ createChart() {
    .curve(d3.curveMonotoneX) 
    // 8. An array of objects of length N. Each object has key -> value pair, the key being "y" and the value is a random number
  var dataset =data.map((roll)=>{
-   return {y:roll.Setpoint,x:roll.roll_id
+   return {y:roll.SetpointHeating,x:roll.roll_id
    }
  })
  var dataset2 =data.map((roll)=>{
-   return {y:roll.Actual,x:roll.roll_id
+   return {y:roll.MeltTempetaruteActual,x:roll.roll_id
    }
  })
- var dataset3 =data.map((roll)=>{
-  return {y:roll.SetpointRpm,x:roll.roll_id
-  }
-})
 
  //d3.range(data.length).map(function (d) { return { "y": d3.randomUniform(300)() } })
  // console.log(dataset)
@@ -113,20 +107,15 @@ createChart() {
  // 9. Append the path, bind the data, and call the line generator
  this.g.append("path")
    .datum(dataset ) // 10. Binds data to the line
-   .attr("class", "line--1") // Assign a class for styling
+   .attr("class", "extrusor__c4-line1") // Assign a class for styling
    .attr("d", line); // 11. Calls the line generator
 
 //  adding chart line 2
  this.g.append("path")
    .datum(dataset2 )
-   .attr("class", "line--2")
+   .attr("class", "extrusor__c4-line2")
    .attr("d", line2);
-
-//    adding chart line 3
-this.g.append("path")
-.datum(dataset3)
-.attr("class", "line--3")
-.attr("d", line3);
+ 
 }
 
 }

@@ -103,29 +103,14 @@ private winderData:any= [];
     // 9. Append the path, bind the data, and call the line generator
     this.g.append("path")
       .datum(dataset ) // 10. Binds data to the line
-      .attr("class", "line") // Assign a class for styling
+      .attr("class", "winder__c2-line1") // Assign a class for styling
       .attr("d", line); // 11. Calls the line generator
 
   //  agregar segunda linea al chart
     this.g.append("path")
       .datum(dataset2 )
-      .attr("class", "line2")
+      .attr("class", "winder__c2-line2")
       .attr("d", line2);
-    // 12. Appends a circle for each datapoint
-    // this.g.selectAll(".dot")
-    //   .data(dataset)
-    //   .enter().append("circle") // Uses the enter().append() method
-    //   .attr("class", "dot") // Assign a class for styling
-    //   .attr("cx", function (d, i) { return xScale(d.x) })
-    //   .attr("cy", function (d) { return yScale(d.y) })
-    //   .attr("r", 3)
-    //   .on("mouseover", function (a, b, c) {
-    //     console.log(a)
-    //     this.attr('class', 'focus')
-    //   })
-    //   .on("mouseout", function () { })
-    //   //modificar texto
-
   }
 
 }

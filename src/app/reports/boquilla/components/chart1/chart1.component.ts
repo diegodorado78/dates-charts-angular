@@ -8,7 +8,7 @@ import { BoquillaService } from 'src/app/core/services/boquilla.service';
 })
 export class Chart1Component implements OnInit {
 
-  public titulo="Adapter 1";
+public titulo="Adapter 1";
 private boquillaData:any= [];
 // private weatherData:any=[];
    @ViewChild("chart", { static: true }) protected chartContainer: ElementRef;
@@ -76,7 +76,7 @@ private boquillaData:any= [];
 
       // 8. An array of objects of length N. Each object has key -> value pair, the key being "y" and the value is a random number
     var dataset =data.map((roll)=>{
-      return {y:roll.Setpoint1,x:roll.roll_id
+      return {y:roll.Setpoint2_3,x:roll.roll_id
       }
     })
     var dataset2 =data.map((roll)=>{
@@ -104,29 +104,24 @@ private boquillaData:any= [];
     // 9. Append the path, bind the data, and call the line generator
     this.g.append("path")
       .datum(dataset ) // 10. Binds data to the line
-      .attr("class", "line") // Assign a class for styling
+      .attr("class", "boquilla__c1-line1") // Assign a class for styling
       .attr("d", line); // 11. Calls the line generator
 
   //  agregar segunda linea al chart
     this.g.append("path")
       .datum(dataset2 )
-      .attr("class", "line2")
+      .attr("class", "boquilla__c1-line2")
       .attr("d", line2);
-      
+
     // 12. Appends a circle for each datapoint
-    this.g.selectAll(".dot")
-      .data(dataset)
-      .enter().append("circle") // Uses the enter().append() method
-      .attr("class", "dot") // Assign a class for styling
-      .attr("cx", function (d, i) { return xScale(d.x) })
-      .attr("cy", function (d) { return yScale(d.y) })
-      .attr("r", 3)
-      .on("mouseover", function (a, b, c) {
-        console.log(a)
-        this.attr('class', 'focus')
-      })
-      .on("mouseout", function () { })
-      //modificar texto
+    // this.g.selectAll(".dot")
+    //   .data(dataset)
+    //   .enter().append("circle") // Uses the enter().append() method
+    //   .attr("class", "dot") // Assign a class for styling
+    //   .attr("cx", function (d, i) { return xScale(d.x) })
+    //   .attr("cy", function (d) { return yScale(d.y) })
+    //   .attr("r", 1)
+      
 
   }
 

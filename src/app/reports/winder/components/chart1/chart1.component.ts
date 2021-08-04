@@ -1,8 +1,7 @@
 import { Component, OnInit,ElementRef,ViewChild } from '@angular/core';
 import { WinderService } from 'src/app/core/services/winder.service';
 import * as d3 from 'd3';
-import { HttpClient } from '@angular/common/http';
- import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-chart1',
   templateUrl: './chart1.component.html',
@@ -71,8 +70,6 @@ private winderData:any= [];
       .y(function (d: any) { return yScale(d.y); }) // set the y values for the line generator
       .curve(d3.curveMonotoneX) // apply smoothing to the line
 
-
-
       // 8. An array of objects of length N. Each object has key -> value pair, the key being "y" and the value is a random number
     var dataset =data.map((roll)=>{
       return {y:roll.FilmTension,x:roll.roll_id
@@ -99,7 +96,7 @@ private winderData:any= [];
     // 9. Append the path, bind the data, and call the line generator
     this.g.append("path")
       .datum(dataset ) // 10. Binds data to the line
-      .attr("class", "line") // Assign a class for styling
+      .attr("class", "winder__c1-line1") // Assign a class for styling
       .attr("d", line); // 11. Calls the line generator
     // 12. Appends a circle for each datapoint
     this.g.selectAll(".dot")
@@ -109,13 +106,7 @@ private winderData:any= [];
       .attr("cx", function (d, i) { return xScale(d.x) })
       .attr("cy", function (d) { return yScale(d.y) })
       .attr("r", 3)
-      .on("mouseover", function (a, b, c) {
-        // console.log(a)
-        this.attr('class', 'focus')
-      })
-      .on("mouseout", function () { })
-      //modificar texto
-
+      
   }
 
 }
