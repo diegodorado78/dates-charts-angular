@@ -75,13 +75,32 @@ mat-card{
    height: 100%;
    margin:20% 10%;
  }
-//  ::ng-deep svg{
-//      width: 90%;
-//      height: 100%;
-//      margin:5% 5% 10% 10%;
-//    }
- /* 13. Basic Styling with CSS */
- 
+//Global styles for pages
+
+.container{
+  display: flex;
+ flex-direction: column;
+  width: 100%;
+  height: 90vh;
+ background: linear-gradient(to right, #EAEAEA, #CCCC);;
+ //  background-image: url('https://d39dczdz8fv6rw.cloudfront.net/cache-buster-1592204952/test-images/image-thumb__8__hero-img-full-height/img-msb.webp') ; 
+ //  background-repeat:repeat-x;
+ //  background-size:100%;
+ //  background-position:top;
+  
+  // padding: 15% auto;
+ }
+.linea__container{
+   background-color: #E4E4E4;
+   height: 5vh;
+   color: black;
+   text-align: left;
+   font-size: 2rem;
+   font-weight: 500;
+   p{
+    margin:1vh auto;
+   }
+  }
 
  /* Style the dots by assigning a fill and stroke */
 

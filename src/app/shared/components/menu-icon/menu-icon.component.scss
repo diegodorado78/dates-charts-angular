@@ -17,28 +17,50 @@
 
 // MENU CON WEBCOMPONENT
 dile-menu-hamburger{
+  h1{
+    margin: 5px auto;
+    font-size: 2.5rem;
+  }
   border-radius: 50%;
   border: 1.5px solid #B9BEBF;
   height: 35px;
   width: 35px;
   margin: 5px auto;
+  text-align: center;
   --dile-hamburger-color:#B9BEBF;
   --dile-hamburger-active-color:#B9BEBF;
   --dile-hamburger-width: 22px;
-  --dile-app-drawer-background-color:#373A39;
-  --dile-hamburger-padding-y:3.5px;
-  --dile-hamburger-padding-x:0px;
+  --dile-hamburger-padding-y:3px;
+  --dile-hamburger-padding-x:7px;
+  --dile-app-drawer-background-color:#373A39E6;
+
   a{
     text-decoration: none;
-    color: white;
+     color: #B9BEBF;;
     font-size: 2rem;
+    font-weight: 400;
+    align-content: center;
+    span{
+      margin: 35px auto;
+    }
   }
   .active{
     border-bottom: solid 1px #B9BEBF;}
+   
 }
+.back__icon{
+  font-size: 2rem;
+  color: #B9BEBF;
+  text-align:center;
+  margin: 0;
+  padding: 0;
+}
+
 
 @media (min-width: 768px) {
 dile-menu-hamburger{
-margin-bottom: 15px;
+  --dile-hamburger-padding-y:4px;
+  --dile-hamburger-padding-x:6px;
 }
+
 }

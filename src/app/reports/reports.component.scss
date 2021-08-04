@@ -1,30 +1,17 @@
-
-.container{
- display: flex;
-flex-direction: column;
- width: 100%;
- height: 100vh;
- background: linear-gradient(to right, #EAEAEA, #CCCC);
- align-content: center;
- // padding: 15% auto;
+.container__reports{
+  background-image: url('https://d39dczdz8fv6rw.cloudfront.net/cache-buster-1592204952/test-images/image-thumb__8__hero-img-full-height/img-msb.webp') ; 
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:top;
 }
-// .linea__container{
-//  background-color: #E4E4E4;
-//  height: 5vh;
-//  color: black;
-//  text-align: left;
-//  font-size: 1.5rem;
-//  p{
-//   margin:1vh auto;
-//  }
-// }
-
 .ul__container{
-    margin: 5% auto;
+width: 20%;
+margin: 5% auto;
 display:flex;
 flex-direction: column;
 align-items: center;
 justify-items: center;
+
 
 ul{
 list-style: none;
