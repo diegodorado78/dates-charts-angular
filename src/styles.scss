@@ -38,10 +38,16 @@ $charts2-theme: mat-light-theme($charts2-primary, $charts2-accent, $charts2-warn
 
 
 
-html, body { height: 100%;font-size: 62.5%;  
-   color: #272A3A;
-   font-family: 'Roboto';
-   box-sizing: border-box;}
+html, body { 
+  height: 100%;
+  font-size: 62.5%;  
+  color: #272A3A;
+  font-family: 'Roboto';
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  }
       
 // Global styles for charts
 mat-card{
@@ -75,20 +81,24 @@ mat-card{
    height: 100%;
    margin:20% 10%;
  }
+
+
 //Global styles for pages
 
 .container{
   display: flex;
  flex-direction: column;
   width: 100%;
-  height: 90vh;
- background: linear-gradient(to right, #EAEAEA, #CCCC);;
+  min-height: 90vh;
+ background: linear-gradient(to right, #EAEAEA, #CCCC);
+ margin: 0;
+ padding: 0;
  //  background-image: url('https://d39dczdz8fv6rw.cloudfront.net/cache-buster-1592204952/test-images/image-thumb__8__hero-img-full-height/img-msb.webp') ; 
  //  background-repeat:repeat-x;
  //  background-size:100%;
  //  background-position:top;
-  
   // padding: 15% auto;
+
  }
 .linea__container{
    background-color: #E4E4E4;

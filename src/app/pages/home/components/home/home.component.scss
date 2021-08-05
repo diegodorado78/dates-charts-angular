@@ -2,14 +2,14 @@
 .button__container{
   width: 50%;
   height: 100%;
-margin: auto;
+  margin: 20% auto;
 }
 a{
 display: flex;
 flex-direction: column;
- align-content: center;
- border: 3px solid black;
- width: 150px;
+align-content: center;
+border: 3px solid black;
+width: 150px;
 height: 150px;
 border-radius: 20px;
 margin:  10% auto;
@@ -24,6 +24,9 @@ margin: auto;
 }
 }
 @media (min-width: 768px) {
+  .button__container{
+    margin: auto;
+  }
  a{
    max-width: 200px;
    max-height: 200px;
