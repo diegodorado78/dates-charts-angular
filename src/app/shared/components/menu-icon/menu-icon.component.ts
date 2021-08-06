@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 
 import '@dile/dile-menu-hamburger/dile-menu-hamburger.js';
 @Component({
@@ -9,11 +8,9 @@ import '@dile/dile-menu-hamburger/dile-menu-hamburger.js';
 })
 export class MenuIconComponent implements OnInit {
 
-  constructor(private _location: Location) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
-  goBack(){
-    this._location.back();
-  }
+ 
 }
