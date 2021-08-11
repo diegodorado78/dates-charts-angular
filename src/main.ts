@@ -6,6 +6,7 @@ import { environment } from './environments/environment';
 //custom LIT web components
 import { BcoComponent } from './app/pages/home/components/bco-trial/bco-component';
 import{BcoComponent2} from './app/pages/home/components/bco-trial2/bco-component2';
+
 if (environment.production) {
   enableProdMode();
 }

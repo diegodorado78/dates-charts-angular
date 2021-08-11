@@ -39,6 +39,7 @@ private lines = [
   getLine(id:string){
     return this.lines.find(item=>id=== item.id); // busca y devuelve el item del param id
   }
+ 
 }
 
 

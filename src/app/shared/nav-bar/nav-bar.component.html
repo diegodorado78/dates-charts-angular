@@ -2,8 +2,8 @@
     <div> 
         <a mat-menu-item  (click)="goBack()"> <mat-icon  class="back__icon" >arrow_back</mat-icon> </a>
     </div>
-    <div>
-        <p>  1741 FRD</p>
+    <div *ngIf="iskpisRouteActivated()" >
+        <app-line-info [line]="line" ></app-line-info>
     </div>
     <div></div>
     <div></div>
