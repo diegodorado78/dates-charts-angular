@@ -26,6 +26,7 @@
     "@dile/dile-menu-hamburger": "^1.0.1",
     "d3": "^7.0.0",
     "dile-hamburger": "^2.0.1",
+    "lit": "^2.0.0-rc.2",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

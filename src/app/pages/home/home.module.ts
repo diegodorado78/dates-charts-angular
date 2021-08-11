@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SharedModule } from '../../shared/shared.module';
 import { HomeRoutingModule } from './home-routing.module';
 import { MaterialModule } from 'src/app/material/material.module';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 
@@ -14,7 +15,9 @@ import { MaterialModule } from 'src/app/material/material.module';
     CommonModule,
     HomeRoutingModule,
     SharedModule,
-    MaterialModule
-  ]
+    MaterialModule,
+  ],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
+
 })
 export class HomeModule { }
