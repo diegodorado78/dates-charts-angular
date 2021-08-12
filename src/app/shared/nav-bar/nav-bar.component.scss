@@ -10,33 +10,43 @@
     font-size: 2rem;
     font-weight: 500;
 
-    div{
-        display: flex;
-        height: 100%;
-        align-items: center;
+    .nav__div1{
+    width: 25px;
+   
     }
+    .nav__div2{
+        width: 90%;
+        height: 100%; 
+        }
+
     a{
         background-color: transparent;
     }
-    p{
-     margin: 0 auto;
-    }
+    
+    
     .back__icon{
+        display: flex;
         border-radius: 50%;
-        border: 0.5px solid #5458580D;
-        margin: 0 2px;
+        border: none;
+        margin: 3px 2px;
+        justify-self: left;
     }
     .back__icon:active{
-        background-color: #545858;
-        color: #E4E4E4;
+        background: linear-gradient(to right, #EAEAEA, #CCCC);
     }
    }
 
   
    @media (min-width: 768px) {
     .back__icon:hover{
-        background-color: #545858;
-        color: #E4E4E4;
+        background:#545858;
+        cursor: pointer;
+    }
+
+    .nav__container{
+        div{
+            width: 33%;
+        }
     }
    }
 

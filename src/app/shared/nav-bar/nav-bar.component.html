@@ -1,10 +1,9 @@
 <div class="nav__container">
-    <div> 
-        <a mat-menu-item  (click)="goBack()"> <mat-icon  class="back__icon" >arrow_back</mat-icon> </a>
+    <div class="nav__div1"> 
+        <a mat-menu-item  (click)="goBack()"> <mat-icon class="back__icon" >arrow_back</mat-icon> </a>
     </div>
-    <div *ngIf="iskpisRouteActivated()" >
-        <app-line-info [line]="line" ></app-line-info>
+    <div class="nav__div2" > 
+        <app-line-info *ngIf="iskpisRouteActivated()" ></app-line-info>
     </div>
-    <div></div>
-    <div></div>
+   
 </div>
