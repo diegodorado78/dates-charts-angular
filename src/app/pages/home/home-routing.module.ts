@@ -3,7 +3,8 @@
 import { KpisLineSelectionComponent } from 'src/app/kpis/kpis-line-selection/kpis-line-selection.component';
  import { HomeComponent } from './components/home/home.component';
 import { ReportsComponent } from '../../reports/reports.component';
- const routes: Routes = [
+ 
+const routes: Routes = [
  {
   path: '',
   component: HomeComponent
@@ -16,8 +17,10 @@ import { ReportsComponent } from '../../reports/reports.component';
  },
  {
   path: 'reports',
-  component: ReportsComponent
+  component: ReportsComponent,
+  loadChildren: () => import('../../reports/reports.module').then(m => m.ReportsModule)
  },
+
 ];
  @NgModule({
 imports: [
