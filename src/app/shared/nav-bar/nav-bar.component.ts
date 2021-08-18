@@ -33,4 +33,7 @@ export class NavBarComponent implements OnInit {
     //use the service to get the  line id put it as the end point to make it dinamic and check
     return this.location.path().indexOf('/kpis/',this.line) > -1;
   }
+  isHomeActivated():boolean{//method to check the end point
+    return this.location.path().indexOf('/home',) > -1;
+  }
 }
