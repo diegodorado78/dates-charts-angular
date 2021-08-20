@@ -9,3 +9,5 @@ RUN npm run build
 ### STAGE 2: Run ###
 FROM nginx:1.17.1-alpine
 COPY --from=build /usr/src/app/dist/charts2 /usr/share/nginx/html
+# Expose port 80
+#EXPOSE 80

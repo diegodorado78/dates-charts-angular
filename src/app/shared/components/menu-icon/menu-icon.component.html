@@ -11,12 +11,19 @@
     >
   </div>
 </mat-menu> -->
+<!-- dile-hamburger-opened=>custom event handlers -->
 
-<dile-menu-hamburger direction="top">
-  <nav slot="menu">
+<dile-menu-hamburger
+ direction="top"
+hamburgerAlwaysVisible 
+[opened]="menuOpened"
+(dile-menu-hamburger-opened)="menuOpenedHandler()"
+(dile-menu-hamburger-closed)="menuClosedHandler()"
+>
+  <nav slot="menu" >
     <h1>Charts Menu</h1><hr>
-    <a mat-menu-item routerLink="/boquilla" routerLinkActive="active" >Die</a>
-    <a mat-menu-item routerLink="/winder" routerLinkActive="active">Winder</a>
-    <a mat-menu-item routerLink="/extrusor" routerLinkActive="active">Extrusor</a>
+    <a mat-menu-item  routerLink="/reports/boquilla" routerLinkActive="active"   >Die</a>
+    <a mat-menu-item  routerLink="/reports/winder" routerLinkActive="active">Winder</a>
+    <a mat-menu-item  routerLink="/reports/extrusor" routerLinkActive="active">Extrusor</a>
   </nav>
 </dile-menu-hamburger>

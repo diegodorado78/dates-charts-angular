@@ -6,7 +6,8 @@
  {
   path: '',
   component: ExtrusorComponent
- }
+ },
+ 
 ];
  @NgModule({
 imports: [

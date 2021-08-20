@@ -6,11 +6,20 @@ import '@dile/dile-menu-hamburger/dile-menu-hamburger.js';
   templateUrl: './menu-icon.component.html',
   styleUrls: ['./menu-icon.component.scss']
 })
+
 export class MenuIconComponent implements OnInit {
+  menuOpened=false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
+  menuOpenedHandler(){
+      this.menuOpened=true;
+   }
  
+   menuClosedHandler(){
+    this.menuOpened=false;
+
+   }
 }

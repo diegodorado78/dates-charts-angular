@@ -15,6 +15,9 @@ import { Chart3Component } from './components/chart3/chart3.component';
     CommonModule,
     BoquillaRoutingModule,
     SharedModule,
-  MaterialModule]
+  MaterialModule],
+  exports:[
+    BoquillaComponent
+  ]
 })
 export class BoquillaModule { }
