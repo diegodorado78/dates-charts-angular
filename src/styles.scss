@@ -98,10 +98,12 @@ mat-card{
  //  background-size:100%;
  //  background-position:top;
   // padding: 15% auto;
-
  }
-
-
+ .zoom {
+  cursor: move;
+  fill: none;
+  pointer-events: all;
+}
  /* Style the dots by assigning a fill and stroke */
 
  @media (min-width: 768px) {

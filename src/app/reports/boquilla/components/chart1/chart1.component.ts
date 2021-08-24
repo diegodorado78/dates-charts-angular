@@ -63,6 +63,8 @@ private boquillaData:any= [];
     var yScale = d3.scaleLinear()
       .domain([0, Math.max.apply(Math, data.map(roll => roll.Setpoint1))+25])// data.map(d => d.FilmTension)rango y tomando cada posicion input
       .range([this.contentHeight, 0]); // output
+      //trying to brush and zoom
+      
     // 7. d3's line generator
     var line = d3.line()
       .x(function (d:any, i:any) { return xScale(d.x); }) // set the x values for the line generator
