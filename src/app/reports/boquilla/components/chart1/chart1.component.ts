@@ -10,7 +10,6 @@ export class Chart1Component implements OnInit {
 
 public titulo="Adapter 1";
 private boquillaData:any= [];
-// private weatherData:any=[];
    @ViewChild("chart", { static: true }) protected chartContainer: ElementRef;
   svg: any;
   g: any;
@@ -27,7 +26,6 @@ private boquillaData:any= [];
     this.initChart();
     this.createChart();
   }
-// primer metodo para crear el contenedor del chart
   initChart() {
     const element = this.chartContainer.nativeElement;
     this.svg = d3.select(element);
@@ -46,13 +44,11 @@ private boquillaData:any= [];
 
     this.g = this.svg.append("g").attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
   }
-  // segundo metodo para crear el el chart con la info
 
   createChart() {
     // The number of datapoints
     var data =this.boquillaData;
     var dataRange= data.map((x)=>x.roll_id);
-    //console.log(dataRange);
     // 5. X scale will use the index of our data
     var xScale = d3.scalePoint()//scalepoint,scaleLinear
         .domain(data.map(d => d.roll_id))//hace una barra por framework
@@ -86,7 +82,6 @@ private boquillaData:any= [];
       }
     })
     //d3.range(data.length).map(function (d) { return { "y": d3.randomUniform(300)() } })
-    // console.log(dataset)
 //{ "y": d3.randomUniform(300)() }
     // 3. Call the x axis in a group tag
     this.g.append("g")
@@ -114,17 +109,6 @@ private boquillaData:any= [];
       .datum(dataset2 )
       .attr("class", "boquilla__c1-line2")
       .attr("d", line2);
-
-    // 12. Appends a circle for each datapoint
-    // this.g.selectAll(".dot")
-    //   .data(dataset)
-    //   .enter().append("circle") // Uses the enter().append() method
-    //   .attr("class", "dot") // Assign a class for styling
-    //   .attr("cx", function (d, i) { return xScale(d.x) })
-    //   .attr("cy", function (d) { return yScale(d.y) })
-    //   .attr("r", 1)
-      
-
   }
 
 }

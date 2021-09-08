@@ -127,6 +127,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "charts2"
+    }
+  },
+  "defaultProject": "charts2",
+  "cli": {
+    "analytics": false
+  }
 }

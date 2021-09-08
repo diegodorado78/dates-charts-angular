@@ -10,8 +10,15 @@
   stroke: #A64C49;
   stroke-width: 3;
 }
+.chart{
+width: 280px;
+height: 320px;
+}
 /* Style the dots by assigning a fill and stroke */
 
 @media (min-width: 768px) {
-
+  .chart{
+    width: 500px;
+    height: 400px;
+    }
 }
