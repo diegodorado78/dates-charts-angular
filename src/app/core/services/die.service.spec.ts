@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { BoquillaService } from './boquilla.service';
+import { DieService } from './die.service';
 
 describe('BoquillaService', () => {
-  let service: BoquillaService;
+  let service: DieService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(BoquillaService);
+    service = TestBed.inject(DieService);
   });
 
   it('should be created', () => {

@@ -1,11 +1,11 @@
  import {NgModule} from '@angular/core';
  import {Routes, RouterModule,PreloadAllModules } from '@angular/router';
- import { BoquillaComponent } from './components/boquilla/boquilla.component';
+ import { DieComponent } from './components/die/die..component';
 
  const routes: Routes = [
  {
   path: '',
-  component: BoquillaComponent
+  component: DieComponent
  }
 ];
  @NgModule({
@@ -16,5 +16,5 @@ exports: [
  RouterModule // lo dejo disponible para otros modulos
 ]
  })
- export class BoquillaRoutingModule{
+ export class DieRoutingModule{
  };

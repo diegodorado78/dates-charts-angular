@@ -8,9 +8,9 @@ const routes: Routes = [
     component: ReportsComponent,
 },
  {
-  path: 'boquilla',
+  path: 'die',
   // canActivate: [AdminGuard],
-  loadChildren: () => import('../reports/boquilla/boquilla.module').then(m => m.BoquillaModule),
+  loadChildren: () => import('./die/die.module').then(m => m.DieModule),
  },
  {
   path: 'winder',

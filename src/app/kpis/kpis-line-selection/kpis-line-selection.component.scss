@@ -1,19 +1,6 @@
-.container{
- display: flex;
-flex-direction: column;
- width: 100%;
- height: 100vh;
- background: linear-gradient(to right, #EAEAEA, #CCCC);
- align-content: center;
- // padding: 15% auto;
+:host{
+    background: linear-gradient(to right, #EAEAEA, #CCCC);
 }
-.linea__container{
- background-color: #E4E4E4;
- height: 5vh;
- color: black;
- text-align: left;
- font-size: 1.5rem;
- p{
-  margin:1vh auto;
- }
+.line__selection-container{
+    margin: 5px ;
 }

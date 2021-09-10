@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BoquillaComponent } from './boquilla.component';
+import { DieComponent } from './die..component';
 
-describe('BoquillaComponent', () => {
-  let component: BoquillaComponent;
-  let fixture: ComponentFixture<BoquillaComponent>;
+describe('DieComponent', () => {
+  let component: DieComponent;
+  let fixture: ComponentFixture<DieComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BoquillaComponent ]
+      declarations: [ DieComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BoquillaComponent);
+    fixture = TestBed.createComponent(DieComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

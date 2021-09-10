@@ -1,11 +1,8 @@
 <a [routerLink]="['/kpis/',line.id]">
 <div class="line__container">
-<!-- router link que redirecciona segun la id de la linea seleccionada -->
- <!-- > -->
   <!-- line number -->
   <div class="number">
      <img [src]="line.lineImage" alt="">
-     <!-- <h3> #17</h3> -->
      <h3> {{line.number}}</h3>
  </div>
  <!--  line name -->
@@ -14,11 +11,10 @@
     <h3> 25um Plain</h3>
    </div>
  <!-- roll state -->
- <div class="roll__state">
+   <div class="roll__state">
     <img [src]="line.rollImage" alt="">
     <p>Good Roll</p>
- </div>
- <!-- </a> -->
+   </div>
 </div>
 </a>
  <hr>

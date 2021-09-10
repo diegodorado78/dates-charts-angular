@@ -1,3 +1,5 @@
+<!-- Menu made with Material components -->
+
 <!-- <button class="menu__icon" mat-button [matMenuTriggerFor]="menu">
   <mat-icon class="white__icon" >menu</mat-icon>
 </button>
@@ -11,6 +13,7 @@
     >
   </div>
 </mat-menu> -->
+<!-- LIT ELEMENT COMPONENT MENU, check https://www.npmjs.com/package/@dile/dile-menu-hamburger -->
 <!-- dile-hamburger-opened=>custom event handlers -->
 
 <dile-menu-hamburger
@@ -23,7 +26,7 @@ hamburgerAlwaysVisible
   <nav slot="menu" >
     <h1>Charts Menu</h1><hr>
     <a mat-menu-item  routerLink="/reports/extrusor" routerLinkActive="active">Extrusor</a>
-    <a mat-menu-item  routerLink="/reports/boquilla" routerLinkActive="active" >Die</a>
+    <a mat-menu-item  routerLink="/reports/die" routerLinkActive="active" >Die</a>
     <a mat-menu-item  routerLink="/reports/winder" routerLinkActive="active">Winder</a>
 
   </nav>

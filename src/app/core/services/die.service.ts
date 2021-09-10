@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class BoquillaService {
-   boquillaData=[
+export class DieService {
+   dieData=[
 {"roll_id":"0A1602221603","Setpoint1":220, "Controller3":0,"Controller2":138,"Controller":0,"Setpoint2_3":220,"Actual":29.4,},
 {"roll_id":"0A1602221748","Setpoint1":220, "Controller3":0,"Controller2":138,"Controller":0,"Setpoint2_3":220,"Actual":31.4,},
 {"roll_id":"0A1602221932","Setpoint1":220, "Controller3":0,"Controller2":138,"Controller":0,"Setpoint2_3":220,"Actual":30,}
@@ -64,9 +64,9 @@ export class BoquillaService {
   
   constructor() { }
   getAllDataPoints(){
-    return this.boquillaData;
+    return this.dieData;
   }
   getDataPoint(id:string){
-    return this.boquillaData.find(item=>id=== item.roll_id); // busca y devuelve el item del param id
+    return this.dieData.find(item=>id=== item.roll_id); // find and return the object with the id===arg
   }
 }
