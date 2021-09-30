@@ -90,5 +90,8 @@ private dieData:any= [];
       .datum(dataset2 )
       .attr("class", "die__c2-line2")
       .attr("d", line2);
+      
   }
+  
+  
 }

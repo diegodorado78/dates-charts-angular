@@ -17,7 +17,11 @@
   stroke: #A64C49;
   stroke-width: .5;
 }
-
+.print__chart{
+  width: 900px;
+    min-height: 500px;
+    margin:5% 5% 10% 10%;
+}
 @media (min-width: 768px) {
   
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, ChildrenOutletContexts } from '@angular/router';
+import { DatePickerComponent } from './date-picker/date-picker.component';
 import { ReportsComponent } from './reports.component';
 
 const routes: Routes = [
@@ -21,6 +22,10 @@ const routes: Routes = [
   path: 'extrusor',
  // canActivate: [AdminGuard],
  loadChildren: () => import('../reports/extrusor/extrusor.module').then(m => m.ExtrusorModule)
+ },
+ {
+   path:'datePicker',
+   component: DatePickerComponent,
  }
 
 ];

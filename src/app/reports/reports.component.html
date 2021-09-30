@@ -3,21 +3,21 @@
   <div class="ul__container">
    <ul>
     <li> 
-      <a routerLink="extrusor"> 
+      <a routerLink="extrusor" (click)="newTitle('extrusor')"> 
         <img [src]="'assets/images/extrusor.png'" alt="roll1">
         <p>Extrusor</p> 
       </a>
     </li>
 
     <li> 
-       <a routerLink="boquilla">  
+       <a routerLink="die" (click)="newTitle('die')">  
       <img [src]="'assets/images/boquilla.png'" alt="roll1">
       <p>Die</p>
     </a>
    </li>
 
    <li> 
-    <a routerLink="winder"> 
+    <a routerLink="winder" (click)="newTitle('winder')"> 
       <img [src]="'assets/images/winder.png'" alt="roll1">
       <p>Winder</p>
     </a>
@@ -25,5 +25,7 @@
 
    </ul>
   </div>
+  
 
 </div>
+

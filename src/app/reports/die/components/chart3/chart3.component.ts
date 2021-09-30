@@ -43,6 +43,7 @@ private dieData:any= [];
     this.contentHeight = this.height - this.margin.top - this.margin.bottom;
     this.g = this.svg.append("g").attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
   }
+  
   createChart() {
 
     var data =this.dieData;

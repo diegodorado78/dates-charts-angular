@@ -7,7 +7,7 @@ import { WinderService } from 'src/app/core/services/winder.service';
   styleUrls: ['./chart4.component.scss']
 })
 export class Chart4Component implements OnInit {
-titulo='Contact Winding';
+  chartTitle='Contact Winding';
  private contactWinding:any= [];
    @ViewChild("chart", { static: true }) protected chartContainer: ElementRef;
   svg: any;

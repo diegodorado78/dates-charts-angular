@@ -7,7 +7,7 @@ import { WinderService } from 'src/app/core/services/winder.service';
   styleUrls: ['./chart2.component.scss']
 })
 export class Chart2Component implements OnInit {
-public titulo="Tension Control";
+public chartTitle="Tension Control";
 private winderData:any= [];
    @ViewChild("chart", { static: true }) protected chartContainer: ElementRef;
   svg: any;

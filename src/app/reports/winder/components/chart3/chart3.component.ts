@@ -8,7 +8,7 @@ import { WinderService } from 'src/app/core/services/winder.service';
   styleUrls: ['./chart3.component.scss']
 })
 export class Chart3Component implements OnInit {
-titulo='Gap Winding';
+  chartTitle='Gap Winding';
 private gapWinding:any= [];
    @ViewChild("chart", { static: true }) protected chartContainer: ElementRef;
   svg: any;

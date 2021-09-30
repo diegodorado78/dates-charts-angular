@@ -1,12 +1,17 @@
  import {NgModule} from '@angular/core';
  import {Routes, RouterModule,PreloadAllModules } from '@angular/router';
+import { DatePickerComponent } from '../date-picker/date-picker.component';
  import { ExtrusorComponent } from './components/extrusor/extrusor.component';
 
  const routes: Routes = [
  {
   path: '',
-  component: ExtrusorComponent
+  component: DatePickerComponent
  },
+ {
+    path: 'trends',
+    component: ExtrusorComponent
+ }
  
 ];
  @NgModule({

@@ -1,5 +1,7 @@
 import { Component, OnInit,ViewChild,ElementRef} from '@angular/core';
 import * as d3 from 'd3';
+import  jspdf from 'jspdf';  
+import html2canvas from 'html2canvas';
 import {DieService } from 'src/app/core/services/die.service';
 @Component({
   selector: 'app-chart1',
@@ -10,9 +12,10 @@ export class Chart1Component implements OnInit {
 
 public titulo="Adapter 1";
 private dieData:any= [];
-   @ViewChild("chart", { static: true }) protected chartContainer: ElementRef;
+   @ViewChild("chart", { static: true }) protected chart: ElementRef;
   svg: any;
   g: any;
+  jsPDF:any;
   tooltip: any;
   margin: { top: number; right: number; bottom: number; left: number; };
   contentWidth: number;
@@ -20,6 +23,7 @@ private dieData:any= [];
   width: number;
   height: number;
   n:any=[];
+  
   constructor(private dieService:DieService) { }
   ngOnInit(): void {
     this.dieData =this.dieService.getAllDataPoints();
@@ -27,7 +31,7 @@ private dieData:any= [];
     this.createChart();
   }
   initChart() {
-    const element = this.chartContainer.nativeElement;
+    const element = this.chart.nativeElement;
     this.svg = d3.select(element);
     this.margin = {
       //methods to resize  the chart by modifying converting the pixel values to numbers added through css with the class name .svg__chart
@@ -110,5 +114,21 @@ private dieData:any= [];
    .attr("cy", function (d) { return yScale(d.y) })
    .attr("r", 3)
   }
-
+  public openPDF():void {
+    let DATA = document.getElementById('card__print-container');
+        
+    html2canvas(DATA).then(canvas => {
+        
+        let fileWidth = 208;
+        let fileHeight = canvas.height * fileWidth / canvas.width;
+        
+        const FILEURI = canvas.toDataURL('image/png')
+        let PDF = new jspdf("p",);
+        let position = 0;
+        PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight)
+        
+        PDF.save('adapter1.pdf');
+    });     
+    }
+    
 }

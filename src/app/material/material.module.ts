@@ -9,11 +9,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatMenuModule } from '@angular/material/menu';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { FormsModule } from '@angular/forms';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
+    FormsModule,
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
@@ -23,10 +27,13 @@ import { MatMenuModule } from '@angular/material/menu';
     MatSelectModule,
     MatRadioModule,
     MatMenuModule,
+    MatDatepickerModule,
+    MatNativeDateModule
 
   ],
   exports:[
     MatButtonModule,
+    FormsModule,
     MatToolbarModule,
     MatIconModule,
     MatBadgeModule,
@@ -34,8 +41,12 @@ import { MatMenuModule } from '@angular/material/menu';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
-    MatMenuModule
-
+    MatMenuModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+  ],
+  providers: [
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
   ]
 })
 export class MaterialModule { }

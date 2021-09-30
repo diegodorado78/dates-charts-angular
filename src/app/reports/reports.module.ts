@@ -5,11 +5,13 @@ import { ReportsRoutingModule } from './reports-routing.module';
 import { ReportsComponent } from './reports.component';
 import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
+import { DatePickerComponent } from './date-picker/date-picker.component';
 
 
 @NgModule({
   declarations: [
-    ReportsComponent
+    ReportsComponent,
+    DatePickerComponent
   ],
   imports: [
     CommonModule,

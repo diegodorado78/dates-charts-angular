@@ -58,6 +58,12 @@ html, body {
    }
  
 // Global styles for charts
+.reports__container {
+  background-image: url("https://d39dczdz8fv6rw.cloudfront.net/cache-buster-1592204952/test-images/image-thumb__8__hero-img-full-height/img-msb.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
 .charts__container{
   display: grid;
   grid-template-columns:repeat(1,1fr) ;

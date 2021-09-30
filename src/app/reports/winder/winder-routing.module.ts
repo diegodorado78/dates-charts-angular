@@ -1,13 +1,19 @@
  import {NgModule} from '@angular/core';
  import {Routes, RouterModule,PreloadAllModules } from '@angular/router';
+import { DatePickerComponent } from '../date-picker/date-picker.component';
  import { WinderComponent } from './components/winder/winder.component';
 
  const routes: Routes = [
  {
   path: '',
-  component: WinderComponent,
+  component: DatePickerComponent,
 
- }
+ },
+ {
+    path: 'trends',
+    component: WinderComponent,
+  
+   }
 ];
  @NgModule({
 imports: [

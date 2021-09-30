@@ -9,7 +9,7 @@ import * as d3 from 'd3';
 })
 export class Chart1Component implements OnInit {
 
- public titulo="Film Tension";
+public chartTitle="Film Tension";
 private winderData:any= [];
 // private weatherData:any=[];
    @ViewChild("chart", { static: true }) protected chartContainer: ElementRef;
