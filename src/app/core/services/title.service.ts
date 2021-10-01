@@ -5,13 +5,12 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class TitleService {
-  private title=new BehaviorSubject('');
-
+ private title=new BehaviorSubject('');
  currentTitle$= this.title.asObservable();
-
   constructor() { }
-  setTitle(message:string){
 
+  setTitle(message:string){
   this.title.next(message)
   }
+ 
 }

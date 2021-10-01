@@ -1,5 +1,4 @@
-import { NgModule, OnDestroy } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TitleService} from './../core/services/title.service';
 @Component({
@@ -7,20 +6,14 @@ import { TitleService} from './../core/services/title.service';
   templateUrl: './reports.component.html',
   styleUrls: ['./reports.component.scss']
 })
-export class ReportsComponent implements OnInit,OnDestroy {
-  titleInput:string='';
-  message:string;
+export class ReportsComponent implements OnInit {
   subscription: Subscription;
-  constructor(private title:TitleService) { }
+  constructor(private titleService:TitleService) { }
 
   ngOnInit(): void {
-  this.subscription = this.title.currentTitle$.subscribe(message=>this.message=message)
   }
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
-  newTitle(titleInput:string) {
-    this.title.setTitle(titleInput)
-    console.log(this.title)
+
+  setTitle(titleInput:string) {
+    this.titleService.setTitle(titleInput)
   }
 }

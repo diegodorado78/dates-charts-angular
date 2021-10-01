@@ -1,5 +1,5 @@
 import { Component, OnInit,Input, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Observable,Subscription } from 'rxjs';
 import { TitleService} from './../../core/services/title.service';
 @Component({
   selector: 'app-date-picker',
@@ -7,26 +7,21 @@ import { TitleService} from './../../core/services/title.service';
   styleUrls: ['./date-picker.component.scss']
 })
 export class DatePickerComponent implements OnInit,OnDestroy {
-  pickerStart = new Date('2020-01-01');
-  firstDate:string;
-  pickerFinish = new Date('2021-06-01');//necesary as a start point for date picker  
-  //// ISO 8601 Extended format
-//`YYYY-MM-DDTHH:mm:ss.sssZ`
-  lastDate:string;
-  message:string='Chart';
-  subscription: Subscription;
-  constructor(private title:TitleService) { }
-
+   // ISO 8601 Extended format
+  //`YYYY-MM-DDTHH:mm:ss.sssZ`
+  subscription: Subscription
+  firstDate:any;
+  message$:string;
+  lastDate:any;
+  constructor(private titleService:TitleService) {
+  }
   ngOnInit(): void {
-    this.subscription = this.title.currentTitle$.subscribe(message => this.message = message);
-    // console.log(this.pickerStart)
-    // console.log(this.pickerFinish)
+  // this.message$ recieves the async value  from the service
+    this.subscription = this.titleService.currentTitle$.subscribe(message=>this.message$=message)
   }
   
-  showData(){
-  }
-
   ngOnDestroy(){
-      this.subscription.unsubscribe();
+     this.subscription.unsubscribe();
   }
+  
 }

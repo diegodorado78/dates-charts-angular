@@ -1,7 +1,7 @@
 <div class="container reports__container">
-    <form [ngSwitch]="message" (ngSubmit)="showData()" >
+    <form [ngSwitch]="message$" >
     <div class="ul__container">
-        <h1> Select Dates for {{message |titlecase}}</h1>
+        <h1> Select Dates for {{message$ |titlecase}}</h1>
             <!-- START DATE -->
         <mat-form-field>
             <mat-label>From</mat-label>
@@ -21,9 +21,6 @@
           <a *ngSwitchCase="'extrusor'"  routerLink="trends">  <button type="submit" class="send__btn" mat-raised-button>Select </button>   </a>
           <a *ngSwitchCase="'die'" routerLink="trends" > <button type="submit" class="send__btn" mat-raised-button>Select </button></a>
           <a *ngSwitchCase="'winder'" routerLink="trends"> <button type="submit" class="send__btn" mat-raised-button>Select </button></a>
-          <p>{{firstDate}}</p>
-          <p>{{lastDate}}</p>
-
     </div>
 </form>
 

@@ -1,21 +1,3 @@
-<!-- Menu made with Material components -->
-
-<!-- <button class="menu__icon" mat-button [matMenuTriggerFor]="menu">
-  <mat-icon class="white__icon" >menu</mat-icon>
-</button>
-<mat-menu #menu="matMenu">
-
-  <div class="menu">
-    <a mat-menu-item routerLink="/home/reports" routerLinkActive="active">Back </a>
-    <a mat-menu-item routerLink="/boquilla" routerLinkActive="active">Boquilla</a>
-    <a mat-menu-item routerLink="/winder" routerLinkActive="active">Winder</a>
-    <a mat-menu-item routerLink="/extrusor" routerLinkActive="active">Extrusor</a
-    >
-  </div>
-</mat-menu> -->
-<!-- LIT ELEMENT COMPONENT MENU, check https://www.npmjs.com/package/@dile/dile-menu-hamburger -->
-<!-- dile-hamburger-opened=>custom event handlers -->
-
 <dile-menu-hamburger
  direction="top"
 hamburgerAlwaysVisible 
@@ -25,9 +7,9 @@ hamburgerAlwaysVisible
 >
   <nav slot="menu" >
     <h1>Charts Menu</h1><hr>
-    <a mat-menu-item  routerLink="/reports/extrusor" routerLinkActive="active">Extrusor</a>
-    <a mat-menu-item  routerLink="/reports/die" routerLinkActive="active" >Die</a>
-    <a mat-menu-item  routerLink="/reports/winder" routerLinkActive="active">Winder</a>
+    <a mat-menu-item  routerLinkActive="active" (click)="newTitle('extrusor')">  Extrusor</a>
+    <a mat-menu-item  routerLinkActive="active" (click)="newTitle('die')" >Die</a>
+    <a mat-menu-item  routerLinkActive="active"(click)="newTitle('winder')" >Winder</a>
 
   </nav>
 </dile-menu-hamburger>
