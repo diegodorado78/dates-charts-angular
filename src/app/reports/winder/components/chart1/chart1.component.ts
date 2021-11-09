@@ -1,6 +1,8 @@
-import { Component, OnInit,ElementRef,ViewChild } from '@angular/core';
+import { Component, OnInit,ElementRef,ViewChild, OnChanges } from '@angular/core';
 import { WinderService } from 'src/app/core/services/winder.service';
 import * as d3 from 'd3';
+import {Response} from '../../../../response.model'
+
 
 @Component({
   selector: 'app-chart1',
@@ -10,7 +12,7 @@ import * as d3 from 'd3';
 export class Chart1Component implements OnInit {
 
 public chartTitle="Film Tension";
-private winderData:any= [];
+ winderData:Response[]=[];
 // private weatherData:any=[];
    @ViewChild("chart", { static: true }) protected chartContainer: ElementRef;
   svg: any;
@@ -22,12 +24,32 @@ private winderData:any= [];
   width: number;
   height: number;
   n:any=[];
-  constructor(private winderService:WinderService) { }
-  ngOnInit(): void {
-    this.winderData =this.winderService.getAllDataPoints();
-    this.initChart();
-    this.createChart();
+  constructor(private winderService:WinderService) { 
+
   }
+   
+  // ngOnChanges():void{
+
+  // }
+  ngOnInit():void {
+    this.fetchData(); 
+    setTimeout(()=>{
+      this.initChart();
+      this.createChart()
+    },500)
+
+
+    }
+  
+   fetchData=()=>{
+    this.winderService.getAllDataPoints()
+    .subscribe((response:Response[])=>{
+       this.winderData = response['data'];
+      console.log(this.winderData)
+    })
+    return this.winderData
+  }
+ 
 // primer metodo para crear el contenedor del chart
   initChart() {
     const element = this.chartContainer.nativeElement;
@@ -38,23 +60,23 @@ private winderData:any= [];
       bottom: +this.svg.style("margin-bottom").replace("px", ""),
       left: +this.svg.style("margin-left").replace("px", "")
     };
-
     this.width = +this.svg.style("width").replace("px", "");
     this.height = +this.svg.style("height").replace("px", "");
     this.contentWidth = this.width - this.margin.left - this.margin.right;
     this.contentHeight = this.height - this.margin.top - this.margin.bottom;
     this.g = this.svg.append("g").attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
   }
-
-  createChart() {
-    var data =this.winderData;
-    var dataRange= data.map((x)=>x.roll_id);
+  genChart(){
+  }
+ createChart() {
+    var data =  this.winderData
+    // console.log(data)
     var xScale = d3.scalePoint()
-        .domain(data.map(d => d.roll_id))
+        .domain(data.map((d:any) => d.rollId))
         .range([0,this.contentWidth]) 
 
     var yScale = d3.scaleLinear()
-      .domain([0, Math.max.apply(Math, data.map(roll => roll.FilmTension))])
+      .domain([0, Math.max.apply(Math, data.map(roll => roll.filmTension))])
       .range([this.contentHeight, 0]); 
 
       var line = d3.line()
@@ -63,7 +85,7 @@ private winderData:any= [];
       .curve(d3.curveMonotoneX) 
 
       var dataset =data.map((roll)=>{
-      return {y:roll.FilmTension,x:roll.roll_id }})
+      return {y:roll.filmTension,x:roll.rollId }})
 
     this.g.append("g")
       .attr("class", "x axis")
@@ -93,5 +115,6 @@ private winderData:any= [];
       .attr("r", 3)
       
   }
+ 
 
 }

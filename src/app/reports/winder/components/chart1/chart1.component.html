@@ -4,10 +4,15 @@
       <mat-card-title><strong>{{chartTitle}}</strong></mat-card-title>
   </mat-card-header>
 
-   <mat-card-content>
-    <div class="chart__container">
-      <svg #chart class="svg__chart" ></svg>
+   <mat-card-content >
+     <!-- <p *ngFor="let data of winderData"> 
+       roll id : {{data.rollId}}
+     </p> -->
+    <div class="chart__container " >
+      <svg   #chart class="svg__chart" ></svg>
     </div>
+    <button (click)="genChart()" class="send__btn" mat-raised-button>Crear </button>
+
    </mat-card-content>
 
 </mat-card>
