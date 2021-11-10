@@ -87,20 +87,26 @@ contactWinding=[
 {"roll_id":"0A1602221556","w1Tensionp1":165,"w2Tensionp1":150,"w1Tensionp2":130,"w2Tensionp2":120,"w1Tensionp3":156,"w2Tensionp3":110,"w1Tensionp4":130,"w2Tensionp4":150,"w1Tensionp5":145,"w2Tensionp5":100.6,"w1Tensionp6":140,"w2Tensionp6":140,"w1Tensionp7":135,"w2Tensionp7":135,"w1Tensionp8":128,"w2Tensionp8":128,"w1Tensionp9":121.4,"w2Tensionp9":121.4,"w1Tensionp10":113.6,"w2Tensionp10":113.6,"w1Tensionp11":106.7,"w2Tensionp11":106.7,"w1Tensionp12":0,"w2Tensionp12":100.6,"w1Tensionp13":95.2,"w2Tensionp13":95.2,"w1Tensionp14":90.3,"w2Tensionp14":90.3,"w1Tensionp15":89.6,"w2Tensionp15":89.6,"w1Tensionp16":85,"w2Tensionp16":85,"w1Tensionp17":80.9,"w2Tensionp17":80.9,"w1Tensionp18":79.1,"w2Tensionp18":79.1,"w1Tensionp19":78.6,"w2Tensionp19":78.6,"w1Tensionp20":78.3,"w2Tensionp20":78.3
 },
 ]
-
-
+//film tension service--> returns fil tension
   constructor(private http:HttpClient) { }
   getAllDataPoints():Observable<Response[]> {
-    return this.http.get<Response[]>(`${environment.url_api}/winder/film-tension?startDate=2018-01-01&endDate=2018-01-02`);
+    return this.http.get<Response[]>(`${environment.url_api}/winder/film-tension`);
   }
   // getDataPoint(id:string){
   //   return this.winderData.find(item=>id=== item.roll_id); // busca y devuelve el item del param id
   // }
 
+  //tension control service returns setpoint y actual
+  getAllTensionControl(){
+    return this.http.get<Response[]>(`${environment.url_api}/winder/tension-control`);
+
+  };
   getAllGapWinding(){
     return this.gapWinding;
   }
    getAllContactWinding(){
     return this.contactWinding;
   }
+
+
 }

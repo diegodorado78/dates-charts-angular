@@ -1,4 +1,4 @@
-import { Component, OnInit,ElementRef,ViewChild, OnChanges } from '@angular/core';
+import { Component, OnInit,ElementRef,ViewChild, OnChanges, Input } from '@angular/core';
 import { WinderService } from 'src/app/core/services/winder.service';
 import * as d3 from 'd3';
 import {Response} from '../../../../response.model'
@@ -12,9 +12,8 @@ import {Response} from '../../../../response.model'
 export class Chart1Component implements OnInit {
 
 public chartTitle="Film Tension";
- winderData:Response[]=[];
-// private weatherData:any=[];
-   @ViewChild("chart", { static: true }) protected chartContainer: ElementRef;
+ @Input() filmTensionData:Response[];
+ @ViewChild("chart", { static: true }) protected chartContainer: ElementRef;
   svg: any;
   g: any;
   tooltip: any;
@@ -25,30 +24,32 @@ public chartTitle="Film Tension";
   height: number;
   n:any=[];
   constructor(private winderService:WinderService) { 
-
+   
   }
    
   // ngOnChanges():void{
 
   // }
   ngOnInit():void {
-    this.fetchData(); 
-    setTimeout(()=>{
-      this.initChart();
-      this.createChart()
-    },500)
+    //  this.initChart();
+    // this.createChart();
+    // this.fetchData(); 
+      setTimeout(()=>{
+       this.initChart();
+       this.createChart()
+     },1000)
 
-
+    
     }
   
-   fetchData=()=>{
-    this.winderService.getAllDataPoints()
-    .subscribe((response:Response[])=>{
-       this.winderData = response['data'];
-      console.log(this.winderData)
-    })
-    return this.winderData
-  }
+  //  fetchData=()=>{
+  //   this.winderService.getAllDataPoints()
+  //   .subscribe((response:Response[])=>{
+  //      this.winderData = response['data'];
+  //     console.log(this.winderData)
+  //   })
+  //   return this.winderData
+  // }
  
 // primer metodo para crear el contenedor del chart
   initChart() {
@@ -69,7 +70,7 @@ public chartTitle="Film Tension";
   genChart(){
   }
  createChart() {
-    var data =  this.winderData
+    var data =  this.filmTensionData
     // console.log(data)
     var xScale = d3.scalePoint()
         .domain(data.map((d:any) => d.rollId))

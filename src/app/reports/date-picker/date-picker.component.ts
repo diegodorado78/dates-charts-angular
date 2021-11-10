@@ -1,6 +1,9 @@
 import { Component, OnInit,Input, OnDestroy } from '@angular/core';
 import { Observable,Subscription } from 'rxjs';
 import { TitleService} from './../../core/services/title.service';
+import { WinderService } from 'src/app/core/services/winder.service';
+import {Response} from '../../response.model'
+
 @Component({
   selector: 'app-date-picker',
   templateUrl: './date-picker.component.html',
@@ -9,6 +12,7 @@ import { TitleService} from './../../core/services/title.service';
 export class DatePickerComponent implements OnInit,OnDestroy {
    // ISO 8601 Extended format
   //`YYYY-MM-DDTHH:mm:ss.sssZ`
+  winderData:Response[]=[];
   subscription: Subscription
   firstDate:any;
   message$:string;
@@ -24,4 +28,6 @@ export class DatePickerComponent implements OnInit,OnDestroy {
      this.subscription.unsubscribe();
   }
   
+ 
+ 
 }

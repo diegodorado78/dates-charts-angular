@@ -1,6 +1,8 @@
-import { Component, OnInit, ElementRef,ViewChild} from '@angular/core';
+import { Component, OnInit, ElementRef,ViewChild, Input} from '@angular/core';
 import * as d3 from 'd3';
 import { WinderService } from 'src/app/core/services/winder.service';
+import {Response} from '../../../../response.model'
+
 @Component({
   selector: 'app-chart2',
   templateUrl: './chart2.component.html',
@@ -8,8 +10,9 @@ import { WinderService } from 'src/app/core/services/winder.service';
 })
 export class Chart2Component implements OnInit {
 public chartTitle="Tension Control";
-private winderData:any= [];
-   @ViewChild("chart", { static: true }) protected chartContainer: ElementRef;
+private winderData:Response[]= [];
+@Input() tensionControlData:Response[];
+@ViewChild("chart", { static: true }) protected chartContainer: ElementRef;
   svg: any;
   g: any;
   tooltip: any;
@@ -21,9 +24,11 @@ private winderData:any= [];
   n:any=[];
   constructor(private winderService:WinderService) { }
   ngOnInit(): void {
-    this.winderData =this.winderService.getAllDataPoints();
-    this.initChart();
-    this.createChart();
+    // this.winderData =this.winderService.getAllDataPoints();
+    setTimeout(()=>{
+      this.initChart();
+      this.createChart()
+    },1000)
   }
   initChart() {
     const element = this.chartContainer.nativeElement;
@@ -42,14 +47,14 @@ private winderData:any= [];
     this.g = this.svg.append("g").attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
   }
   createChart() {
-    var data =this.winderData;
-    var dataRange= data.map((x)=>x.roll_id);
+    var data =this.tensionControlData;
+    var dataRange= data.map((x)=>x.rollId);
     var xScale = d3.scalePoint()
-        .domain(data.map(d => d.roll_id))
+        .domain(data.map(d => d.rollId))
         .range([0,this.contentWidth]) 
 
     var yScale = d3.scaleLinear()
-      .domain([0, Math.max.apply(Math, data.map(roll => roll.Actual))+5])
+      .domain([0, Math.max.apply(Math, data.map(roll => roll.actual))+5])
       .range([this.contentHeight, 0]);
 
     var line = d3.line()
@@ -63,9 +68,9 @@ private winderData:any= [];
       .curve(d3.curveMonotoneX) 
 
     var dataset =data.map((roll)=>{
-      return {y:roll.Setpoint,x:roll.roll_id}})
+      return {y:roll.setPoint,x:roll.rollId}})
     var dataset2 =data.map((roll)=>{
-      return {y:roll.Actual,x:roll.roll_id}})
+      return {y:roll.actual,x:roll.rollId}})
     
     this.g.append("g")
       .attr("class", "x axis")

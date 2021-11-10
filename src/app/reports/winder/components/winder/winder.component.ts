@@ -1,6 +1,9 @@
 import { Component, OnInit,ElementRef,ViewChild} from '@angular/core';
 // import { HttpClient } from '@angular/common/http';
-// import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs'
+import {Response} from '../../../../response.model'
+import { WinderService } from 'src/app/core/services/winder.service';
+
 
 @Component({
   selector: 'app-winder',
@@ -8,8 +11,27 @@ import { Component, OnInit,ElementRef,ViewChild} from '@angular/core';
   styleUrls: ['./winder.component.scss']
 })
 export class WinderComponent implements OnInit {
-constructor(){}
-ngOnInit(){}
+  filmTensionData:Response[]=[];
+  tensionControlData:Response[]=[];
+
+
+constructor(private winderService:WinderService){}
+ngOnInit(){
+  this.fetchData();
+
+}
+
+fetchData=()=>{
+  this.winderService.getAllDataPoints()
+  .subscribe((response:Response[])=>{
+     this.filmTensionData = response['data'];
+  })
+  this.winderService.getAllTensionControl()
+  .subscribe((response:Response[])=>{
+     this.tensionControlData = response['data'];
+  })
+}
+
 }
 //console.log de lo que devuelve
 // function (d) { return { "y": d3.randomUniform(300)() }
