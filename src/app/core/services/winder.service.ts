@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { catchError } from 'rxjs/internal/operators';
-import {Response} from '../../response.model'
+import {WResponse} from '../../winderResponse.model' ;
+import {Response} from '../../response.model' ;
+
 
 @Injectable({
   providedIn: 'root'
@@ -89,6 +90,7 @@ contactWinding=[
 ]
 //film tension service--> returns fil tension
   constructor(private http:HttpClient) { }
+
   getAllDataPoints():Observable<Response[]> {
     return this.http.get<Response[]>(`${environment.url_api}/winder/film-tension`);
   }
@@ -102,10 +104,10 @@ contactWinding=[
 
   };
   getAllGapWinding(){
-    return this.gapWinding;
+    return this.http.get<WResponse[]>(`${environment.url_api}/winder/gap-winding`);
   }
    getAllContactWinding(){
-    return this.contactWinding;
+    return this.http.get<WResponse[]>(`${environment.url_api}/winder/contact-winding`);
   }
 
 

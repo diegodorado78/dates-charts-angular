@@ -1,6 +1,7 @@
 import { Component, OnInit,ViewChild,ElementRef} from '@angular/core';
 import * as d3 from 'd3';
 import { DieService } from 'src/app/core/services/die.service'
+
 @Component({
   selector: 'app-chart3',
   templateUrl: './chart3.component.html',

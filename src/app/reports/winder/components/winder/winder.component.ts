@@ -3,6 +3,7 @@ import { Component, OnInit,ElementRef,ViewChild} from '@angular/core';
 // import { Observable } from 'rxjs'
 import {Response} from '../../../../response.model'
 import { WinderService } from 'src/app/core/services/winder.service';
+import {WResponse} from '../../../../winderResponse.model'
 
 
 @Component({
@@ -13,6 +14,8 @@ import { WinderService } from 'src/app/core/services/winder.service';
 export class WinderComponent implements OnInit {
   filmTensionData:Response[]=[];
   tensionControlData:Response[]=[];
+  gapWindingData:WResponse[]=[];
+  contactWindingData:WResponse[]=[];
 
 
 constructor(private winderService:WinderService){}
@@ -29,6 +32,14 @@ fetchData=()=>{
   this.winderService.getAllTensionControl()
   .subscribe((response:Response[])=>{
      this.tensionControlData = response['data'];
+  })
+  this.winderService.getAllGapWinding()
+  .subscribe((response:WResponse[])=>{
+     this.gapWindingData = response['data'];
+  })
+  this.winderService.getAllContactWinding()
+  .subscribe((response:WResponse[])=>{
+     this.contactWindingData = response['data'];
   })
 }
 

@@ -10,7 +10,6 @@ import {Response} from '../../../../response.model'
 })
 export class Chart2Component implements OnInit {
 public chartTitle="Tension Control";
-private winderData:Response[]= [];
 @Input() tensionControlData:Response[];
 @ViewChild("chart", { static: true }) protected chartContainer: ElementRef;
   svg: any;
@@ -48,6 +47,7 @@ private winderData:Response[]= [];
   }
   createChart() {
     var data =this.tensionControlData;
+    console.log(data)
     var dataRange= data.map((x)=>x.rollId);
     var xScale = d3.scalePoint()
         .domain(data.map(d => d.rollId))

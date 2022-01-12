@@ -34,7 +34,7 @@ public chartTitle="Film Tension";
     //  this.initChart();
     // this.createChart();
     // this.fetchData(); 
-      setTimeout(()=>{
+       setTimeout(()=>{
        this.initChart();
        this.createChart()
      },1000)
@@ -71,7 +71,7 @@ public chartTitle="Film Tension";
   }
  createChart() {
     var data =  this.filmTensionData
-    // console.log(data)
+    console.log(data)
     var xScale = d3.scalePoint()
         .domain(data.map((d:any) => d.rollId))
         .range([0,this.contentWidth]) 

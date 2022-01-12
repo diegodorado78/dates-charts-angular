@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url_api:'http://172.18.22.90:9081/btar/v1'
+  url_api:'http://172.18.22.65:9081/btar/v1'
 };
 
 /*
