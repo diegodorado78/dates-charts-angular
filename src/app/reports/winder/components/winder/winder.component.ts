@@ -20,28 +20,28 @@ export class WinderComponent implements OnInit {
 
 constructor(private winderService:WinderService){}
 ngOnInit(){
-  this.fetchData();
+  // this.fetchData();
 
 }
 
-fetchData=()=>{
-  this.winderService.getAllDataPoints()
-  .subscribe((response:Response[])=>{
-     this.filmTensionData = response['data'];
-  })
-  this.winderService.getAllTensionControl()
-  .subscribe((response:Response[])=>{
-     this.tensionControlData = response['data'];
-  })
-  this.winderService.getAllGapWinding()
-  .subscribe((response:WResponse[])=>{
-     this.gapWindingData = response['data'];
-  })
-  this.winderService.getAllContactWinding()
-  .subscribe((response:WResponse[])=>{
-     this.contactWindingData = response['data'];
-  })
-}
+// fetchData=()=>{
+//   // this.winderService.getAllDataPoints()
+//   // .subscribe((response:Response[])=>{
+//   //    this.filmTensionData = response['data'];
+//   // })
+//   this.winderService.getAllTensionControl()
+//   .subscribe((response:Response[])=>{
+//      this.tensionControlData = response['data'];
+//   })
+//   this.winderService.getAllGapWinding()
+//   .subscribe((response:WResponse[])=>{
+//      this.gapWindingData = response['data'];
+//   })
+//   this.winderService.getAllContactWinding()
+//   .subscribe((response:WResponse[])=>{
+//      this.contactWindingData = response['data'];
+//   })
+// }
 
 }
 //console.log de lo que devuelve

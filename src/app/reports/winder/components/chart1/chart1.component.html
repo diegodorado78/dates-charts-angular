@@ -8,9 +8,12 @@
       <!-- <p *ngFor="let data of winderDat"> 
        roll id : {{data.rollId}}
      </p>  -->
-    <div class="chart__container "  >
+    <!-- <div class="chart__container "  >
       <svg   #chart class="svg__chart" ></svg>
-    </div> 
+    </div>  -->
+    <div width="100%" height="100%">
+      <canvas   width="250px"height="400px" id="canvas">{{myChart}}</canvas>
+    </div>
     
    </mat-card-content>
 
