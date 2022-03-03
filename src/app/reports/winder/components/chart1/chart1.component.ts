@@ -13,65 +13,8 @@ import {Response} from '../../../../response.model'
   styleUrls: ['./chart1.component.scss']
 })
 export class Chart1Component implements OnInit {
-  // winderData:Response[]= [
-  //   {"rollId":"0A1602221603","filmTension":132,"setPoint":42.8,"actual":29.4,},
-  //   {"rollId":"0A1602221748","filmTension":139.1,"setPoint":42.9,"actual":31.4,},
-  //   {"rollId":"0A1602221932","filmTension":135.3,"setPoint":42.8,"actual":30,},
-  //   {"rollId":"0A1602222327","filmTension":184.6,"setPoint":42.9,"actual":40.6,},
-  //   {"rollId":"0A1602230334","filmTension":119.6,"setPoint":42.8,"actual":26.5,},
-  //   {"rollId":"0A1602231554","filmTension":202.4,"setPoint":42.8,"actual":43.8,},
-  //   {"rollId":"0A1602232120","filmTension":135.2,"setPoint":42.8,"actual":30.1,},
-  //   {"rollId":"0A1602240211","filmTension":192.3,"setPoint":42.9,"actual":42.3,},
-  //   {"rollId":"0A1602240918","filmTension":136.8,"setPoint":42.8,"actual":31.3,},
-  //   {"rollId":"0A1602241019","filmTension":217.4,"setPoint":42.8,"actual":47.5,},
-  //   {"rollId":"0A1602241140","filmTension":146,"setPoint":42.8,"actual":32.9,},
-  //   {"rollId":"0A1602242455","filmTension":145,"setPoint":42.8,"actual":32.5,},
-  //   {"rollId":"0A1602250854","filmTension":138.9,"setPoint":42.8,"actual":31.3,},
-  //   {"rollId":"0A1602251419","filmTension":150.5,"setPoint":42.8,"actual":33.2,},
-  //   {"rollId":"0A1604240933","filmTension":44.4,"setPoint":42.8,"actual":11.6,},
-  //   {"rollId":"0A1604241245","filmTension":58.4,"setPoint":42.8,"actual":14.6,},
-  //   {"rollId":"0A1604241404","filmTension":49.5,"setPoint":42.8,"actual":12.9,},
-  //   {"rollId":"0A1604241701","filmTension":67.4,"setPoint":42.8,"actual":15.8,},
-  //   {"rollId":"0A1604242329","filmTension":82,"setPoint":42.8,"actual":19.1,},
-  //   {"rollId":"0A1604250142","filmTension":92.3,"setPoint":42.8,"actual":20.9,},
-  //   {"rollId":"0A1604250643","filmTension":146.4,"setPoint":42.7,"actual":31.1,},
-  //   {"rollId":"0A1604251351","filmTension":128,"setPoint":42.8,"actual":28.8,},
-  //   {"rollId":"0A1604251719","filmTension":139.4,"setPoint":42.8,"actual":31,}
-  //   ,{"rollId":"0A1604251904","filmTension":145,"setPoint":42.8,"actual":31.7,},
-  //   {"rollId":"0A1606101615","filmTension":198.5,"setPoint":42.8,"actual":43,},
-  //   {"rollId":"0A1606101822","filmTension":224.9,"setPoint":42.9,"actual":48.9,},
-  //   {"rollId":"0A1606102326","filmTension":245.8,"setPoint":42.8,"actual":52.9,},
-  //   {"rollId":"0A1606110251","filmTension":223.9,"setPoint":42.8,"actual":48.4,},
-  //   {"rollId":"0A1606110733","filmTension":186.4,"setPoint":42.7,"actual":39.8,},
-  //   {"rollId":"0A1606111154","filmTension":187.7,"setPoint":42.8,"actual":40.9,},
-  //   {"rollId":"0A1606111514","filmTension":207.7,"setPoint":42.8,"actual":44.9,},
-  //   {"rollId":"0A1606111826","filmTension":178.5,"setPoint":42.9,"actual":39.2,},
-  //   {"rollId":"0A1606112242","filmTension":175.6,"setPoint":42.9,"actual":38.9,},
-  //   {"rollId":"0A1606112449","filmTension":192.3,"setPoint":42.9,"actual":41.6,},
-  //   {"rollId":"0A1606120256","filmTension":192.3,"setPoint":42.9,"actual":42.1,},
-  //   {"rollId":"0A1606120609","filmTension":193.9,"setPoint":42.7,"actual":41.2,},
-  //   {"rollId":"0A1606121157","filmTension":169.3,"setPoint":42.8,"actual":37.1,},
-  //   {"rollId":"0A1606121507","filmTension":180.7,"setPoint":42.8,"actual":39.4,},
-  //   {"rollId":"0A1606121938","filmTension":206.8,"setPoint":42.8,"actual":44.4,},
-  //   {"rollId":"0A1606122253","filmTension":178,"setPoint":42.9,"actual":39,}
-  //   ,{"rollId":"0A1606130207","filmTension":198.2,"setPoint":42.8,"actual":2.8},
-  //   {"rollId":"0A1606130521","filmTension":194.4,"setPoint":42.6,"actual":41.4,},
-  //   {"rollId":"0A1607291555","filmTension":208.6,"setPoint":42.9,"actual":45,}
-  //   ,{"rollId":"0A1607291748","filmTension":192.2,"setPoint":42.9,"actual":41.8,},
-  //   {"rollId":"0A1607292308","filmTension":174.9,"setPoint":42.8,"actual":38,}
-  //   ,{"rollId":"0A1607300157","filmTension":194.2,"setPoint":42.8,"actual":42.2,},
-  //   {"rollId":"0A1607300406","filmTension":194.5,"setPoint":42.6,"actual":41.3,},
-  //   {"rollId":"0A1607300734","filmTension":191,"setPoint":42.7,"actual":40.5,},
-  //   {"rollId":"0A1607301245","filmTension":171.1,"setPoint":42.9,"actual":37.6,},
-  //   {"rollId":"0A1607310425","filmTension":188.6,"setPoint":42.7,"actual":40.3,},
-  //   {"rollId":"0A1609081528","filmTension":229.7,"setPoint":42.8,"actual":49.9,},
-  //   {"rollId":"0A1609081821","filmTension":215.6,"setPoint":42.8,"actual":47.1,},
-  //   {"rollId":"0A1609082155","filmTension":230.5,"setPoint":42.8,"actual":50.3,},
-  //   {"rollId":"0A1609082300","filmTension":230.9,"setPoint":42.8,"actual":49.8,},
-  //   {"rollId":"0A1609090252","filmTension":212.3,"setPoint":42.8,"actual":46.1,},  
-  //    ];
-
-public chartTitle="Film Tension";
+ 
+public chartTitle="patito";
 winderData:Response[];
 data1:any;
 data2:any;
@@ -99,8 +42,6 @@ data3:any;
     this.data3 =this.winderData.map(film=>{return film.actual});
   }
    
-  // ngOnChanges():void{
-  // }
   ngOnInit():void {
     this.myChart=document.getElementById('canvas')
     Chart.register(...registerables);
@@ -117,21 +58,26 @@ data3:any;
               label: 'Film tension',
               data: this.data2,
               borderColor: 'rgba(255, 99, 132, 1)',
-              borderWidth: 2.8,
-              tension: .3
+              borderWidth: 3,
+              tension: 0.5,
+              pointRadius:2,
+              pointBorderColor:'rgba(255, 0, 0, 0.8)'
               },
               {
               label: 'Tension control',
               data: this.data3,
-              borderColor:'rgba(0, 0, 139, 1)',
-              borderWidth: 2,
-              tension: 0.2
+              borderColor:'rgba(0, 0, 120, 0.7)',
+              borderWidth: 3,
+              tension: 0.5,
+              pointRadius:2,
+              pointBorderColor:'rgba(0, 0, 139, 1)'
               }
               ]
      },
       options:{
         responsive:true,
-        maintainAspectRatio:true,
+        maintainAspectRatio:false,
+
         scales:{
           y:{
             beginAtZero:true,
@@ -171,7 +117,7 @@ data3:any;
         }
       }
     })
-   
+  
   //  fetchData=()=>{
   //   this.winderService.getAllDataPoints()
   //   .subscribe((response:Response[])=>{

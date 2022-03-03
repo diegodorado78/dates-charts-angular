@@ -1,7 +1,7 @@
 <mat-card>
   
   <mat-card-header>
-      <mat-card-title><strong>{{chartTitle}}</strong></mat-card-title>
+      <mat-card-title id="titulo">{{chartTitle}}</mat-card-title>
   </mat-card-header>
 
    <mat-card-content  >
@@ -11,9 +11,11 @@
     <!-- <div class="chart__container "  >
       <svg   #chart class="svg__chart" ></svg>
     </div>  -->
-    <div width="100%" height="100%">
-      <canvas   width="250px"height="400px" id="canvas">{{myChart}}</canvas>
+    <div class="chart__container" >
+      <canvas id="canvas"  height="400px">{{myChart}} </canvas>
     </div>
+    <button mat-raised-button color="primary">Enable Zoom </button >
+    <button mat-raised-button >Reset Zoom </button>
     
    </mat-card-content>
 

@@ -15,6 +15,6 @@ import { Chart4Component } from './components/chart4/chart4.component';
         SharedModule,
         WinderRoutingModule,
         MaterialModule
-  ]
+  ],
 })
 export class WinderModule { }

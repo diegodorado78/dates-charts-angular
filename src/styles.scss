@@ -44,47 +44,52 @@ html, body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  h1{
-    text-align: center;
- }
-  }
+}
 
-  .container{
-   display: flex;
-   flex-direction: column;
-   width: 100%;
-   min-height: 90vh;
-   background: linear-gradient(to right, #EAEAEA, #CCCC);
-   }
- 
+.container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 90vh;
+  background: linear-gradient(to right, #EAEAEA, #ccc);
+  }
 // Global styles for charts
+
 .reports__container {
   background-image: url("https://d39dczdz8fv6rw.cloudfront.net/cache-buster-1592204952/test-images/image-thumb__8__hero-img-full-height/img-msb.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
 }
+.mat-typography{
+   h1{
+   margin: 10px auto;
+   text-align: center;
+   font-weight: bold;
+  }
+}
+
 .charts__container{
   display: grid;
   grid-template-columns:repeat(1,1fr) ;
    width: 90%;
    height: 90%;
    margin:auto 5%;
-   padding: 0px;
  }
 
- .mat-card{
-  padding: 0;
-  margin: 10px auto;
-}
-
- .mat-card-header{
+ mat-card{
+   margin: 10px auto;
+ }
+ mat-card-header{
  justify-content: center;
  }
 
- .mat-card-content{
+ mat-card-content{
   width: 100%;
-  margin: auto;
+  height: 100%;
+  text-align: center;
+  margin:10px auto;
+  
   }
 
  .chart__container{
@@ -92,23 +97,11 @@ html, body {
   justify-content: center;
   align-content: center;
   width:98%;
-  height: 100%;
+  height: 50vh;
   margin: auto ;
- //  height: 100%; reduce el espacio de card
-  border: 1px solid #ccc;
+  position: relative;
+  border: 1px solid red;
  }
-
- .svg__container{
-   width: 100%;
-   height: 100%;
- }
- 
- .svg__chart{
-    width: 250px;
-    height: 300px;
-    object-fit: contain;
-    margin:5% 5% 15% 10%;
-  }
 
 //Global styles for pages
 
@@ -116,39 +109,30 @@ html, body {
 
  @media (min-width: 768px) {
   .container{
-width: 90%;
-margin: auto;
+  width: 90%;
+  margin: auto;
   }
   .charts__container{
     display: grid;
-    grid-template-columns:repeat(2,1fr) ;
+    grid-template-columns:repeat(3,1fr) ;
     width: 90%;
     margin: 1% 5%;
     grid-gap: 5px;
     padding: 5px;
   }
  
-  .mat-card{
+  mat-card{
+    display: flex;
     padding: 0;
     width: 90%;
+    max-width: 500px;
     margin: 10px auto;
-  }
-
-  .chart__container{
-    width: 90%;
-   margin: 5%;
-  }
-  
-  .svg__container{
-    width: 100%;
-    height: 90%;
-  }
-  
-  .svg__chart{
-    width: 70%;
-    min-height: 70%;
-    margin:5% 5% 10% 10%;
-
     }
-    
- }
+    .chart__container{
+      width:100%;
+      height: 50vh;      
+     }
+  }
+  
+  
+  
