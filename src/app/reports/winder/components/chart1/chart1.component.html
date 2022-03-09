@@ -1,11 +1,11 @@
 <mat-card>
-  
+
   <mat-card-header>
       <mat-card-title id="titulo">{{chartTitle}}</mat-card-title>
   </mat-card-header>
 
    <mat-card-content  >
-      <!-- <p *ngFor="let data of winderDat"> 
+      <!-- <p *ngFor="let data of winderDat">
        roll id : {{data.rollId}}
      </p>  -->
     <!-- <div class="chart__container "  >
@@ -15,8 +15,8 @@
       <canvas id="canvas"  height="400px">{{myChart}} </canvas>
     </div>
     <button mat-raised-button color="primary">Enable Zoom </button >
-    <button mat-raised-button >Reset Zoom </button>
-    
+    <button mat-raised-button  (click)="resetZoom()">Reset Zoom </button>
+
    </mat-card-content>
 
 </mat-card>

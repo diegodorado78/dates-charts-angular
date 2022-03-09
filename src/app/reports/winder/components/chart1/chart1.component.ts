@@ -13,7 +13,7 @@ import {Response} from '../../../../response.model'
   styleUrls: ['./chart1.component.scss']
 })
 export class Chart1Component implements OnInit {
- 
+
 public chartTitle="patito";
 winderData:Response[];
 data1:any;
@@ -33,26 +33,26 @@ data3:any;
   // n:any=[];
 
   myChart: any;
-  
 
-  constructor(private winderService:WinderService) { 
+
+  constructor(private winderService:WinderService) {
     this.winderData = this.winderService.getAllDataPoints();
     this.data1 =this.winderData.map(film=>{return film.rollId});
     this.data2 =this.winderData.map(film=>{return film.filmTension});
     this.data3 =this.winderData.map(film=>{return film.actual});
   }
-   
+
   ngOnInit():void {
     this.myChart=document.getElementById('canvas')
     Chart.register(...registerables);
     this.loadChart();
   }
-  
+
     loadChart(){
      new Chart(this.myChart,{
       type: 'line',
       data: {
-          labels: this.data1 ,      
+          labels: this.data1 ,
           datasets: [
               {
               label: 'Film tension',
@@ -112,12 +112,12 @@ data3:any;
                 enabled: true
               },
               mode: 'xy',
-            }         
+            }
           }
         }
-      }
+      },
     })
-  
+
   //  fetchData=()=>{
   //   this.winderService.getAllDataPoints()
   //   .subscribe((response:Response[])=>{
@@ -126,7 +126,7 @@ data3:any;
   //   })
   //   return this.winderData
   // }
- 
+
 // // primer metodo para crear el contenedor del chart
 //   initChart() {
 //     const element = this.chartContainer.nativeElement;
@@ -150,16 +150,16 @@ data3:any;
 //     console.log(data)
 //     var xScale = d3.scalePoint()
 //         .domain(data.map((d:any) => d.rollId))
-//         .range([0,this.contentWidth]) 
+//         .range([0,this.contentWidth])
 
 //     var yScale = d3.scaleLinear()
 //       .domain([0, Math.max.apply(Math, data.map(roll => roll.filmTension))])
-//       .range([this.contentHeight, 0]); 
+//       .range([this.contentHeight, 0]);
 
 //       var line = d3.line()
-//       .x(function (d:any, i:any) { return xScale(d.x); }) 
-//       .y(function (d: any) { return yScale(d.y); }) 
-//       .curve(d3.curveMonotoneX) 
+//       .x(function (d:any, i:any) { return xScale(d.x); })
+//       .y(function (d: any) { return yScale(d.y); })
+//       .curve(d3.curveMonotoneX)
 
 //       var dataset =data.map((roll)=>{
 //       return {y:roll.filmTension,x:roll.rollId }})
@@ -167,7 +167,7 @@ data3:any;
 //     this.g.append("g")
 //       .attr("class", "x axis")
 //       .attr("transform", "translate(" + 0 + "," + this.contentHeight + ")")
-//       .call(d3.axisBottom(xScale)); 
+//       .call(d3.axisBottom(xScale));
 
 //     this.g.selectAll("text")
 //     .attr("transform", "translate(-10,0)rotate(-90)")
@@ -176,20 +176,23 @@ data3:any;
 
 //     this.g.append("g")
 //       .attr("class", "y axis")
-//       .call(d3.axisLeft(yScale)); 
+//       .call(d3.axisLeft(yScale));
 
 //     this.g.append("path")
-//       .datum(dataset ) 
-//       .attr("class", "winder__c1-line1") 
-//       .attr("d", line); 
-    
+//       .datum(dataset )
+//       .attr("class", "winder__c1-line1")
+//       .attr("d", line);
+
 //     this.g.selectAll(".dot")
 //       .data(dataset)
-//       .enter().append("circle") 
-//       .attr("class", "winder__c1-dot") 
+//       .enter().append("circle")
+//       .attr("class", "winder__c1-dot")
 //       .attr("cx", function (d, i) { return xScale(d.x) })
 //       .attr("cy", function (d) { return yScale(d.y) })
 //       .attr("r", 3)
 //   }
+}
+resetZoom(){
+  this.myChart.resetZoom()
 }
 }
