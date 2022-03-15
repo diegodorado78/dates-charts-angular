@@ -1,10 +1,9 @@
-import { Component, OnInit,ElementRef,ViewChild} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { WinderService } from 'src/app/core/services/winder.service';
 import { Chart, registerables } from 'chart.js';
 import zoomPlugin from 'chartjs-plugin-zoom';
 Chart.register(zoomPlugin);
 import {Response} from '../../../../response.model'
-
 
 @Component({
   selector: 'app-chart1',
@@ -23,14 +22,12 @@ myChart: any;
 enableState:boolean;
 stateMessage:String;
 enableButton:any;
-// @ViewChild("enableButton") enableButton: ElementRef;
-
+ 
   constructor(private winderService:WinderService) {
     this.winderData = this.winderService.getAllDataPoints();
     this.data1 =this.winderData.map(film=>{return film.rollId});
     this.data2 =this.winderData.map(film=>{return film.filmTension});
     this.data3 =this.winderData.map(film=>{return film.actual});
-
   }
 
   ngOnInit():void {
@@ -50,15 +47,6 @@ enableButton:any;
               tension: 0.5,
               pointRadius:2,
               pointBorderColor:'rgba(255, 0, 0, 0.8)'
-              },
-              {
-              label: 'Tension control',
-              data: this.data3,
-              borderColor:'rgba(0, 0, 120, 0.7)',
-              borderWidth: 3,
-              tension: 0.5,
-              pointRadius:2,
-              pointBorderColor:'rgba(0, 0, 139, 1)'
               }
               ]
      },
@@ -112,19 +100,18 @@ enableButton:any;
   }
 
   setState(){
-    this.enableState=this.chart.options.plugins.zoom.zoom.wheel.enabled;
+  this.enableState=this.chart.options.plugins.zoom.zoom.wheel.enabled;
   if(this.enableState){
     return this.stateMessage="Enabled"
   }else{
-  return this.stateMessage="Disabled";
+    return this.stateMessage="Disabled";
+  }
   }
 
-  }
   enableZoom(){
     this.chart.options.plugins.zoom.zoom.wheel.enabled = !this.chart.options.plugins.zoom.zoom.wheel.enabled;
     this.setState();
     this.chart.update();
-
   }
 }
 

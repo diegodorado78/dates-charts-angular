@@ -1,6 +1,8 @@
-import { Component, OnInit, ElementRef,ViewChild, Input} from '@angular/core';
-import * as d3 from 'd3';
+import { Component, OnInit} from '@angular/core';
 import { WinderService } from 'src/app/core/services/winder.service';
+import { Chart, registerables } from 'chart.js';
+import zoomPlugin from 'chartjs-plugin-zoom';
+Chart.register(zoomPlugin);
 import {Response} from '../../../../response.model'
 
 @Component({
@@ -9,91 +11,115 @@ import {Response} from '../../../../response.model'
   styleUrls: ['./chart2.component.scss']
 })
 export class Chart2Component implements OnInit {
-public chartTitle="Tension Control";
-@Input() tensionControlData:Response[];
-@ViewChild("chart", { static: true }) protected chartContainer: ElementRef;
-  svg: any;
-  g: any;
-  tooltip: any;
-  margin: { top: number; right: number; bottom: number; left: number; };
-  contentWidth: number;
-  contentHeight: number;
-  width: number;
-  height: number;
-  n:any=[];
-  constructor(private winderService:WinderService) { }
-  ngOnInit(): void {
-    // this.winderData =this.winderService.getAllDataPoints();
-    setTimeout(()=>{
-      this.initChart();
-      this.createChart()
-    },1000)
-  }
-  initChart() {
-    const element = this.chartContainer.nativeElement;
-    this.svg = d3.select(element);
-    this.margin = {
-      top: +this.svg.style("margin-top").replace("px", ""),
-      right: +this.svg.style("margin-right").replace("px", ""),
-      bottom: +this.svg.style("margin-bottom").replace("px", ""),
-      left: +this.svg.style("margin-left").replace("px", "")
-    };
-
-    this.width = +this.svg.style("width").replace("px", "");
-    this.height = +this.svg.style("height").replace("px", "");
-    this.contentWidth = this.width - this.margin.left - this.margin.right;
-    this.contentHeight = this.height - this.margin.top - this.margin.bottom;
-    this.g = this.svg.append("g").attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
-  }
-  createChart() {
-    var data =this.tensionControlData;
-    console.log(data)
-    var dataRange= data.map((x)=>x.rollId);
-    var xScale = d3.scalePoint()
-        .domain(data.map(d => d.rollId))
-        .range([0,this.contentWidth]) 
-
-    var yScale = d3.scaleLinear()
-      .domain([0, Math.max.apply(Math, data.map(roll => roll.actual))+5])
-      .range([this.contentHeight, 0]);
-
-    var line = d3.line()
-      .x(function (d:any, i:any) { return xScale(d.x); }) 
-      .y(function (d: any) { return yScale(d.y); }) 
-      .curve(d3.curveMonotoneX) 
-
-    var line2 = d3.line()
-      .x(function (d:any, i:any) { return xScale(d.x); }) 
-      .y(function (d: any) { return yScale(d.y); }) 
-      .curve(d3.curveMonotoneX) 
-
-    var dataset =data.map((roll)=>{
-      return {y:roll.setPoint,x:roll.rollId}})
-    var dataset2 =data.map((roll)=>{
-      return {y:roll.actual,x:roll.rollId}})
-    
-    this.g.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(" + 0 + "," + this.contentHeight + ")")
-      .call(d3.axisBottom(xScale)); 
-    this.g.selectAll("text")
-    .attr("transform", "translate(-10,0)rotate(-45)")
-    .style("text-anchor", "end")
-    .style("font-size",".8em");
-
-    this.g.append("g")
-      .attr("class", "y axis")
-      .call(d3.axisLeft(yScale)); 
-
-    this.g.append("path")
-      .datum(dataset ) 
-      .attr("class", "winder__c2-line1") 
-      .attr("d", line); 
-      
-    this.g.append("path")
-      .datum(dataset2 )
-      .attr("class", "winder__c2-line2")
-      .attr("d", line2);
-  }
+  public chartTitle="Tension Control";
+  winderData:Response[];
+  data1:any;
+  data2:any;
+  data3:any;
+  chart:any
+  myChart: any;
+  enableState:boolean;
+  stateMessage:String;
+  enableButton:any;
+   
+    constructor(private winderService:WinderService) {
+      this.winderData = this.winderService.getAllDataPoints();
+      this.data1 =this.winderData.map(film=>{return film.rollId});
+      this.data2 =this.winderData.map(film=>{return film.filmTension});
+      this.data3 =this.winderData.map(film=>{return film.actual});
+    }
+  
+    ngOnInit():void {
+      Chart.register(...registerables);
+      this.myChart=document.getElementById('chart2');
+      this.enableButton=document.getElementById('enableButton')
+      this.chart= new Chart(this.myChart,{
+        type: 'line',
+        data: {
+            labels: this.data1 ,
+            datasets: [
+                {
+                label: 'Film tension',
+                data: this.data2,
+                borderColor: 'rgba(34,139,34, 1)',
+                borderWidth: 3,
+                tension: 0.5,
+                pointRadius:2,
+                pointBorderColor:'rgba((34,139,34, 0.8)'
+                },
+                {
+                label: 'Tension control',
+                data: this.data3,
+                borderColor:'rgba(0, 0, 120, 0.7)',
+                borderWidth: 3,
+                tension: 0.5,
+                pointRadius:2,
+                pointBorderColor:'rgba(0, 0, 139, 1)'
+                }
+                ]
+       },
+        options:{
+          responsive:true,
+          maintainAspectRatio:false,
+  
+          scales:{
+            y:{
+              beginAtZero:true,
+              ticks:{
+                font:{
+                  size:10
+                }
+              }
+            },
+            x:{
+              ticks:{
+                font:{
+                  size:10
+                }
+              }
+            },
+          },
+          plugins:{
+            legend: {
+              labels: {
+                  font: {
+                      size: 10
+                  }
+              }
+          },
+            zoom:{
+              zoom: {
+                wheel: {
+                  enabled: true,
+                },
+                pinch: {
+                  enabled: true
+                },
+                mode: 'xy',
+              }
+            }
+          }
+        },
+      })
+       this.setState()
+    }
+    resetZoom(){
+     this.chart.resetZoom();
+    }
+  
+    setState(){
+    this.enableState=this.chart.options.plugins.zoom.zoom.wheel.enabled;
+    if(this.enableState){
+      return this.stateMessage="Enabled"
+    }else{
+      return this.stateMessage="Disabled";
+    }
+    }
+  
+    enableZoom(){
+      this.chart.options.plugins.zoom.zoom.wheel.enabled = !this.chart.options.plugins.zoom.zoom.wheel.enabled;
+      this.setState();
+      this.chart.update();
+    }
 
 }
