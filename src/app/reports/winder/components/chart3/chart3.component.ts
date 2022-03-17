@@ -13,9 +13,11 @@ import {WResponse} from '../../../../winderResponse.model'
 export class Chart3Component implements OnInit {
   chartTitle='Gap Winding';
   winderData:WResponse[];
-  data1:any;
-  data2:any;
-  data3:any;
+  dataId:any;
+  data1_1:any;
+  data2_1:any;
+  data1_2:any;
+  data2_2:any;
   chart:any
   myChart: any;
   enableState:boolean;
@@ -24,38 +26,58 @@ export class Chart3Component implements OnInit {
    
     constructor(private winderService:WinderService) {
       this.winderData = this.winderService.getAllGapWinding();
-      this.data1 =this.winderData.map(film=>{return film.rollId});
-      this.data2 =this.winderData.map(film=>{return film.filmTension});
-      this.data3 =this.winderData.map(film=>{return film.actual});
+      this.dataId =this.winderData.map(film=>{return film.rollId});
+      this.data1_1 =this.winderData.map(film=>{return film.w1TensionP1});
+      this.data2_1 =this.winderData.map(film=>{return film.w2TensionP1});
+      this.data1_2 =this.winderData.map(film=>{return film.w1TensionP2});
+      this.data2_2 =this.winderData.map(film=>{return film.w2TensionP2});
     }
   
     ngOnInit():void {
       Chart.register(...registerables);
-      this.myChart=document.getElementById('chart2');
+      this.myChart=document.getElementById('chart3');
       this.enableButton=document.getElementById('enableButton')
       this.chart= new Chart(this.myChart,{
         type: 'line',
         data: {
-            labels: this.data1 ,
+            labels: this.dataId ,
             datasets: [
                 {
-                label: 'Film tension',
-                data: this.data2,
+                label: 'w1TensionP1',
+                data: this.data1_1,
                 borderColor: 'rgba(34,139,34, 1)',
                 borderWidth: 3,
                 tension: 0.5,
                 pointRadius:2,
-                pointBorderColor:'rgba((34,139,34, 0.8)'
+                pointBorderColor:'rgba(34,139,34, 0.8)'
                 },
                 {
-                label: 'Tension control',
-                data: this.data3,
-                borderColor:'rgba(0, 0, 120, 0.7)',
+                label: 'w2TensionP1',
+                data: this.data2_1,
+                borderColor:'rgb(243, 181, 81)',
                 borderWidth: 3,
                 tension: 0.5,
                 pointRadius:2,
-                pointBorderColor:'rgba(0, 0, 139, 1)'
-                }
+                pointBorderColor:'rgb(243, 181, 81)'
+                },
+                {
+                  label: 'w1TensionP2',
+                  data: this.data1_2,
+                  borderColor:'rgba(0, 0, 120, 0.7)',
+                  borderWidth: 3,
+                  tension: 0.5,
+                  pointRadius:2,
+                  pointBorderColor:'rgba(0, 0, 139, 1)'
+                  },
+                  {
+                    label: 'w2TensionP1',
+                    data: this.data2_2,
+                    borderColor:'rgb(42, 124, 190)',
+                    borderWidth: 3,
+                    tension: 0.5,
+                    pointRadius:2,
+                    pointBorderColor:'rgb(42, 124, 190)'
+                    }
                 ]
        },
         options:{

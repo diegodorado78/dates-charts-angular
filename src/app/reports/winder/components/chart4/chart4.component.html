@@ -1,12 +1,16 @@
 <mat-card>
-  
+
   <mat-card-header>
-      <mat-card-title><strong>{{chartTitle}}</strong></mat-card-title>
+      <mat-card-title id="titulo">{{chartTitle}}</mat-card-title>
   </mat-card-header>
 
    <mat-card-content>
-    <div class="chart__container">
-      <svg #chart class="svg__chart" ></svg>
+    <div class="chart__container" >
+      <canvas id="chart4"  height="400px">{{myChart}} </canvas>
+    </div>
+    <div class="mat__card-buttons">
+   <button mat-button (click)="enableZoom()"  id="enableButton" color="bco-activated">Zoom {{stateMessage}} </button >
+    <button mat-button (click)="resetZoom()" color="bco-activated" >Reset Zoom </button>
     </div>
    </mat-card-content>
 

@@ -45,7 +45,7 @@ export class Chart2Component implements OnInit {
                 borderWidth: 3,
                 tension: 0.5,
                 pointRadius:2,
-                pointBorderColor:'rgba((34,139,34, 0.8)'
+                pointBorderColor:'rgba(34,139,34, 0.8)'
                 },
                 {
                 label: 'Tension control',
