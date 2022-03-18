@@ -63,7 +63,7 @@ export class Chart3Component implements OnInit {
                 {
                   label: 'w1TensionP2',
                   data: this.data1_2,
-                  borderColor:'rgba(0, 0, 120, 0.7)',
+                  borderColor:'rgba(0, 0, 220, 0.7)',
                   borderWidth: 3,
                   tension: 0.5,
                   pointRadius:2,

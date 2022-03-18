@@ -82,10 +82,10 @@ enableButton:any;
           zoom:{
             zoom: {
               wheel: {
-                enabled: true,
+                enabled: false,
               },
               pinch: {
-                enabled: true
+                enabled: false
               },
               mode: 'xy',
             }

@@ -100,12 +100,16 @@ html, body {
   justify-content: center;
   height: 20%;
   margin: 10px auto;
+  
   button{
     width:auto;
     height: auto;
     font-size: 1.2rem;
     padding: 1px 5px;
     margin: auto 10px;
+  }
+  p{
+    margin: 0px;
   }
 
 }
@@ -128,7 +132,11 @@ html, body {
   position: relative;
   border: 1px solid #ccc;
  }
-
+ .chartButton__container{
+   display: flex;
+   flex-direction: row;
+   height: 100%;
+ }
 //Global styles for pages
 
  /* Style the dots by assigning a fill and stroke */

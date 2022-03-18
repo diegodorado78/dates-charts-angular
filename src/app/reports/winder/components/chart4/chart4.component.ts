@@ -27,7 +27,7 @@ export class Chart4Component implements OnInit {
     constructor(private winderService:WinderService) {
       this.winderData = this.winderService.getAllContactWinding();
       this.dataId =this.winderData.map(film=>{return film.rollId});
-      this.data1_1 =this.winderData.map(film=>{return film.w1TensionP1});
+      this.data1_1 =this.winderData.map(film=>{return film.w2TensionP8});
       this.data2_1 =this.winderData.map(film=>{return film.w2TensionP1});
       this.data1_2 =this.winderData.map(film=>{return film.w1TensionP2});
       this.data2_2 =this.winderData.map(film=>{return film.w2TensionP2});
@@ -63,11 +63,11 @@ export class Chart4Component implements OnInit {
                 {
                   label: 'w1TensionP2',
                   data: this.data1_2,
-                  borderColor:'#FA8072',
+                  borderColor:'#a2333c',
                   borderWidth: 3,
                   tension: 0.5,
                   pointRadius:2,
-                  pointBorderColor:'#FA8072'
+                  pointBorderColor:'#a2333c'
                   },
                   {
                     label: 'w2TensionP1',

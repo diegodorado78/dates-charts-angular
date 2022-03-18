@@ -26,7 +26,6 @@
     "@dile/dile-menu-hamburger": "^1.0.1",
     "chart.js": "^3.7.0",
     "chartjs-plugin-zoom": "^1.2.0",
-    "d3": "^7.0.0",
     "dile-hamburger": "^2.0.1",
     "jspdf": "^2.4.0",
     "lit": "^2.0.0-rc.2",

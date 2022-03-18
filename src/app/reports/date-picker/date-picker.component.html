@@ -17,11 +17,19 @@
             <mat-datepicker-toggle matSuffix [for]="pickerFinish"></mat-datepicker-toggle>
             <mat-datepicker #pickerFinish startView="year"  ></mat-datepicker>
           </mat-form-field>
-          <!-- Buttons depending on the case to render the trends -->
-          <a *ngSwitchCase="'extrusor'"  routerLink="trends">  <button type="submit" class="send__btn" mat-raised-button>Select </button>   </a>
-          <a *ngSwitchCase="'die'" routerLink="trends" > <button type="submit" class="send__btn" mat-raised-button>Select </button></a>
-          <a *ngSwitchCase="'winder'" routerLink="trends"> <button type="submit" class="send__btn" mat-raised-button>Select </button></a>
+          <div class="chartButton__container">
+  <!-- Buttons depending on the case to render the trends -->
+  <a *ngSwitchCase="'extrusor'"  routerLink="trends">  <button type="submit" class="send__btn" mat-raised-button>Select </button>   </a>
+  <a *ngSwitchCase="'die'" routerLink="trends" > <button type="submit" class="send__btn" mat-raised-button>Select </button></a>
+  <a *ngSwitchCase="'winder'" routerLink="trends"> <button type="submit" class="send__btn" mat-raised-button>Select </button></a>
+  <a routerLink="trends"><button type="submit"  mat-raised-button class="send__btn" > See last month </button> </a> 
+
+          </div>
+
+        
+
     </div>
+
 </form>
 
 </div>
