@@ -21,18 +21,18 @@ export class Chart2Component implements OnInit {
   enableState:boolean;
   stateMessage:String;
   enableButton:any;
-   
+
     constructor(private winderService:WinderService) {
       this.winderData = this.winderService.getAllDataPoints();
       this.data1 =this.winderData.map(film=>{return film.rollId});
       this.data2 =this.winderData.map(film=>{return film.filmTension});
       this.data3 =this.winderData.map(film=>{return film.actual});
     }
-  
+
     ngOnInit():void {
       Chart.register(...registerables);
       this.myChart=document.getElementById('chart2');
-      this.enableButton=document.getElementById('enableButton')
+      this.enableButton=document.getElementById('enableButton2')
       this.chart= new Chart(this.myChart,{
         type: 'line',
         data: {
@@ -61,7 +61,7 @@ export class Chart2Component implements OnInit {
         options:{
           responsive:true,
           maintainAspectRatio:false,
-  
+
           scales:{
             y:{
               beginAtZero:true,
@@ -106,7 +106,7 @@ export class Chart2Component implements OnInit {
     resetZoom(){
      this.chart.resetZoom();
     }
-  
+
     setState(){
     this.enableState=this.chart.options.plugins.zoom.zoom.wheel.enabled;
     if(this.enableState){
@@ -115,7 +115,7 @@ export class Chart2Component implements OnInit {
       return this.stateMessage="Disabled";
     }
     }
-  
+
     enableZoom(){
       this.chart.options.plugins.zoom.zoom.wheel.enabled = !this.chart.options.plugins.zoom.zoom.wheel.enabled;
       this.setState();

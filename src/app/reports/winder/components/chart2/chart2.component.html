@@ -9,8 +9,13 @@
       <canvas id="chart2"  height="400px">{{myChart}} </canvas>
     </div>
     <div class="mat__card-buttons">
-   <button mat-button (click)="enableZoom()"  id="enableButton" color="bco-activated">Zoom {{stateMessage}} </button >
-    <button mat-button (click)="resetZoom()" color="bco-activated" >Reset Zoom </button>
+
+   <div class="zoom__button-container">
+        <mat-slide-toggle id="enableButton2"(click)="enableZoom()"></mat-slide-toggle>
+        <p> Zoom: <strong>{{stateMessage}}</strong></p>
+      </div>
+      <button mat-button color="bco-activated" (click)="resetZoom()" color="bco-activated" >Reset Zoom </button>
+
     </div>
    </mat-card-content>
 

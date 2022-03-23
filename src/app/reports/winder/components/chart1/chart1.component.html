@@ -7,18 +7,18 @@
    <mat-card-content>
 
     <div class="chart__container" >
-      <canvas id="canvas"  height="400px">{{myChart}} </canvas>
+      <canvas id="chart1"  height="400px">{{myChart}} </canvas>
     </div>
 
     <div class="mat__card-buttons">
 
       <div class="zoom__button-container">
-        <mat-slide-toggle id="enableButton"(click)="enableZoom()"></mat-slide-toggle>
+        <mat-slide-toggle id="enableButton1"(click)="enableZoom()"></mat-slide-toggle>
         <p> Zoom: <strong>{{stateMessage}}</strong></p>
       </div>
-      
+
       <button mat-button color="bco-activated" (click)="resetZoom()" color="bco-activated" >Reset Zoom </button>
-    
+
     </div>
    </mat-card-content>
 

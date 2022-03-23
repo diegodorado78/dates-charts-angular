@@ -22,7 +22,7 @@ myChart: any;
 enableState:boolean;
 stateMessage:String;
 enableButton:any;
- 
+
   constructor(private winderService:WinderService) {
     this.winderData = this.winderService.getAllDataPoints();
     this.data1 =this.winderData.map(film=>{return film.rollId});
@@ -32,8 +32,8 @@ enableButton:any;
 
   ngOnInit():void {
     Chart.register(...registerables);
-    this.myChart=document.getElementById('canvas');
-    this.enableButton=document.getElementById('enableButton')
+    this.myChart=document.getElementById('chart1');
+    this.enableButton=document.getElementById('enableButton1')
     this.chart= new Chart(this.myChart,{
       type: 'line',
       data: {
