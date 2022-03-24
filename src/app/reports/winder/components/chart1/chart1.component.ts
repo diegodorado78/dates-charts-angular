@@ -88,7 +88,10 @@ enableButton:any;
                 enabled: false
               },
               mode: 'xy',
-            }
+            },
+            pan:{
+              enabled:true
+            },
           }
         }
       },

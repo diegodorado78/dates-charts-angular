@@ -1,5 +1,7 @@
-import { Component, OnInit,ViewChild,ElementRef} from '@angular/core';
-import * as d3 from 'd3';
+import { Component, OnInit} from '@angular/core';
+import { Chart, registerables } from 'chart.js';
+import zoomPlugin from 'chartjs-plugin-zoom';
+Chart.register(zoomPlugin);
 import { DieService } from 'src/app/core/services/die.service'
 
 @Component({
@@ -8,93 +10,118 @@ import { DieService } from 'src/app/core/services/die.service'
   styleUrls: ['./chart3.component.scss']
 })
 export class Chart3Component implements OnInit {
-   
-public titulo="Adapter 3";
-private dieData:any= [];
-  @ViewChild("chart", { static: true }) protected chartContainer: ElementRef;
-  svg: any;
-  g: any;
-  tooltip: any;
-  margin: { top: number; right: number; bottom: number; left: number; };
-  contentWidth: number;
-  contentHeight: number;
-  width: number;
-  height: number;
-  n:any=[];
-  constructor(private dieService:DieService) { }
+  public chartTitle="Adapter 3";
+  dieData:any;
+  data1:any;
+  data2:any;
+  data3:any;
+  chart:any
+  myChart: any;
+  enableState:boolean;
+  stateMessage:String;
+  enableButton:any;
 
-  ngOnInit(): void {
-    this.dieData =this.dieService.getAllDataPoints();
-    this.initChart();
-    this.createChart();
-  }
+    constructor(private dieService:DieService) {
+      this.dieData = this.dieService.getAllDataPoints();
+      this.data1 =this.dieData.map(film=>{return film.roll_id});
+      this.data2 =this.dieData.map(film=>{return film.Setpoint2_3});
+      this.data3 =this.dieData.map(film=>{return film.Actual});
+    }
 
-  initChart() {
-    const element = this.chartContainer.nativeElement;
-    this.svg = d3.select(element);
-    this.margin = {
-      top: +this.svg.style("margin-top").replace("px", ""),
-      right: +this.svg.style("margin-right").replace("px", ""),
-      bottom: +this.svg.style("margin-bottom").replace("px", ""),
-      left: +this.svg.style("margin-left").replace("px", "")
-    };
-    this.width = +this.svg.style("width").replace("px", "");
-    this.height = +this.svg.style("height").replace("px", "");
-    this.contentWidth = this.width - this.margin.left - this.margin.right;
-    this.contentHeight = this.height - this.margin.top - this.margin.bottom;
-    this.g = this.svg.append("g").attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
-  }
-  
-  createChart() {
+    ngOnInit():void {
+      Chart.register(...registerables);
+      this.myChart=document.getElementById('chart3');
+      this.enableButton=document.getElementById('enableButton3')
+      this.chart= new Chart(this.myChart,{
+        type: 'line',
+        data: {
+            labels: this.data1 ,
+            datasets: [
+                {
+                label: 'Setpoint',
+                data: this.data2,
+                borderColor: 'DarkOrange',
+                borderWidth: 3,
+                tension: 0.5,
+                pointRadius:2,
+                pointBorderColor:'DarkOrange'
+                },
+                {
+                label: 'Actual',
+                data: this.data3,
+                borderColor:'#a2333c',
+                borderWidth: 3,
+                tension: 0.5,
+                pointRadius:2,
+                pointBorderColor:'#a2333c'
+                }
+                ]
+       },
+        options:{
+          responsive:true,
+          maintainAspectRatio:false,
 
-    var data =this.dieData;
+          scales:{
+            y:{
+              beginAtZero:true,
+              ticks:{
+                font:{
+                  size:10
+                }
+              }
+            },
+            x:{
+              ticks:{
+                font:{
+                  size:10
+                }
+              }
+            },
+          },
+          plugins:{
+            legend: {
+              labels: {
+                  font: {
+                      size: 10
+                  }
+              }
+          },
+            zoom:{
+              zoom: {
+                wheel: {
+                  enabled: false,
+                },
+                pinch: {
+                  enabled: false
+                },
+                mode: 'xy',
+              },
+              pan:{
+                enabled:true
+              },
+            }
+          }
+        },
+      })
+       this.setState()
+    }
+    resetZoom(){
+     this.chart.resetZoom();
+    }
 
-    var xScale = d3.scalePoint()
-        .domain(data.map(d => d.roll_id))
-        .range([0,this.contentWidth])
+    setState(){
+    this.enableState=this.chart.options.plugins.zoom.zoom.wheel.enabled;
+    if(this.enableState){
+      return this.stateMessage="Enabled"
+    }else{
+      return this.stateMessage="Disabled";
+    }
+    }
 
-        var yScale = d3.scaleLinear()
-      .domain([0, Math.max.apply(Math, data.map(roll => roll.Setpoint2_3))+55])
-      .range([this.contentHeight, 0]); // output
+    enableZoom(){
+      this.chart.options.plugins.zoom.zoom.wheel.enabled = !this.chart.options.plugins.zoom.zoom.wheel.enabled;
+      this.setState();
+      this.chart.update();
+    }
 
-      var line = d3.line()
-      .x(function (d:any, i:any) { return xScale(d.x); }) 
-      .y(function (d: any) { return yScale(d.y); }) 
-      .curve(d3.curveMonotoneX) 
-
-    var line2 = d3.line()
-      .x(function (d:any, i:any) { return xScale(d.x); }) 
-      .y(function (d: any) { return yScale(d.y); }) 
-      .curve(d3.curveMonotoneX) 
-
-    var dataset =data.map((roll)=>{
-      return {y:roll.Setpoint2_3,x:roll.roll_id}})     
-
-    var dataset2 =data.map((roll)=>{
-      return {y:roll.Controller3,x:roll.roll_id}})
-
-    this.g.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(" + 0 + "," + this.contentHeight + ")")
-      .call(d3.axisBottom(xScale)); 
-
-    this.g.selectAll("text")
-    .attr("transform", "translate(-10,0)rotate(-45)")
-    .style("text-anchor", "end")
-    .style("font-size",".8em");
-
-    this.g.append("g")
-      .attr("class", "y axis")
-      .call(d3.axisLeft(yScale)); 
-
-    this.g.append("path")
-      .datum(dataset ) 
-      .attr("class", "die__c3-line1") 
-      .attr("d", line); 
-  
-    this.g.append("path")
-      .datum(dataset2 )
-      .attr("class", "die__c3-line2")
-      .attr("d", line2);
-  }
 }

@@ -90,13 +90,16 @@ export class Chart2Component implements OnInit {
             zoom:{
               zoom: {
                 wheel: {
-                  enabled: true,
+                  enabled:false,
                 },
                 pinch: {
-                  enabled: true
+                  enabled:false
                 },
                 mode: 'xy',
-              }
+              },
+              pan:{
+                enabled:true
+              },
             }
           }
         },
