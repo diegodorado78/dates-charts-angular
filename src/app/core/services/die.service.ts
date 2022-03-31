@@ -4,7 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DieService {
-   dieData=[
+  dieData2=[{"roll_id":"0A1602221603","Setpoint1":220, "Controller3":0,"Controller2":138,"Controller":0,"Setpoint2_3":120,"Actual":59.4}]
+  dieData=[
 {"roll_id":"0A1602221603","Setpoint1":220, "Controller3":0,"Controller2":138,"Controller":0,"Setpoint2_3":120,"Actual":59.4,},
 {"roll_id":"0A1602221748","Setpoint1":220, "Controller3":5,"Controller2":138,"Controller":0,"Setpoint2_3":120,"Actual":61.4,},
 {"roll_id":"0A1602221932","Setpoint1":220, "Controller3":10,"Controller2":138,"Controller":0,"Setpoint2_3":120,"Actual":50,}
@@ -38,10 +39,13 @@ export class DieService {
 {"roll_id":"0A1606111514","Setpoint1":220, "Controller3":116,"Controller2":138,"Controller":82,"Setpoint2_3":120,"Actual":44.9,},
 
    ]
-  
+
   constructor() { }
   getAllDataPoints(){
     return this.dieData;
+  }
+  getSomeDataPoints(){
+    return this.dieData2;
   }
   getDataPoint(id:string){
     return this.dieData.find(item=>id=== item.roll_id); // find and return the object with the id===arg

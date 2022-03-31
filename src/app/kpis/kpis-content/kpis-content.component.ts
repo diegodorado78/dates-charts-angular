@@ -16,7 +16,7 @@ export class KpisContentComponent implements OnInit {
   data2:any;
   myChart: any;
   chart:any;
-  
+
 line:any = {};
 upLabel1:string='';
 upLabel2:string='';
@@ -36,19 +36,22 @@ public bar:any= document.getElementById('lineData');
 size:string=''
 constructor( private route: ActivatedRoute, private linesService: DieService) // inyeccion de dependencias activatedroute) { }
 {
-  
+  this.dieData= this.linesService.getSomeDataPoints();
+  this.data1=this.dieData.map((roll)=>{ return roll.roll_id});
+  this.data2=this.dieData.map((roll)=>{ return roll.Setpoint1})
+
 }
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       const id = params.id; // guardo el id que pasamos como param para usarlo en el metodo
       // this.line = this.linesService.getLine(id); // as product x indicar el tipo de resp que espero al llamar al service
       // llamo al metodo get product del service
-    }); 
+    });
     Chart.register(...registerables);
     this.myChart=document.getElementById('chart1');
 
     this.chart= new Chart(this.myChart,{
-      type: 'line',
+      type: 'bar',
       data: {
           labels: this.data1 ,
           datasets: [
@@ -57,11 +60,8 @@ constructor( private route: ActivatedRoute, private linesService: DieService) //
               data: this.data2,
               borderColor: '#007F5C',
               borderWidth:3,
-              tension: 0.5,
-              pointRadius:2,
-              pointBorderColor:'#007F5C'
               },
-              
+
               ]
      },
       options:{
@@ -127,6 +127,9 @@ constructor( private route: ActivatedRoute, private linesService: DieService) //
   //    this.size='75'
   // }
   // updateCapacity(){
+    // IMPORTANTE
+    // dataSet[0]= this.newData
+
   //   this.upLabel1='6,160'
   //   this.upLabel2= ''
   //   this.upLabel3= 'Normal Output'
