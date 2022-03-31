@@ -11,9 +11,23 @@ import { Chart, registerables } from 'chart.js';
   styleUrls: ['./kpis-content.component.scss']
 })
 export class KpisContentComponent implements OnInit {
+  totalYield:number;
+  yield:number=20;
+
+  totalUptime:number;
+  uptime:number=100; 
+  
+  capacity:number=68;
+  totalCapacity:number;
+
+  
   dieData:any;
+  dieData2:any;
+
   data1:any;
   data2:any;
+  data3:any;
+
   myChart: any;
   chart:any;
 
@@ -37,8 +51,11 @@ size:string=''
 constructor( private route: ActivatedRoute, private linesService: DieService) // inyeccion de dependencias activatedroute) { }
 {
   this.dieData= this.linesService.getSomeDataPoints();
+  this.dieData2= this.linesService.getSomeDataPoints2();
+
   this.data1=this.dieData.map((roll)=>{ return roll.roll_id});
   this.data2=this.dieData.map((roll)=>{ return roll.Setpoint1})
+  this.data3=this.dieData2.map((roll)=>{ return roll.Setpoint1})
 
 }
   ngOnInit(): void {
@@ -55,19 +72,29 @@ constructor( private route: ActivatedRoute, private linesService: DieService) //
       data: {
           labels: this.data1 ,
           datasets: [
+            {
+              label: '80%',
+              data: this.data3,
+              backgroundColor: '#007F5C',
+              borderColor:'transparent',
+              barPercentage: 1,
+              borderWidth:3,
+
+              },
               {
-              label: 'Set Point 1',
+              label: "",
               data: this.data2,
-              borderColor: '#007F5C',
+              backgroundColor: '#A9A9A9',
+              borderColor:'#A9A9A9',
+              barPercentage: 1,
               borderWidth:3,
               },
-
+             
               ]
      },
       options:{
         responsive:true,
         maintainAspectRatio:false,
-
         scales:{
           y:{
             beginAtZero:true,
@@ -75,18 +102,30 @@ constructor( private route: ActivatedRoute, private linesService: DieService) //
               font:{
                 size:10
               }
+            },
+            stacked:false,
+            grid:{
+              drawBorder:false,
+              color:'transparent'
             }
           },
+
           x:{
             ticks:{
               font:{
                 size:10
               }
+            },
+            stacked:true,
+            grid:{
+              drawBorder:false
             }
-          },
+
+          },  
         },
         plugins:{
           legend: {
+            display:false,
             labels: {
                 font: {
                     size: 10
