@@ -7,23 +7,23 @@
     height: 5vh;
     color: #545858;
     text-align: left;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 500;
 
     .nav__div1{
     width: 25px;
-   
+
     }
     .nav__div2{
         width: 90%;
-        height: 100%; 
+        height: 100%;
         }
 
     a{
         background-color: transparent;
     }
-    
-    
+
+
     .back__icon{
         display: flex;
         border-radius: 50%;
@@ -36,7 +36,7 @@
     }
    }
 
-  
+
    @media (min-width: 768px) {
     .back__icon:hover{
         background:#545858;
@@ -50,4 +50,3 @@
     }
    }
 
-  
