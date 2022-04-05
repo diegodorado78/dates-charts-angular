@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 export class DieService {
   dieData2=[{"roll_id":"0A1602221603","Setpoint1":1, "Controller3":0,"Controller2":138,"Controller":0,"Setpoint2_3":120,"Actual":59.4}];
   dieData3=[{"roll_id":"0A1602221603","Setpoint1":0.45, "Controller3":0,"Controller2":138,"Controller":0,"Setpoint2_3":120,"Actual":59.4}];
-
   dieData=[
 {"roll_id":"0A1602221603","Setpoint1":220, "Controller3":0,"Controller2":138,"Controller":0,"Setpoint2_3":120,"Actual":59.4,},
 {"roll_id":"0A1602221748","Setpoint1":220, "Controller3":5,"Controller2":138,"Controller":0,"Setpoint2_3":120,"Actual":61.4,},
@@ -39,7 +38,6 @@ export class DieService {
 {"roll_id":"0A1606110733","Setpoint1":220, "Controller3":116,"Controller2":139,"Controller":100,"Setpoint2_3":120,"Actual":39.8,},
 {"roll_id":"0A1606111154","Setpoint1":220, "Controller3":116,"Controller2":138,"Controller":100,"Setpoint2_3":120,"Actual":40.9,},
 {"roll_id":"0A1606111514","Setpoint1":220, "Controller3":116,"Controller2":138,"Controller":82,"Setpoint2_3":120,"Actual":44.9,},
-
    ]
 
   constructor() { }

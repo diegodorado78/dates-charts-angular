@@ -1,8 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
-import { DieService } from 'src/app/core/services/die.service';
 import { LinesService } from 'src/app/core/services/lines.service';
-
 import { Chart, registerables } from 'chart.js';
 
 @Component({
@@ -11,16 +9,18 @@ import { Chart, registerables } from 'chart.js';
   styleUrls: ['./kpis-content.component.scss']
 })
 export class KpisContentComponent implements OnInit {
+  yieldData:any;
   totalYield:number;
-  yield:number=20;
+  actualYield:number;
 
+  uptimeData:any;
   totalUptime:number;
-  uptime:number=100; 
-  
-  capacity:number=68;
-  totalCapacity:number;
+  productionTime:number; 
 
-  
+  capacityData:any;
+  totalCapacity:number;
+  capacity:number;
+
   dieData:any;
   dieData2:any;
 
@@ -46,50 +46,52 @@ downLabel3:string='';
 downUnid:string='';
 downUnid2:string='';
 
-public bar:any= document.getElementById('lineData');
 size:string=''
-constructor( private route: ActivatedRoute, private linesService: DieService) // inyeccion de dependencias activatedroute) { }
-{
-  this.dieData= this.linesService.getSomeDataPoints();
-  this.dieData2= this.linesService.getSomeDataPoints2();
+constructor( private route: ActivatedRoute, private linesService: LinesService){ 
+  this.yieldData= this.linesService.getYieldData();
+  this.totalYield= this.yieldData.map(roll=>{return roll.totalYield});
+  this.actualYield= this.yieldData.map(roll=>{return roll.actualYield});
 
-  this.data1=this.dieData.map((roll)=>{ return roll.roll_id});
-  this.data2=this.dieData.map((roll)=>{ return roll.Setpoint1})
-  this.data3=this.dieData2.map((roll)=>{ return roll.Setpoint1})
+  this.uptimeData= this.linesService.getUptimeData();
+  this.totalUptime= this.uptimeData.map(roll=>{return roll.totalUptime});
+  this.actualYield= this.uptimeData.map(roll=>{return roll.productionTime});
+
+  this.capacityData= this.linesService.getYieldData();
+  this.normalOutput= this.capacityData.map(roll=>{return roll.totalYield});
+  this.ouputWinder= this.capacityData.map(roll=>{return roll.actualYield});
 
 }
   ngOnInit(): void {
+    Chart.register(...registerables);
+
     this.route.params.subscribe((params: Params) => {
       const id = params.id; // guardo el id que pasamos como param para usarlo en el metodo
       // this.line = this.linesService.getLine(id); // as product x indicar el tipo de resp que espero al llamar al service
       // llamo al metodo get product del service
     });
-    Chart.register(...registerables);
-    this.myChart=document.getElementById('chart1');
 
+    this.myChart=document.getElementById('chart1');
     this.chart= new Chart(this.myChart,{
       type: 'bar',
       data: {
-          labels: this.data1 ,
+          labels: ["Yield"] ,
           datasets: [
             {
-              label: '80%',
-              data: this.data3,
-              backgroundColor: '#007F5C',
+              label: "Good Roll",
+              data: this.actualYield,
+              backgroundColor:'#008000',
               borderColor:'transparent',
               barPercentage: 1,
               borderWidth:3,
-
               },
               {
-              label: "",
-              data: this.data2,
-              backgroundColor: '#A9A9A9',
-              borderColor:'#A9A9A9',
+              label:'Total Material',
+              data: this.totalYield,
+              backgroundColor:'#91897c' ,
+              borderColor:'grey',
               barPercentage: 1,
               borderWidth:3,
-              },
-             
+              }          
               ]
      },
       options:{
@@ -133,53 +135,51 @@ constructor( private route: ActivatedRoute, private linesService: DieService) //
             }
         },
         }
+        
       },
+      
     })
     //  this.setState()
+
   }
+  updateYield(){
+    this.upLabel1='4,215'
+    this.upLabel2= ''
+    this.upLabel3= 'Total Material'
+    this.upUnid="kg"
+    this.upUnid2=''
+    this.downLabel1= '1,270'
+    this.downLabel2=''
+    this.downLabel3='Good Roll'
+    this.downUnid="kg"
+    this.downUnid2=''
+    this.size='22.5'
   }
-  // metodos para actualizar la data
-  // updateYield(){
-  //   this.upLabel1='4,215'
-  //   this.upLabel2= ''
-  //   this.upLabel3= 'Total Material'
-  //   this.upUnid="kg"
-  //   this.upUnid2=''
-  //   this.downLabel1= '1,270'
-  //   this.downLabel2=''
-  //   this.downLabel3='Good Roll'
-  //   this.downUnid="kg"
-  //   this.downUnid2=''
-  //   this.size='22.5'
-  // }
-  // updateUptime(){
-  //   this.upLabel1='893'
-  //   this.upLabel2= '09'
-  //   this.upLabel3= 'Total Time'
-  //   this.upUnid="d"
-  //   this.upUnid2="h"
-  //   this.downLabel1= '893'
-  //   this.downLabel2= '07'
-  //   this.downLabel3='Production'
-  //   this.downUnid="d"
-  //   this.downUnid2="h"
-  //    this.size='75'
-  // }
-  // updateCapacity(){
-    // IMPORTANTE
+  updateUptime(){
+    this.upLabel1='893'
+    this.upLabel2= '09'
+    this.upLabel3= 'Total Time'
+    this.upUnid="d"
+    this.upUnid2="h"
+    this.downLabel1= '893'
+    this.downLabel2= '07'
+    this.downLabel3='Production'
+    this.downUnid="d"
+    this.downUnid2="h"
+     this.size='75'
+  }
+  updateCapacity(){
     // dataSet[0]= this.newData
-
-  //   this.upLabel1='6,160'
-  //   this.upLabel2= ''
-  //   this.upLabel3= 'Normal Output'
-  //   this.upUnid="kg/h"
-  //   this.upUnid2=""
-  //   this.downLabel1= '4,176'
-  //   this.downLabel2= ''
-  //   this.downLabel3='Output on Winder'
-  //   this.downUnid="kg/h"
-  //   this.downUnid2=''
-  //   this.size='51'
-
-  // }
-
+    this.upLabel1='6,160'
+    this.upLabel2= ''
+    this.upLabel3= 'Normal Output'
+    this.upUnid="kg/h"
+    this.upUnid2=""
+    this.downLabel1= '4,176'
+    this.downLabel2= ''
+    this.downLabel3='Output on Winder'
+    this.downUnid="kg/h"
+    this.downUnid2=''
+    this.size='51'
+  }
+  }

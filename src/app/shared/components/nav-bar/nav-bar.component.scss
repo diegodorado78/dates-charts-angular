@@ -28,14 +28,13 @@
         display: flex;
         border-radius: 50%;
         border: none;
-        margin: 3px 2px;
+        margin: 8px 2px;
         justify-self: left;
     }
     .back__icon:active{
         background: linear-gradient(to right, #EAEAEA, #CCCC);
     }
    }
-
 
    @media (min-width: 768px) {
     .back__icon:hover{
