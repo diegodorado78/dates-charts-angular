@@ -49,16 +49,17 @@ downUnid2:string='';
 size:string=''
 constructor( private route: ActivatedRoute, private linesService: LinesService){
   this.yieldData= this.linesService.getYieldData();
-  this.totalYield= this.yieldData.map(roll=>{return roll.totalYield});
-  this.actualYield= this.yieldData.map(roll=>{return roll.actualYield});
+  this.totalYield= this.yieldData.map(line=>{return line.totalYield});
+  this.actualYield= this.yieldData.map(line=>{return line.actualYield});
 
   this.uptimeData= this.linesService.getUptimeData();
-  this.totalUptime= this.uptimeData.map(roll=>{return roll.totalUptime});
-  this.actualYield= this.uptimeData.map(roll=>{return roll.productionTime});
-
+  this.totalUptime= this.uptimeData.map(line=>{return line.totalUptime});
+  this.totalUptime= this.totalUptime[0]
+  this.productionTime= this.uptimeData.map(line=>{return line.productionTime});
+  this.productionTime= this.productionTime[0]
   this.capacityData= this.linesService.getYieldData();
-  this.normalOutput= this.capacityData.map(roll=>{return roll.normalOutput});
-  this.ouputWinder= this.capacityData.map(roll=>{return roll.ouputWinder});
+  this.normalOutput= this.capacityData.map(line=>{return line.normalOutput});
+  this.ouputWinder= this.capacityData.map(line=>{return line.ouputWinder});
 
 }
   ngOnInit(): void {
@@ -145,7 +146,13 @@ constructor( private route: ActivatedRoute, private linesService: LinesService){
   updateYield(){
 
   }
-  updateUptime(){
+  updateUptime(chart){
+  // this.chart.data.datasets[0]= this.productionTime;
+  // this.chart.data.datasets[1]= this.totalUptime;
+  chart.data.datasets[0].data[0]= this.productionTime;
+  console.log(this.chart.data.datasets[0].data[0])
+  chart.data.datasets[1].data[0]= this.totalUptime;
+  this.chart.update();
 
   }
   updateCapacity(){
