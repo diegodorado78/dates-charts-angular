@@ -15,11 +15,11 @@ export class KpisContentComponent implements OnInit {
 
   uptimeData:any;
   totalUptime:number;
-  productionTime:number; 
+  productionTime:number;
 
   capacityData:any;
-  totalCapacity:number;
-  capacity:number;
+  normalOutput:number;
+  ouputWinder:number;
 
   dieData:any;
   dieData2:any;
@@ -47,7 +47,7 @@ downUnid:string='';
 downUnid2:string='';
 
 size:string=''
-constructor( private route: ActivatedRoute, private linesService: LinesService){ 
+constructor( private route: ActivatedRoute, private linesService: LinesService){
   this.yieldData= this.linesService.getYieldData();
   this.totalYield= this.yieldData.map(roll=>{return roll.totalYield});
   this.actualYield= this.yieldData.map(roll=>{return roll.actualYield});
@@ -57,8 +57,8 @@ constructor( private route: ActivatedRoute, private linesService: LinesService){
   this.actualYield= this.uptimeData.map(roll=>{return roll.productionTime});
 
   this.capacityData= this.linesService.getYieldData();
-  this.normalOutput= this.capacityData.map(roll=>{return roll.totalYield});
-  this.ouputWinder= this.capacityData.map(roll=>{return roll.actualYield});
+  this.normalOutput= this.capacityData.map(roll=>{return roll.normalOutput});
+  this.ouputWinder= this.capacityData.map(roll=>{return roll.ouputWinder});
 
 }
   ngOnInit(): void {
@@ -91,7 +91,7 @@ constructor( private route: ActivatedRoute, private linesService: LinesService){
               borderColor:'grey',
               barPercentage: 1,
               borderWidth:3,
-              }          
+              }
               ]
      },
       options:{
@@ -123,7 +123,7 @@ constructor( private route: ActivatedRoute, private linesService: LinesService){
               drawBorder:false
             }
 
-          },  
+          },
         },
         plugins:{
           legend: {
@@ -135,51 +135,21 @@ constructor( private route: ActivatedRoute, private linesService: LinesService){
             }
         },
         }
-        
+
       },
-      
+
     })
     //  this.setState()
 
   }
   updateYield(){
-    this.upLabel1='4,215'
-    this.upLabel2= ''
-    this.upLabel3= 'Total Material'
-    this.upUnid="kg"
-    this.upUnid2=''
-    this.downLabel1= '1,270'
-    this.downLabel2=''
-    this.downLabel3='Good Roll'
-    this.downUnid="kg"
-    this.downUnid2=''
-    this.size='22.5'
+
   }
   updateUptime(){
-    this.upLabel1='893'
-    this.upLabel2= '09'
-    this.upLabel3= 'Total Time'
-    this.upUnid="d"
-    this.upUnid2="h"
-    this.downLabel1= '893'
-    this.downLabel2= '07'
-    this.downLabel3='Production'
-    this.downUnid="d"
-    this.downUnid2="h"
-     this.size='75'
+
   }
   updateCapacity(){
     // dataSet[0]= this.newData
-    this.upLabel1='6,160'
-    this.upLabel2= ''
-    this.upLabel3= 'Normal Output'
-    this.upUnid="kg/h"
-    this.upUnid2=""
-    this.downLabel1= '4,176'
-    this.downLabel2= ''
-    this.downLabel3='Output on Winder'
-    this.downUnid="kg/h"
-    this.downUnid2=''
-    this.size='51'
+
   }
   }
