@@ -2,9 +2,9 @@
 <div class="line__content">
      <!-- columna 1 -->
   <div class="line__features">
-    <button mat-button (click)="updateYield()"><span> 30% </span><br>Yield</button>
-    <button mat-button (click)="updateUptime(chart)" ><span>100%</span><br>Uptime</button>
-    <button mat-button (click)="updateCapacity()" ><span>68%</span><br>Capacity</button>
+    <button mat-button (click)="updateYield(actualYield,totalYield)"><span> 30% </span><br>Yield</button>
+    <button mat-button (click)="updateUptime(productionTime,totalUptime)" ><span>100%</span><br> Uptime</button>
+    <button mat-button (click)="updateCapacity(ouputWinder,normalOutput)" ><span>68%</span><br>Capacity</button>
   </div>
 
   <div class="chart__container2" >
