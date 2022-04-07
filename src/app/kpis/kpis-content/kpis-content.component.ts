@@ -54,10 +54,9 @@ constructor( private route: ActivatedRoute, private linesService: LinesService){
 
   this.uptimeData= this.linesService.getUptimeData();
   this.totalUptime= this.uptimeData.map(line=>{return line.totalUptime});
-  this.totalUptime= this.totalUptime[0]
   this.productionTime= this.uptimeData.map(line=>{return line.productionTime});
-  this.productionTime= this.productionTime[0]
-  this.capacityData= this.linesService.getYieldData();
+
+  this.capacityData= this.linesService.getCapacityData();
   this.normalOutput= this.capacityData.map(line=>{return line.normalOutput});
   this.ouputWinder= this.capacityData.map(line=>{return line.ouputWinder});
 
@@ -79,7 +78,7 @@ constructor( private route: ActivatedRoute, private linesService: LinesService){
           datasets: [
             {
               label: "Good Roll",
-              data: this.actualYield,
+              data: [0],
               backgroundColor:'#008000',
               borderColor:'transparent',
               barPercentage: 1,
@@ -87,7 +86,7 @@ constructor( private route: ActivatedRoute, private linesService: LinesService){
               },
               {
               label:'Total Material',
-              data: this.totalYield,
+              data: [0],
               backgroundColor:'#91897c' ,
               borderColor:'grey',
               barPercentage: 1,
@@ -136,27 +135,27 @@ constructor( private route: ActivatedRoute, private linesService: LinesService){
             }
         },
         }
-
       },
-
     })
     //  this.setState()
 
   }
-  updateYield(){
-
+  updateYield(actualYield,totalYield){
+    this.chart.config.data.datasets[0].data[0]=actualYield;
+    this.chart.config.data.datasets[1].data[0]=totalYield;
+    this.chart.config.data.labels=['Yield']
+    this.chart.update();
   }
-  updateUptime(chart){
-  // this.chart.data.datasets[0]= this.productionTime;
-  // this.chart.data.datasets[1]= this.totalUptime;
-  chart.data.datasets[0].data[0]= this.productionTime;
-  console.log(this.chart.data.datasets[0].data[0])
-  chart.data.datasets[1].data[0]= this.totalUptime;
+  updateUptime(productionTime, totalUptime){
+  this.chart.config.data.datasets[0].data[0]=productionTime;
+  this.chart.config.data.datasets[1].data[0]=totalUptime;
+  this.chart.config.data.labels=['Uptime']
   this.chart.update();
-
   }
-  updateCapacity(){
-    // dataSet[0]= this.newData
-
+  updateCapacity(ouputWinder,normalOutput){
+  this.chart.config.data.datasets[0].data[0]=ouputWinder;
+  this.chart.config.data.datasets[1].data[0]=normalOutput;
+  this.chart.config.data.labels=['Capacity']
+  this.chart.update();
   }
   }

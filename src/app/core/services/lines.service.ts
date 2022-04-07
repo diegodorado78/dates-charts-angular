@@ -38,8 +38,8 @@ yieldData=[{
 },]
 
 uptimeData=[{
-  totalUptime:4215,
-  productionTime:1270
+  totalUptime:893,
+  productionTime:892
 }]
 capacityData=[{
   normalOutput:6160,
@@ -59,7 +59,7 @@ capacityData=[{
   getUptimeData(){
     return this.uptimeData
   }
-  getcapacityData(){
+  getCapacityData(){
     return this.capacityData
   }
  
