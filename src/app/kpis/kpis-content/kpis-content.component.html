@@ -1,31 +1,16 @@
-<div class="container">
-  
-<div class="line__content">
 
+<div class="line__content">
      <!-- columna 1 -->
-  <div class="line__features bloque">
-    <!-- 30% -> 22.5 de acuerdo al heigh de las barras -->
-    <button (click)="updateYield()"> <span> 30% </span><br> Yield</button>
-    <button (click)="updateUptime()"> <span>100%</span><br> Uptime</button>
-    <button (click)="updateCapacity()"><span> 68%</span><br> Capacity</button>
+  <div class="line__features">
+    <button mat-button (click)="updateYield(actualYield,totalYield)"><span> 30% </span><br>Yield</button>
+    <button mat-button (click)="updateUptime(productionTime,totalUptime)" ><span>100%</span><br> Uptime</button>
+    <button mat-button (click)="updateCapacity(ouputWinder,normalOutput)" ><span>68%</span><br>Capacity</button>
   </div>
-  <!-- columna 2 -->
-  <div class="line__blank bloque">
-    <div class="line__blank-total">
-      <p> {{upLabel1}} <span>{{upUnid}}</span> {{upLabel2}}<span>{{upUnid2}}◂ <br> {{upLabel3}}</span></p>
-    </div>
-    <div class="line__blank-actual">
-      <p> {{downLabel1}} <span>{{downUnid}}</span> {{downLabel2}}<span>{{downUnid2}}<br> {{downLabel3}}</span></p>
- </div>
+
+  <div class="chart__container2" >
+    <canvas id="chart1"></canvas>
   </div>
-<!-- Columna 3 -->
-  <div  class="line__data-container bloque">
-        <div class="verticalLine"></div>
-        <div class="line__data">
-          <div [style.height.vh]="size" id="lineData"></div>
-        </div>
- </div>
-</div>
+
 </div>
 
 

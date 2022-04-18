@@ -31,6 +31,20 @@ private lines = [
       description: 'bla bla bla bla bla'
     },
 ]
+
+yieldData=[{
+  totalYield:4215,
+  actualYield:1270
+},]
+
+uptimeData=[{
+  totalUptime:893,
+  productionTime:892
+}]
+capacityData=[{
+  normalOutput:6160,
+  ouputWinder:4176
+}]
   constructor() { }
 
    getAllLines(){
@@ -39,7 +53,14 @@ private lines = [
   getLine(id:string){
     return this.lines.find(item=>id=== item.id); // busca y devuelve el item del param id
   }
+  getYieldData(){
+    return this.yieldData
+  }
+  getUptimeData(){
+    return this.uptimeData
+  }
+  getCapacityData(){
+    return this.capacityData
+  }
  
 }
-
-

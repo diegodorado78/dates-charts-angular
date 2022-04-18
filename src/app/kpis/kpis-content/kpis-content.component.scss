@@ -1,107 +1,56 @@
 
-.container{
- display: flex;
-flex-direction: column;
- width: 100%;
- height: 90vh;
- background-color: white;
- align-content: center;
- // padding: 15% auto;
-}
-.linea__container{
- background-color: #E4E4E4;
- height: 5vh;
- color: black;
- text-align: center;
- font-size: 1.5rem;
- p{
-  margin:1vh auto;
- }
-}
 .line__content{
- height: 100%;
+ height: 90%;
  display: flex;
  flex-direction: row;
- margin: 10% 1vw 0 0.5vw ;
- align-content: space-between;
-//  border: 1px solid black;
+ justify-content: space-between;
+ border: 1px solid black;
 }
+
 .line__features{
  display: flex;
  flex-direction: column;
  padding: 0;
+ height: 90vh;
+ width: 50%;
+ margin: 3vh 5% 5vh 5%;
+ border-radius: 5px;
+
+
 button{
-  height: 25vh;
-  width: 33vw;
+  height: 30%;
   background-image:linear-gradient(#bbbb, #eeee);
+  margin: 5px 0;
+
+  // border: 1px solid #ccc;
+
 }
 span{
- font-size:2.5rem ;
+ font-size:2.5rem;
+ text-align: center;
+
 }
 button:focus{
  background-image: linear-gradient(white,#eee);
-  color: black;
   font-weight: 600;
-  border-right: 1px solid white;
+  border: 1px solid #cccc;
  span{
  font-size: 3rem;
  }
 }
 }
-.line__blank{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end ;
- background-color: white;
- width: 33vw;
- height: 75vh;
- div{
-   height: 50%;
- }
- p{
-      font-size: 2.5rem;
- }
- span{
-   font-size: 1rem;
- }
+
+.chart__container2{
+  width: 200px;
+  margin: 0 5px;
+  height: 90vh;
 }
-.line__blank-total,.line__blank-actual{
-  display: flex;
-  text-align: right;
-}
-.line__blank-actual{
-align-items : flex-end;
-}
-.line__data-container{
-  display: flex;
-  flex-direction: row;
-}
-.line__data{
- background-color: #91897C;
- width: 32vw;
- display: flex;
- height: 75vh;
- flex-direction: column-reverse;
- #lineData{
-  background-color: green;
-  height:30vh;
-  border-top: solid 1px white;
- }
-}
-.verticalLine{
-  height: 74.7vh;
-  width: 2vw;
-  border: 1px solid black;
-  border-style: solid none solid solid;
- }
 
 @media (min-width: 768px) {
   .line__content{
     width: 60%;
     margin: 5% auto;
-    .bloque{
-      width: 33%;
-    }
+    
   }
 .line__features{
  display: flex;
