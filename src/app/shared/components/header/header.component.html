@@ -1,14 +1,16 @@
 <mat-toolbar >
  <mat-toolbar-row class="layout__header">
+  <div class="header__menu">
+    <app-menu-icon></app-menu-icon>
+      </div>
    <!-- img bruckner -->
       <div class="header__nav_logo ">
      <a routerLink="/home">
    <img  src="./../../../../assets/images/bco-logo-white.png" alt="bruckner_header">
     </a>
        </div>
-   <!-- links del navbar -->
-   <div class="header__menu">
- <app-menu-icon></app-menu-icon>
-   </div>
+       <mat-icon   matBadgeSize="small">notifications</mat-icon> 
+       <!--  matBadge="{{notification}}" matBadgeColor="warn" -->
+       <mat-icon matBadgeSize="small">person</mat-icon> 
 </mat-toolbar-row>
 </mat-toolbar>

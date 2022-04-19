@@ -21,14 +21,13 @@ dile-menu-hamburger{
     margin: 5px auto;
     font-size: 2.5rem;
   }
-  border-radius: 50%;
-  border: 1.5px solid #B9BEBF;
+  
   height: 35px;
   width: 35px;
-  margin: 5px auto;
+  margin: 10px auto;
   text-align: center;
-  --dile-hamburger-color:#B9BEBF;
-  --dile-hamburger-active-color:#B9BEBF;
+  --dile-hamburger-color:white;
+  --dile-hamburger-active-color:white;
   --dile-hamburger-width: 22px;
   --dile-hamburger-padding-y:3px;
   --dile-hamburger-padding-x:6.5px;
@@ -36,7 +35,7 @@ dile-menu-hamburger{
 
   a{
     text-decoration: none;
-     color: #B9BEBF;;
+     color: white;;
     font-size: 2rem;
     font-weight: 400;
     align-content: center;
