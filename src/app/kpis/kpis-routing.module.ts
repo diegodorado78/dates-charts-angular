@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { KpisContentComponent } from './kpis-content/kpis-content.component';
-import { KpisLineSelectionComponent } from './kpis-line-selection/kpis-line-selection.component';
+import { KpisContentComponent } from './components/kpis-content/kpis-content.component';
+import { KpisComponent } from './kpis.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: KpisLineSelectionComponent
+    component: KpisComponent
   },
   {
     path: ':id',

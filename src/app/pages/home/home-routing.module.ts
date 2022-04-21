@@ -1,6 +1,6 @@
  import {NgModule} from '@angular/core';
  import {Routes, RouterModule } from '@angular/router';
-import { KpisLineSelectionComponent } from 'src/app/kpis/kpis-line-selection/kpis-line-selection.component';
+import { KpisComponent } from '../../kpis/kpis.component';
  import { HomeComponent } from './components/home/home.component';
 import { ReportsComponent } from '../../reports/reports.component';
  
@@ -11,7 +11,7 @@ const routes: Routes = [
  },
  {
   path: 'kpis',
-  component: KpisLineSelectionComponent,
+  component: KpisComponent,
   loadChildren: () => import('../../kpis/kpis.module').then(m => m.KpisModule)
 
  },

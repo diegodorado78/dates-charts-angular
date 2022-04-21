@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Notifications</h1>
+<div mat-dialog-content *ngFor="let notification of notifications">
+  <ul>
+    <li>
+        <a [routerLink]="['./kpis',notification.id]" >Changes made on:<strong>{{notification.name}} </strong></a>
+    </li>
+  </ul>
+</div>

@@ -1,9 +1,9 @@
 import { Component, OnInit} from '@angular/core';
-import { WinderService } from 'src/app/core/services/winder.service';
+import { WinderService } from '@services/winder.service';
+import {WResponse} from '../../../../winderResponse.model'
 import { Chart, registerables } from 'chart.js';
 import zoomPlugin from 'chartjs-plugin-zoom';
 Chart.register(zoomPlugin);
-import {WResponse} from '../../../../winderResponse.model'
 
 @Component({
   selector: 'app-chart4',

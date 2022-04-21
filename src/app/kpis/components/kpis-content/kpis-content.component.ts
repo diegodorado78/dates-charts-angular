@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
-import { LinesService } from 'src/app/core/services/lines.service';
+import { LinesService } from '@services/lines.service';
 import { Chart, registerables } from 'chart.js';
 
 @Component({

@@ -5,8 +5,6 @@ mat-toolbar-row{
 .layout__header{
   display: grid;
   grid-template-columns: repeat(8,1fr);
-  justify-content: space-between;
-  max-width: 100%;
   color: #f0f0f0;
   background-color: #272A3A;
   margin: 0 ;
@@ -37,36 +35,39 @@ display: flex;
     grid-column: 7/8;
 }
 
-.header__user-icon{
-      grid-column: 8/9;
+.user__container{
+    grid-column: 8/9;
+    justify-content: center;
+  .header__user-icon{
+    height: 80%;
+    width: 80%;
+    margin: 10%;
+
+  }
 }
 
 @media (min-width: 768px) {
   .layout__header{
   height: 100%;
-  width: 100%;
   margin: 0 auto;
-  gap: 2em;
   justify-content:center
-
-  // margin: 10px;
   }
+
+  .header__menu{
+    height: 80%;
+    margin: 10% 5%;
+  }
+  
 .header__nav_logo{
-display: flex;
-width: 95%;
-  max-height: 100%;
   margin:  auto 0;
   img {
-    margin: 5% 10%;
+    margin: 5% 0;
     height: 50px;
-    width: 100%;
   }
 }
-.header__menu{
-  width: 5%;
-    margin: auto 5%;
-   app-menu-icon{
-    float: right;
-   }
-  }
+.header__notification-icon{
+  justify-self: end;
+  margin: 0 5%;
+}
+
 }

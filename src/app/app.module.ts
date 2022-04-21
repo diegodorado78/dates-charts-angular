@@ -10,12 +10,15 @@ import { CoreModule } from './core/core.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+// import { NotificationsDialogComponent } from './shared/components/notifications-dialog/notifications-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
-
+  ],
+  entryComponents:[
+  //  NotificationsDialogComponent
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   imports: [

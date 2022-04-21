@@ -1,8 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { Chart, registerables } from 'chart.js';
+import {ExtrusorService} from '@services/extrusor.service';
 import zoomPlugin from 'chartjs-plugin-zoom';
 Chart.register(zoomPlugin);
-import {ExtrusorService} from '../../../../core/services/extrusor.service'
 @Component({
   selector: 'app-chart2',
   templateUrl: './chart2.component.html',

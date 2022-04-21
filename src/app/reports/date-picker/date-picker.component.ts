@@ -1,7 +1,6 @@
 import { Component, OnInit,Input, OnDestroy } from '@angular/core';
 import { Observable,Subscription } from 'rxjs';
-import { TitleService} from './../../core/services/title.service';
-import { WinderService } from 'src/app/core/services/winder.service';
+import { TitleService} from '@services/title.service';
 import {Response} from '../../response.model'
 
 @Component({

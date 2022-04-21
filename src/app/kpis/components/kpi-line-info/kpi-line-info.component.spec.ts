@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { KpisLineSelectionComponent } from './kpis-line-selection.component';
+import { KpiLineInfoComponent } from './kpi-line-info.component';
 
-describe('KpisLineSelectionComponent', () => {
-  let component: KpisLineSelectionComponent;
-  let fixture: ComponentFixture<KpisLineSelectionComponent>;
+describe('KpiLineInfoComponent', () => {
+  let component: KpiLineInfoComponent;
+  let fixture: ComponentFixture<KpiLineInfoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ KpisLineSelectionComponent ]
+      declarations: [ KpiLineInfoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(KpisLineSelectionComponent);
+    fixture = TestBed.createComponent(KpiLineInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

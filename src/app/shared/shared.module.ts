@@ -7,6 +7,7 @@ import { MenuIconComponent } from './components/menu-icon/menu-icon.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LineInfoComponent } from './components/line-info/line-info.component';
 import { CoreModule } from '../core/core.module';
+import { NotificationsDialogComponent } from './components/notifications-dialog/notifications-dialog.component';
 
 @NgModule({
   declarations: [
@@ -14,18 +15,22 @@ import { CoreModule } from '../core/core.module';
     MenuIconComponent,
     NavBarComponent,
     LineInfoComponent,
+    NotificationsDialogComponent
     ],
   exports:[
     HeaderComponent,
     MenuIconComponent,
     NavBarComponent,
-    LineInfoComponent
+    LineInfoComponent,
+    NotificationsDialogComponent
+    
 
   ],
    imports: [
     CommonModule,
     RouterModule,
-    MaterialModule,CoreModule
+    MaterialModule,
+    CoreModule
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })

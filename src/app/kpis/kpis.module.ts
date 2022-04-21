@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { KpisContentComponent } from './kpis-content/kpis-content.component';
+import {KpisComponent} from './kpis.component'
+import { KpisContentComponent } from './components/kpis-content/kpis-content.component';
+import { KpiLineInfoComponent } from './components/kpi-line-info/kpi-line-info.component';
 import { CoreModule } from 'src/app/core/core.module';
-import { KpiLineComponent } from './kpi-line/kpi-line.component';
 import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../shared/shared.module';
-import { KpisLineSelectionComponent } from './kpis-line-selection/kpis-line-selection.component';
 import { KpisRoutingModule } from './kpis-routing.module';
 
 
 
 @NgModule({
   declarations: [
-   KpisContentComponent,KpiLineComponent,KpisLineSelectionComponent
+    KpisComponent, KpisContentComponent,KpiLineInfoComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +22,7 @@ import { KpisRoutingModule } from './kpis-routing.module';
     KpisRoutingModule
   ],
   exports:[
-    KpiLineComponent
+    KpiLineInfoComponent
   ]
 })
 export class KpisModule { }

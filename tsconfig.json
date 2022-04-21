@@ -16,8 +16,10 @@
       "dom"
     ],
     "allowSyntheticDefaultImports": true,
-    "paths": {
-              "@assets/*": ["app/assets/*"],
+    "paths":
+     {
+      "@assets/*": ["src/assets/*"],
+      "@services/*": ["src/app/core/services/*"]
     }
   },
   "angularCompilerOptions": {

@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import {DieService } from 'src/app/core/services/die.service';
+import {DieService} from '@services/die.service';
 import { Chart, registerables } from 'chart.js';
 import zoomPlugin from 'chartjs-plugin-zoom';
 Chart.register(zoomPlugin);

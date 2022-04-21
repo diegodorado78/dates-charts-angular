@@ -1,14 +1,14 @@
 import { Component, OnInit,Input,Output,EventEmitter,OnDestroy } from '@angular/core';
-import {LinesService} from '../../core/services/lines.service';
+import {LinesService} from '@services/lines.service';
 
 @Component({
-  selector: 'app-kpis-line-selection',
-  templateUrl: './kpis-line-selection.component.html',
-  styleUrls: ['./kpis-line-selection.component.scss']
+  selector: 'app-kpis',
+  templateUrl: './kpis.component.html',
+  styleUrls: ['./kpis.component.scss']
 })
-export class KpisLineSelectionComponent implements OnInit {
+export class KpisComponent implements OnInit {
  lines =[];
- @Input() line:any = Input(); // para resolver problema de strict mode
+@Input() line:any = Input(); // para resolver problema de strict mode
 @Output() lineClicked: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private linesService: LinesService) { }

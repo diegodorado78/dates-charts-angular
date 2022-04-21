@@ -1,8 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { Chart, registerables } from 'chart.js';
+import {DieService} from '@services/die.service';
 import zoomPlugin from 'chartjs-plugin-zoom';
 Chart.register(zoomPlugin);
-import { DieService } from 'src/app/core/services/die.service'
 
 @Component({
   selector: 'app-chart3',

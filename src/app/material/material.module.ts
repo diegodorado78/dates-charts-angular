@@ -14,6 +14,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle'; 
 import { FormsModule } from '@angular/forms';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MatDialogModule,MAT_DIALOG_DATA } from '@angular/material/dialog';
 @NgModule({
   declarations: [],
   imports: [
@@ -30,8 +31,8 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
     MatMenuModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSlideToggleModule
-
+    MatSlideToggleModule,
+    MatDialogModule
   ],
   exports:[
     MatButtonModule,
@@ -46,7 +47,8 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
     MatMenuModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatDialogModule
   ],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
