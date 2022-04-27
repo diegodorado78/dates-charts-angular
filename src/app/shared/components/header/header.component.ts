@@ -7,7 +7,7 @@ import { NotificationsDialogComponent } from '../notifications-dialog/notificati
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+bcoLogo:string = './../../../../assets/images/bco-logo-white.png'
  notification:number=0
   constructor(public dialog:MatDialog) { }
 

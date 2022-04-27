@@ -46,8 +46,16 @@ html, body {
   padding: 0;
   a{
     text-decoration: none;
-    color:#373A39E6
+    color:#373A39E6;
+    padding: 0;
   }
+  li{
+    list-style: none;
+  }
+  ul{
+    padding:0
+}
+
 }
 
 .container{
@@ -71,6 +79,7 @@ html, body {
    text-align: center;
    font-weight: bold;
   }
+  
 }
 
 .charts__container{
@@ -118,7 +127,6 @@ html, body {
 
 }
   }
-
 
 .mat-bco{
     background-color: #dcdcdc82;
