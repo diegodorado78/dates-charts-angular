@@ -17,7 +17,7 @@ import { KpisRoutingModule } from './kpis-routing.module';
   imports: [
     CommonModule,
     SharedModule,
- MaterialModule,
+    MaterialModule,
     CoreModule,
     KpisRoutingModule
   ],

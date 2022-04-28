@@ -88,6 +88,7 @@ html, body {
    width: 90%;
    height: 90%;
    margin:auto 5%;
+
  }
 
  mat-card{
@@ -104,8 +105,10 @@ html, body {
   height: 100%;
   text-align: center;
   margin:10px auto;
+
 .chart__container{
   height: 70%;
+
 }
 .mat__card-buttons{
   display: flex;
@@ -163,13 +166,6 @@ html, body {
   margin: auto;
   }
   .charts__container{
-   /*  display: grid;
-    grid-template-columns:repeat(2,1fr) ;
-    width: 90%;
-    margin: 1% 5%;
-    grid-gap: 5px;
-    padding: 5px; */
-
     display:flex;
     flex-flow:row wrap ;
     width: 90%;
@@ -191,4 +187,7 @@ html, body {
      }
   }
 
-
+  .send__btn{
+    background-color: #373A39;
+    color: white;
+}

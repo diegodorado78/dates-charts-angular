@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import {PreloadAllModules, Routes, RouterModule } from '@angular/router';
-import {LayoutComponent} from './pages/layout/layout.component';
+import { NotFoundPageComponent } from './pages/components/not-found-page/not-found-page.component';
+import {LayoutComponent} from './pages/components/layout/layout.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,7 @@ const routes: Routes = [
       },
       {
         path: 'home',
-        loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)        },
+        loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)        },
       
       {
         path: 'kpis',
@@ -27,30 +28,14 @@ const routes: Routes = [
         // canActivate: [AdminGuard],
         loadChildren: () => import('./reports/reports.module').then(m => m.ReportsModule)
       },
-
-      //I place the other modules to be accessed from anywhere using the hamburger menu
-      // {
-      //   path: 'winder',
-      //   // canActivate: [AdminGuard],
-      //   loadChildren: () => import('./reports/winder/winder.module').then(m => m.WinderModule)
-      // },
-      // {
-      //   path: 'extrusor',
-      //   // canActivate: [AdminGuard],
-      //   loadChildren: () => import('./reports/extrusor/extrusor.module').then(m => m.ExtrusorModule)
-      // },
-      // {
-      //   path: 'boquilla',
-      //   // canActivate: [AdminGuard],
-      //   loadChildren: () => import('./reports/boquilla/boquilla.module').then(m => m.BoquillaModule)
-      // },
-
     ]
   },
   {
     path: '**',
-    loadChildren: () => import('./pages/page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)
+    component:NotFoundPageComponent ,
+
   }
+  
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes,{
