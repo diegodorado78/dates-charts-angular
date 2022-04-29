@@ -4,7 +4,7 @@
     background-color: #E4E4E4;
     height: 5vh;
     color: #272a3a;
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-weight: 500;
 
     .nav__div1{
@@ -19,26 +19,15 @@
             margin: 5%;
             color:#272a3a
         }
-        .back__icon:active{
-            background: linear-gradient(to right, #EAEAEA, #CCCC);
-        }
     }
     }
-
     .nav__div2{ grid-column: 2/8;}
     .nav__div3{ grid-column: 8/9;}   
    }
    
-
-
    @media (min-width: 768px) {
-    .back__icon:hover{
-        background:#545858;
-        cursor: pointer;
+    .nav__container{
+        font-size: 2rem;
     }
-
-    // .nav__container{
-       
-    // }
    }
 

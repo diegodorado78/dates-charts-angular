@@ -8,8 +8,6 @@ import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../shared/shared.module';
 import { KpisRoutingModule } from './kpis-routing.module';
 
-
-
 @NgModule({
   declarations: [
     KpisComponent, KpisContentComponent,KpiLineInfoComponent

@@ -102,7 +102,7 @@ constructor( private route: ActivatedRoute, private linesService: LinesService){
             beginAtZero:true,
             ticks:{
               font:{
-                size:10
+                size:12
               }
             },
             stacked:false,
@@ -115,7 +115,7 @@ constructor( private route: ActivatedRoute, private linesService: LinesService){
           x:{
             ticks:{
               font:{
-                size:10
+                size:15
               }
             },
             stacked:true,
