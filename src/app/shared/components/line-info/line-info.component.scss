@@ -7,3 +7,16 @@
         margin: 10px;
     }
 }
+@media (min-width: 768px) {
+  .line__container{
+    p{
+      width: 90%;
+      text-align:center;
+      font-weight: bold;
+      margin: 10px 5%;
+  }
+  }
+  
+
+} 
+// hacer 3 grillas y no dos para cuadrar los margenes a los lados

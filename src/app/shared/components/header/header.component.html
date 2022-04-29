@@ -3,8 +3,9 @@
 
   <div class="header__menu">
     <app-menu-icon></app-menu-icon>
-      </div>
-   <!-- img bruckner -->
+  </div>
+
+   <!-- bruckner img -->
       <div class="header__nav_logo ">
      <a routerLink="/home">
    <img  [src]="bcoLogo" alt="bruckner_logo">
@@ -13,13 +14,17 @@
 
        <mat-icon (click)="openDialog()" class="header__notification-icon" matBadgeSize="small">notifications</mat-icon>
        <!--  matBadge="{{notification}}" matBadgeColor="warn" -->
+
+       <!-- user menu -->
        <div class="user__container">
         <mat-icon class="header__user-icon" matBadgeSize="small" mat-button [matMenuTriggerFor]="menu">person</mat-icon>
+       
         <mat-menu #menu="matMenu">
          <button mat-menu-item>Edit Profile</button>
          <button mat-menu-item>Settings</button>
          <button mat-menu-item>Sign Out</button>
        </mat-menu>
+       
        </div>
        
 </mat-toolbar-row>
