@@ -5,10 +5,10 @@ import { Chart, registerables } from 'chart.js';
 
 @Component({
   selector: 'app-kpis',
-  templateUrl: './kpis-content.component.html',
-  styleUrls: ['./kpis-content.component.scss']
+  templateUrl: './kpi-chart.component.html',
+  styleUrls: ['./kpi-chart.component.scss']
 })
-export class KpisContentComponent implements OnInit {
+export class KpiChartComponent implements OnInit {
   yieldData:any;
   totalYield:number;
   actualYield:number;

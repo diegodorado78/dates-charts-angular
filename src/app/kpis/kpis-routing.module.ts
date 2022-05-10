@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { KpisContentComponent } from './components/kpis-content/kpis-content.component';
+import { KpiChartComponent } from './components/kpi-chart/kpi-chart.component';
 import { KpisComponent } from './kpis.component';
 
 const routes: Routes = [
@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    component: KpisContentComponent
+    component: KpiChartComponent
   }
 ];
 
