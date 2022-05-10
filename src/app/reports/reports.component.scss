@@ -1,24 +1,12 @@
-
-.reports__container {
-  background-image: url("https://d39dczdz8fv6rw.cloudfront.net/cache-buster-1592204952/test-images/image-thumb__8__hero-img-full-height/img-msb.webp");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: top;
-  height: 81vh;
+:host{
+  height: 90vh;
 }
-.ul__container {
-  background: linear-gradient(to right, #cccc, #ffff);
-  border-radius: 5px;
-  width: 80%;
-  margin: 10% auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-items: center;
-
   ul {
+    height: 90%;
+    width: 80%;
+    margin: 5% auto;
     list-style: none;
-    padding: 0;
+
   }
   a {
     display: flex;
@@ -28,9 +16,9 @@
     font-size: 2rem;
     font-weight: 500;
     border-bottom: 1px solid #cccc;
+    align-items: center;
     text-align: center;
-    margin: 10px auto;
-    padding: 5px;
+    margin: 10% auto;
     height: 120px;
     p {
       align-content: center;
@@ -38,18 +26,22 @@
     }
     img {
       height: 80px;
+      width: 80px;
       margin: 5px;
       border-radius: 10px;
     }
   }
-}
+
 
 @media (min-width: 768px) {
-  .container{
-    width: 100%;
-  }
-  .ul__container {
+  .reports__container{
     width: 60%;
+    margin: 10px auto;
+  }
+  ul{
+    a{
+      margin: 5% 0px;
+    }
   }
 }
  //styles for the chart slider buttons

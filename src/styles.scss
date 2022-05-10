@@ -55,7 +55,18 @@ html, body {
   background: linear-gradient(to right, #EAEAEA, #ccc);
   }
 // Global styles for charts
-
+.container2{
+  display: flex;
+  background: linear-gradient(to right, #cccc, #ffff);
+  flex-direction: column;
+  border-radius: 5px;
+  width: 80%;
+  height: 60vh;
+  margin: 20px auto;
+  padding: auto 0;
+  align-items: center;
+  justify-items: center;
+}
 
 .mat-typography{
    h1{
@@ -120,7 +131,6 @@ html, body {
     color: #ffff;
   }
 
-
  .chart__container{
   display: flex;
   justify-content: center;
@@ -143,8 +153,16 @@ html, body {
  @media (min-width: 768px) {
   .container{
   width: 90%;
+  height: 100%;
   margin: auto;
   }
+
+  .container2 {
+    width: 40%;
+    height: 65vh;
+    margin: 10px auto;
+  }
+  
   .charts__container{
     display:flex;
     flex-flow:row wrap ;
@@ -167,7 +185,4 @@ html, body {
      }
   }
 
-  .send__btn{
-    background-color: #373A39;
-    color: white;
-}
+  

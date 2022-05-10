@@ -1,4 +1,6 @@
-
+:host{
+  height: 90vh;
+}
 .button__container{
   width: 50%;
   height: 80vh;
@@ -25,6 +27,7 @@ margin: auto;
 }
 @media (min-width: 768px) {
   .button__container{
+    height: 71vh;
     margin: auto;
   }
  a{

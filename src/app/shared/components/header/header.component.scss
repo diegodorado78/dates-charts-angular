@@ -45,6 +45,12 @@ display: flex;
 
   }
 }
+// .myMenu{
+  
+//     display: flex;
+//     align-content: left;
+//     background-color: red;
+// }
 
 @media (min-width: 768px) {
   .layout__header{
@@ -69,5 +75,4 @@ display: flex;
   justify-self: end;
   margin: 0 5%;
 }
-
 }

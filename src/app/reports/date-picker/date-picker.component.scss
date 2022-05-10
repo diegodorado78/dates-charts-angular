@@ -1,41 +1,48 @@
+:host{
+  height: 90vh;
+}
+.datePicker__container{
+  display: flex;
+  flex-direction: column;
+ 
+}
 
+.form__container{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 80%;
+  margin: 10% auto;
+  align-items: center;
+  justify-content: center;
 
-.ul__container {
-    background: linear-gradient(to right, #cccc, #ffff);
-    border-radius: 5px;
-    width: 80%;
-    margin: 10% auto;
+}
+
+.datePickerButton__container{
+  display: flex;
+  button{
+    width: auto;
+    margin: 5px 5px;
+    padding: 0 5px;
+
+  }
+}
+@media (min-width: 768px) {
+  
+  .datePicker__container{
+    width: 50%;
+    height: 60vh;
+
+  }
+  .form__container{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-items: center;
-    border: 1px solid #cccc;
-    padding: 2rem;
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    a {
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-      color: #373a39;
-      font-size: 2rem;
-      font-weight: 500;
-      border-bottom: 1px solid #cccc;
-      text-align: center;
-      margin: 10px auto;
-      padding: 5px;
-      height: 120px;
-      p {
-        align-content: center;
-        margin: 0;
-      }
-      img {
-        height: 80px;
-        margin: 5px;
-        border-radius: 10px;
-      }
+    height: 80%;
+    margin: 10% auto 0 auto;
+    justify-content: flex-start;
+    align-content: center;
+    mat-form-field{
+      width: 100%;
+      margin: 5px auto;
     }
   }
-  
+}
