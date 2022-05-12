@@ -10,16 +10,11 @@
       <canvas id="chart2"  height="400px"></canvas>
     </div>
 
-    <div class="mat__card-buttons">
-
-      <div class="zoom__button-container">
-        <mat-slide-toggle id="enableButton2"(click)="enableZoom()"></mat-slide-toggle>
-        <p> Zoom: <strong>{{stateMessage}}</strong></p>
-      </div>
-
+    <div class="button-container">
+      <p>Zoom: <strong>{{stateMessage}}</strong><br> <mat-slide-toggle id="enableButton2"(click)="enableZoom()"></mat-slide-toggle> </p>
       <button mat-button color="bco-activated" (click)="resetZoom()"  >Reset Zoom </button>
-
     </div>
+    
    </mat-card-content>
 
 </mat-card>

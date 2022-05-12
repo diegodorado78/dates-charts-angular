@@ -9,7 +9,7 @@
                     <mat-label>From</mat-label>
                     <input matInput  [ngModelOptions]="{standalone: true}"[matDatepicker]="pickerStart" [(ngModel)]="firstDate">
                     <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
-                    <mat-datepicker #pickerStart startView="year" ></mat-datepicker>
+                    <mat-datepicker touchUi="true" #pickerStart startView="year" ></mat-datepicker>
                   </mat-form-field>
         
                    <!-- Last Date -->
@@ -17,7 +17,8 @@
                     <mat-label>To</mat-label>
                     <input matInput  [ngModelOptions]="{standalone: true}" [matDatepicker]="pickerFinish"[(ngModel)]="lastDate" >
                     <mat-datepicker-toggle matSuffix [for]="pickerFinish"></mat-datepicker-toggle>
-                    <mat-datepicker #pickerFinish startView="year"  ></mat-datepicker>
+                    <mat-datepicker touchUi="true" #pickerFinish startView="year"  ></mat-datepicker>
+                    <button mat-button mat-dialog-close>Close</button>
                   </mat-form-field>
 
                   <!-- buttons -->

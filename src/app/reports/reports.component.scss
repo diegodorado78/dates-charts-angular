@@ -1,7 +1,6 @@
-:host{
-  height: 90vh;
-}
+@import 'variables';
   ul {
+    box-sizing: border-box;
     height: 90%;
     width: 80%;
     margin: 5% auto;
@@ -18,7 +17,7 @@
     border-bottom: 1px solid #cccc;
     align-items: center;
     text-align: center;
-    margin: 10% auto;
+    margin: auto;
     height: 120px;
     p {
       align-content: center;
@@ -44,11 +43,11 @@
     }
   }
 }
- //styles for the chart slider buttons
+ //styles for the chart zoom slider 
   ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
-    background-color: #272A3A;
+    background-color: $primary-color;
 }
 
 ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
-    background-color: #272A3A;
+    background-color: $primary-color;
 }
