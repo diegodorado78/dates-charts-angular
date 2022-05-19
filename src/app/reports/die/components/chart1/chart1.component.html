@@ -2,6 +2,7 @@
 
     <mat-card-header>
         <mat-card-title >{{chartTitle}}</mat-card-title>
+        <!-- <p> fechas: {{fecha|date:'mediumDate'}}</p> -->
     </mat-card-header>
   
      <mat-card-content>
@@ -18,8 +19,12 @@
         </div>
   
         <button mat-button color="bco-activated" (click)="resetZoom()" color="bco-activated" >Reset Zoom </button>
-  
+        <p>{{startDate}}</p>
+        
       </div>
+      <!-- <div *ngFor="let fecha of fechas">
+        <p> fecha: {{fecha|date:'mediumDate'}}</p>
+      </div> -->
      </mat-card-content>
   
   </mat-card>

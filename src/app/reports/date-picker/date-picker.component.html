@@ -5,20 +5,20 @@
             <div class="form__container">
 
                 <!-- Start Date -->
-                <mat-form-field>
+                <mat-form-field >
                     <mat-label>From</mat-label>
-                    <input matInput  [ngModelOptions]="{standalone: true}"[matDatepicker]="pickerStart" [(ngModel)]="firstDate">
-                    <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
-                    <mat-datepicker touchUi="true" #pickerStart startView="year" ></mat-datepicker>
+                      <input matInput  [ngModelOptions]="{standalone: true}"[matDatepicker]="pickerStart" [(ngModel)]="startDate" [min]="minDate" [max]="maxDate">
+                      <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+                      <mat-datepicker touchUi="true" #pickerStart startView="multi-year" ></mat-datepicker>                    
                   </mat-form-field>
+                  <p>{{startDate|date}}</p>
         
                    <!-- Last Date -->
                 <mat-form-field>
                     <mat-label>To</mat-label>
-                    <input matInput  [ngModelOptions]="{standalone: true}" [matDatepicker]="pickerFinish"[(ngModel)]="lastDate" >
+                    <input matInput  [ngModelOptions]="{standalone: true}" [matDatepicker]="pickerFinish"[(ngModel)]="endDate"  [min]="minDate" [max]="maxDate">
                     <mat-datepicker-toggle matSuffix [for]="pickerFinish"></mat-datepicker-toggle>
-                    <mat-datepicker touchUi="true" #pickerFinish startView="year"  ></mat-datepicker>
-                    <button mat-button mat-dialog-close>Close</button>
+                    <mat-datepicker touchUi="true" #pickerFinish startView="multi-year"  ></mat-datepicker>
                   </mat-form-field>
 
                   <!-- buttons -->
