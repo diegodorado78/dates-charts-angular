@@ -12,14 +12,15 @@ import { MatMenuModule } from '@angular/material/menu';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle'; 
-import { FormsModule } from '@angular/forms';
-import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS,MatFormFieldModule} from '@angular/material/form-field';
 import { MatDialogModule,MAT_DIALOG_DATA } from '@angular/material/dialog';
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
@@ -31,6 +32,7 @@ import { MatDialogModule,MAT_DIALOG_DATA } from '@angular/material/dialog';
     MatMenuModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatFormFieldModule,
     MatSlideToggleModule,
     MatDialogModule
   ],
@@ -47,6 +49,7 @@ import { MatDialogModule,MAT_DIALOG_DATA } from '@angular/material/dialog';
     MatMenuModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatFormFieldModule,
     MatSlideToggleModule,
     MatDialogModule
   ],

@@ -11,6 +11,7 @@ Chart.register(zoomPlugin);
 export class Chart1Component implements OnInit {
   public chartTitle="Adapter 1";
   dieData:any;
+  dieData2:any;
   data1:any;
   data2:any;
   data3:any;
@@ -19,15 +20,26 @@ export class Chart1Component implements OnInit {
   enableState:boolean;
   stateMessage:String;
   enableButton:any;
+  fechas:any;
+  startDat='2022/7/31'
+  startDate:Date;
+  startDat1='2021/7/31'
+  startDate1:Date;
   
     constructor(private dieService:DieService) {
       this.dieData = this.dieService.getAllDataPoints();
       this.data1 =this.dieData.map(film=>{return film.roll_id});
       this.data2 =this.dieData.map(film=>{return film.Setpoint1});
       this.data3 =this.dieData.map(film=>{return film.Controller3});
+      this.fechas= this.dieData.map(film=>{return new Date(film.date)});
+      this.startDate = new Date(this.startDat)
+      this.startDate1 = new Date(this.startDat1)
+      console.log(this.fechas)
     }
   
     ngOnInit():void {
+      console.log(this.startDate>this.startDate1)
+
       Chart.register(...registerables);
       this.myChart=document.getElementById('chart1');
       this.enableButton=document.getElementById('enableButton1')
@@ -107,13 +119,21 @@ export class Chart1Component implements OnInit {
     resetZoom(){
      this.chart.resetZoom();
     }
-  
+//    filterData(){
+//   this.dieData2=[...this.dieData]
+//   console.log(this.dieData2)
+//  this.dieData.dieData2.filter((roll)=>{
+//    if(roll.date >= startDate && <= endDate){
+//      return roll
+//    }
+//  })
+//    }
     setState(){
     this.enableState=this.chart.options.plugins.zoom.zoom.wheel.enabled;
     if(this.enableState){
-      return this.stateMessage="Enabled"
+      return this.stateMessage="On"
     }else{
-      return this.stateMessage="Disabled";
+      return this.stateMessage="Off";
     }
     }
   

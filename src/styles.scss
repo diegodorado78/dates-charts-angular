@@ -1,68 +1,55 @@
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
-// Plus imports for other components in your app.
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
 @include mat-core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
 $charts2-primary: mat-palette($mat-indigo);
 $charts2-accent: mat-palette($mat-pink, A200, A100, A400);
-
 // The warn palette is optional (defaults to red).
 $charts2-warn: mat-palette($mat-red);
-
 // Create the theme object (a Sass map containing all of the palettes).
 $charts2-theme: mat-light-theme($charts2-primary, $charts2-accent, $charts2-warn);
-
 // Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
 @include angular-material-theme($charts2-theme);
 
-/* You can add global styles to this file, and also import other style files */
+@import 'variables' ;
 
 html, body {
-  height: 100%;
   font-size: 62.5%;  ;
-  color: #272A3A;
+  color: $primary-color;
   font-family: 'Roboto';
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  background:$background-color ;
   a{
     text-decoration: none;
-    color:#373A39E6;
-    padding: 0;
+    color:$primary-color ;
   }
+
   li{
     list-style: none;
-  }
+   }
+
   ul{
     padding:0
-}
-
-}
+    }
+ }
 
 .container{
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to right, #EAEAEA, #ccc);
+  height: 100%;
   }
+  
 // Global styles for charts
 .container2{
   display: flex;
-  background: linear-gradient(to right, #cccc, #ffff);
+  background: $background-color2;
   flex-direction: column;
   border-radius: 5px;
   width: 80%;
-  height: 60vh;
-  margin: 20px auto;
+  height: 100%;
+  margin:  10px auto;
   padding: auto 0;
   align-items: center;
   justify-items: center;
@@ -83,72 +70,58 @@ html, body {
    width: 90%;
    height: 90%;
    margin:auto 5%;
-
  }
-
- mat-card{
-   margin: 5px auto;
- }
- mat-card-header{
- justify-content: center;
- }
-
- mat-card-content{
-   display: flex;
-   flex-direction: row;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  margin:10px auto;
-
-.mat__card-buttons{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 20%;
-  margin: 10px auto;
-
-  button{
-    width:auto;
-    height: auto;
-    font-size: 1.2rem;
-    padding: 1px 5px;
-    margin: auto 10px;
-  }
-  p{
-    margin: 0px;
-  }
-
-}
-  }
-
-.mat-bco{
-    background-color: #dcdcdc82;
-    color: #ffff;
-  }
-  .mat-bco-activated{
-    background-color: #272A3A;
-    color: #ffff;
-  }
 
  .chart__container{
   display: flex;
   justify-content: center;
   align-content: center;
   width:98%;
-  height: 50vh;
+  height: 100%;
   margin: auto ;
   position: relative;
-  border: 1px solid #ccc;
+  border: 1px solid $tertiary-color;
  }
- .chartButton__container{
+
+ mat-card{
+  margin: 5px auto;
+   
+   mat-card-header{
+    justify-content: center;
+    }
+ }
+ 
+  .button-container{
    display: flex;
    flex-direction: row;
-   height: 100%;
- }
-//Global styles for pages
+   justify-content: center;
+   height: 20%;
+   margin: 10px auto;
 
- /* Style the dots by assigning a fill and stroke */
+    button{
+    width:auto;
+    height: auto;
+    font-size: 1.2rem;
+    padding: 1px 5px;
+    margin: auto 10px;
+    }
+     p{
+    margin: 0px;
+     }
+   }
+ 
+ .mat-bco-activated{
+  background-color: $primary-color;
+  color: $secondary-color;
+}
+//styles for the chart zoom slider 
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: $primary-color;
+}
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: $primary-color;
+}
 
  @media (min-width: 768px) {
   .container{
@@ -165,15 +138,13 @@ html, body {
   
   .charts__container{
     display:flex;
-    flex-flow:row wrap ;
+    flex-flow:wrap ;
     width: 90%;
-    margin: 5% 5%;
-    padding: 5px;
-    justify-content: center;
+    justify-content: left;
+
   }
 
   mat-card{
-    display: flex;
     padding: 0;
     width: 85%;
     max-width: 500px;
@@ -181,7 +152,7 @@ html, body {
     }
     .chart__container{
       width:100%;
-      height: 50vh;
+      height:40vh;
      }
   }
 

@@ -1,25 +1,26 @@
+@import 'variables' ;
 
-.line__content-container{
+.line__container{
  display: flex;
  flex-direction: row;
-background: linear-gradient(to right, #cccc, #ffff);
-border-radius: 5px;
-height: 90vh;
-margin: 5px;
+ border-radius: 5px;
+ height: 100%;
+ width: 100%;
+ margin: 5px;
 }
 
 .line__features{
  display: flex;
  flex-direction: column;
- height: 70vh;
- width: 50%;
- margin: 5vh 5% 5vh 5%;
+ height: 60vh;
+ width: 35%;
+ margin: 20px 2.5%;
  border-radius: 5px;
 
 button{
   height: 30%;
   width: 90%;
-  background-image:linear-gradient(#bbbb, #eeee);
+  background:$button-background-color;
   margin: 5px 0;
 }
 
@@ -38,9 +39,9 @@ button:focus{
 }
 
 .line__chart{
-  width: 50%;
-  height: 70vh;
-  margin: 5vh 5% 5vh 5%;
+  width: 55%;
+  height: 60vh;
+  margin: 20px 2.5%;
 }
 
 @media (min-width: 600px) {
@@ -56,7 +57,8 @@ button:focus{
 
   button{
    height: 25vh;
-   width: 60%;
+   width: 70%;
+   max-width: 120px;
    }
 }
 }

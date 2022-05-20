@@ -113,9 +113,9 @@ export class Chart2Component implements OnInit {
     setState(){
     this.enableState=this.chart.options.plugins.zoom.zoom.wheel.enabled;
     if(this.enableState){
-      return this.stateMessage="Enabled"
+      return this.stateMessage="On"
     }else{
-      return this.stateMessage="Disabled";
+      return this.stateMessage="Off";
     }
     }
 

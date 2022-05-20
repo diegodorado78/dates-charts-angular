@@ -11,11 +11,12 @@ import {Response} from '../../response.model'
 export class DatePickerComponent implements OnInit,OnDestroy {
    // ISO 8601 Extended format
   //`YYYY-MM-DDTHH:mm:ss.sssZ`
-  winderData:Response[]=[];
   subscription: Subscription
-  firstDate:any;
+  startDate:any;
+  endDate:any;
+  minDate= new Date(2018/1/1);
+  maxDate= new Date();
   message$:string;
-  lastDate:any;
   constructor(private titleService:TitleService) {
   }
   ngOnInit(): void {

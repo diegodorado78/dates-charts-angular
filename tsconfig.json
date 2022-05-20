@@ -19,7 +19,8 @@
     "paths":
      {
       "@assets/*": ["src/assets/*"],
-      "@services/*": ["src/app/core/services/*"]
+      "@services/*": ["src/app/core/services/*"],
+      "@shared/*":["src/app/shared/*"]
     }
   },
   "angularCompilerOptions": {
