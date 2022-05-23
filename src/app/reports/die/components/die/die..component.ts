@@ -9,8 +9,8 @@ import { Component, OnInit} from '@angular/core';
 export class DieComponent implements OnInit {
 
 
-  constructor(){
-   
+  constructor(){//al poner nada el elemento vive solo en el scope del constructor
+
   }
   ngOnInit(){
 

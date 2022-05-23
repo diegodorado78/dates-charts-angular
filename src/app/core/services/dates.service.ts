@@ -1,27 +1,31 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
+import { Dates } from 'src/app/date.model';
 
-@Injectable({
+ @Injectable({
   providedIn: 'root'
 })
 
 export class DatesService {
 
   constructor() { }
-  public startDateDetails: any = [];
-  public endDateDetails: any = [];
-
-  public startDateSubject = new Subject<any>();
-  public endDateSubject = new Subject<any>();
-  private startDateSource = new BehaviorSubject(this.startDateDetails);//debe tener un valor inicial en este caso un string vacio
-  private endDateSource = new BehaviorSubject(this.endDateDetails);//debe tener un valor inicial en este caso un string vacio
-
-  currentStartDate = this.startDateSource.asObservable();
-  currentEndDate = this.endDateSource.asObservable();
-
-  changeMessage(startMessage: string, endMessage: string) {
-    this.startDateSource.next(startMessage)
-    this.endDateSource.next(endMessage)
-
+  currentData:Dates={startDate:"",endDate:""};
+  private dateObservable:BehaviorSubject<Dates> = new BehaviorSubject({startDate:"2018/1/1",endDate:new Date()});//debe tener un valor inicial
+  dateData$=this.dateObservable.asObservable();
+//buena practica: getters y setters
+  public get getDate(){//obtengo el mismo observable pero modificado a mi gusto
+    return this.dateObservable.asObservable();// convierte el objeto en solo visible o escuchable No modificable
+  }
+  public addDate(data:Dates){
+    this.currentData=data;
+    this.dateObservable.next(this.currentData)//actualizo en estado del obsevable con los valores que pase
   }
 }
+ //metodos creados de la forma comun
+  // getDateObservable(){
+  //   return this.dateObservable.asObservable();// convierte el objeto en solo visible o escuchable No modificable
+  // }
+  // setDateObeservable(data:Dates){
+  //   this.dateObservable.next(data)//actualizo en estado del obsevable con los valores que pase
+
+  // }

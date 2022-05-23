@@ -7,32 +7,34 @@
                 <!-- Start Date -->
                 <mat-form-field >
                     <mat-label>From</mat-label>
-                      <input matInput  [ngModelOptions]="{standalone: true}"[matDatepicker]="pickerStart" [(ngModel)]="startDate" [min]="minDate" [max]="maxDate">
+                      <input matInput  [ngModelOptions]="{standalone: true}"[matDatepicker]="pickerStart" [(ngModel)]="startDate" >
                       <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
-                      <mat-datepicker touchUi="true" #pickerStart startView="multi-year" ></mat-datepicker>                    
+                      <mat-datepicker touchUi="true" #pickerStart startView="multi-year" ></mat-datepicker>
                   </mat-form-field>
-                  <p>{{startDate|date}}</p>
-        
+                  <!-- <p>{{startDate|date}}</p> -->
+                      <p> {{(dateData$|async)?.startDate}}</p>
+                     <p> {{(dateData$|async)?.endDate}}</p>
                    <!-- Last Date -->
                 <mat-form-field>
                     <mat-label>To</mat-label>
-                    <input matInput  [ngModelOptions]="{standalone: true}" [matDatepicker]="pickerFinish"[(ngModel)]="endDate"  [min]="minDate" [max]="maxDate">
+                    <input matInput  [ngModelOptions]="{standalone: true}" [matDatepicker]="pickerFinish"[(ngModel)]="endDate">
                     <mat-datepicker-toggle matSuffix [for]="pickerFinish"></mat-datepicker-toggle>
                     <mat-datepicker touchUi="true" #pickerFinish startView="multi-year"  ></mat-datepicker>
                   </mat-form-field>
-
+                     <p> {{startDate}}</p>
+                     <p> {{endDate}}</p>
                   <!-- buttons -->
                 <div class="datePickerButton__container">
                    <!-- Buttons depending on the case to render the trends -->
-                   <button  *ngSwitchCase="'extrusor'" routerLink="trends" type="submit" mat-raised-button  color="bco-activated" >Select </button>   
-                   <button *ngSwitchCase="'die'" routerLink="trends" type="submit" mat-raised-button color="bco-activated" >Select </button>
-                   <button *ngSwitchCase="'winder'" routerLink="trends" type="submit" mat-raised-button color="bco-activated" >Select </button>
-                   <button  routerLink="trends" type="submit"  mat-raised-button color="bco-activated" > See last month </button>  
+                   <!-- <button  *ngSwitchCase="'extrusor'" routerLink="trends" type="submit" mat-raised-button  color="bco-activated" (click)="sendData(startDate,endDate)">Select </button>
+                   <button *ngSwitchCase="'die'" routerLink="trends" type="submit" mat-raised-button color="bco-activated" (click)="sendData(startDate,endDate)" >Select </button>
+                   <button *ngSwitchCase="'winder'" routerLink="trends" type="submit" mat-raised-button color="bco-activated" (click)="sendData(startDate,endDate)" >Select </button> -->
+                   <button  (click)="setDate(newDate)" routerLink="trends" type="submit"  mat-raised-button color="bco-activated" > See last month </button>
                 </div>
-               
+
             </div>
 
     </div>
-    
+
  </form>
 
