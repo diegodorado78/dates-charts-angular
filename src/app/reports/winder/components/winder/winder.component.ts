@@ -1,7 +1,7 @@
 import { Component, OnInit,ElementRef,ViewChild} from '@angular/core';
 // import { HttpClient } from '@angular/common/http';
 // import { Observable } from 'rxjs'
-import {Response} from '../../../../response.model'
+import {Response} from '@models/response.model' ;
 import { WinderService } from 'src/app/core/services/winder.service';
 import {WResponse} from '../../../../winderResponse.model'
 

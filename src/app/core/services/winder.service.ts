@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import {WResponse} from '../../winderResponse.model' ;
-import {Response} from '../../response.model' ;
+import {Response} from '@models/response.model' ;
 
 
 @Injectable({

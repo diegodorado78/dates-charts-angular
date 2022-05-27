@@ -20,7 +20,8 @@
      {
       "@assets/*": ["src/assets/*"],
       "@services/*": ["src/app/core/services/*"],
-      "@shared/*":["src/app/shared/*"]
+      "@shared/*":["src/app/shared/*"],
+      "@models/*":["src/app/models/*"]
     }
   },
   "angularCompilerOptions": {

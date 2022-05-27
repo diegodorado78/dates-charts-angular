@@ -1,3 +1,4 @@
+import { DatesService } from '@services/dates.service';
 import { Component, OnInit} from '@angular/core';
 import {DieService} from '@services/die.service';
 import { Chart, registerables } from 'chart.js';
@@ -10,6 +11,7 @@ Chart.register(zoomPlugin);
 })
 export class Chart1Component implements OnInit {
   public chartTitle="Adapter 1";
+
   dieData:any;
   dieData2:any;
   data1:any;
@@ -25,8 +27,9 @@ export class Chart1Component implements OnInit {
   startDate:Date;
   startDat1='2021/7/31'
   startDate1:Date;
-  
-    constructor(private dieService:DieService) {
+  dateData$= this.datesService.dateData$;
+
+    constructor(private dieService:DieService, private datesService:DatesService) {
       this.dieData = this.dieService.getAllDataPoints();
       this.data1 =this.dieData.map(film=>{return film.roll_id});
       this.data2 =this.dieData.map(film=>{return film.Setpoint1});
@@ -34,12 +37,12 @@ export class Chart1Component implements OnInit {
       this.fechas= this.dieData.map(film=>{return new Date(film.date)});
       this.startDate = new Date(this.startDat)
       this.startDate1 = new Date(this.startDat1)
-      console.log(this.fechas)
-    }
-  
-    ngOnInit():void {
-      console.log(this.startDate>this.startDate1)
 
+    }
+
+    ngOnInit():void {
+      // console.log(this.startDate>this.startDate1)
+     console.log(this.dateData$)
       Chart.register(...registerables);
       this.myChart=document.getElementById('chart1');
       this.enableButton=document.getElementById('enableButton1')
@@ -71,7 +74,7 @@ export class Chart1Component implements OnInit {
         options:{
           responsive:true,
           maintainAspectRatio:false,
-  
+
           scales:{
             y:{
               beginAtZero:true,
@@ -136,12 +139,12 @@ export class Chart1Component implements OnInit {
       return this.stateMessage="Off";
     }
     }
-  
+
     enableZoom(){
       this.chart.options.plugins.zoom.zoom.wheel.enabled = !this.chart.options.plugins.zoom.zoom.wheel.enabled;
       this.setState();
       this.chart.update();
     }
 
-    
+
 }

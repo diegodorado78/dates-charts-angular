@@ -1,5 +1,7 @@
 import { Component, OnInit} from '@angular/core';
-
+import { DatesService } from '@services/dates.service';
+import { Observable,Subscription } from 'rxjs';
+import {Dates} from '@models/date.model';
 
 @Component({
   selector: 'app-die',
@@ -7,13 +9,12 @@ import { Component, OnInit} from '@angular/core';
   styleUrls: ['./die.component.scss']
 })
 export class DieComponent implements OnInit {
+  //  dateData$:Observable<Dates>;
 
-
-  constructor(){//al poner nada el elemento vive solo en el scope del constructor
+  constructor() {
 
   }
   ngOnInit(){
-
   }
 
 }

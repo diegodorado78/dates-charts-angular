@@ -1,8 +1,8 @@
-import { DatesService } from './../../core/services/dates.service';
 import { Component, OnInit,Input, OnDestroy } from '@angular/core';
 import { Observable,Subscription } from 'rxjs';
 import { TitleService} from '@services/title.service';
-import { Dates } from '../../date.model';
+import { DatesService } from '@services/dates.service';
+import { Dates } from '@models/date.model';
 
 @Component({
   selector: 'app-date-picker',
@@ -21,12 +21,13 @@ export class DatePickerComponent implements OnInit,OnDestroy {
   constructor(
     private titleService:TitleService,
     private datesService:DatesService) {//dateService vive solo en el constructor
-    this.dateData$= datesService.getDate;//no uso parentesis porque es un getter
+    this.dateData$= datesService.getDate();//no uso parentesis porque es un getter
   }
 
   ngOnInit(): void {
   // this.message$ recieves the async value  from the service
    this.subscription = this.titleService.currentTitle$.subscribe(message=>this.message$=message)
+   console.log(this.dateData$)
 }
 
   ngOnDestroy(){
@@ -35,7 +36,6 @@ export class DatePickerComponent implements OnInit,OnDestroy {
 
    setDate(date:Dates){
    this.newDate={startDate:this.startDate,endDate:this.endDate}
-   console.log(this.newDate)
    this.datesService.addDate(date);
    }
 
