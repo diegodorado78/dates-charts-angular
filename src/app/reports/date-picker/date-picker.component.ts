@@ -11,17 +11,20 @@ import { Dates } from '@models/date.model';
 })
 export class DatePickerComponent implements OnInit,OnDestroy {
   subscription: Subscription
-  dateData$:Observable<Dates>;
+  dateData$= this.datesService.dateData$;
   // minDate= new Date(2018/1/1);
   // maxDate= new Date();
-  newDate:Dates;
   startDate:string|Date;
   endDate:string|Date;
+  newDate:Dates;
   message$:string;
+
   constructor(
     private titleService:TitleService,
     private datesService:DatesService) {//dateService vive solo en el constructor
-    this.dateData$= datesService.getDate();//no uso parentesis porque es un getter
+    //this.dateData$= datesService.getValue();//no uso parentesis porque es un getter
+    // this.newDate={startDate:this.startDate,endDate:this.endDate};
+
   }
 
   ngOnInit(): void {
@@ -34,9 +37,12 @@ export class DatePickerComponent implements OnInit,OnDestroy {
      this.subscription.unsubscribe();
    }
 
-   setDate(date:Dates){
-   this.newDate={startDate:this.startDate,endDate:this.endDate}
+   setDate(date:any){
+    this.newDate={startDate:this.startDate, endDate:this.endDate};
+    date=this.newDate
+   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
    this.datesService.addDate(date);
+  //  console.log(typeof(this.startDate))
    }
 
 

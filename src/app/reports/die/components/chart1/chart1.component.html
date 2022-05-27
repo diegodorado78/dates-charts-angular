@@ -24,8 +24,8 @@
       <!-- <div *ngFor="let fecha of fechas">
         <p> fecha: {{fecha|date:'mediumDate'}}</p>
       </div> -->
-         <p> {{(dateData$|async)?.startDate}}</p>
-        <p> {{(dateData$|async)?.endDate}}</p>
+         <p> {{(dateData$|async)?.startDate|date}}</p>
+         <p> {{(dateData$|async)?.endDate}}</p>
 
 
      </mat-card-content>

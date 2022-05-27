@@ -9,15 +9,14 @@ import { Dates } from '@models/date.model';
 export class DatesService {
 
   constructor() { }
-  // currentData:Dates={startDate:"",endDate:""};
-  private dateData= new BehaviorSubject<Dates>({startDate:"xx",endDate:"yy"});//debe tener un valor inicial
+  currentData:Dates={startDate:"o",endDate:"y"};
+  private dateData= new BehaviorSubject<Dates>(this.currentData);//debe tener un valor inicial
   dateData$=this.dateData.asObservable();
-//buena practica: getters y setters
-  public getDate(){//obtengo el mismo observable pero modificado a mi gusto
-    return this.dateData$;// convierte el objeto en solo visible o escuchable No modificable
-  }
+  dateDto:any;
+
   public addDate(data:Dates){
     // this.currentData=data;
+    // this.dateDto=data;
     this.dateData.next(data)//actualizo en estado del obsevable con los valores que pase
   }
 }

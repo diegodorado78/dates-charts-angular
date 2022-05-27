@@ -30,8 +30,9 @@
                    <button *ngSwitchCase="'die'" routerLink="trends" type="submit" mat-raised-button color="bco-activated" (click)="sendData(startDate,endDate)" >Select </button>
                    <button *ngSwitchCase="'winder'" routerLink="trends" type="submit" mat-raised-button color="bco-activated" (click)="sendData(startDate,endDate)" >Select </button> -->
                    <button  (click)="setDate(newDate)" routerLink="trends" type="submit"  mat-raised-button color="bco-activated" > See last month </button>
-                </div>
 
+                  </div>
+                     <p> {{newDate|date}}</p>
             </div>
 
     </div>
