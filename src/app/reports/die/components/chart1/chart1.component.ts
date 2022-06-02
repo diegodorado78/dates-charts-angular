@@ -23,10 +23,7 @@ export class Chart1Component implements OnInit {
   stateMessage:String;
   enableButton:any;
   fechas:any;
-  startDat='2022/7/31'
-  startDate:Date;
-  startDat1='2021/7/31'
-  startDate1:Date;
+  
   dateData$= this.datesService.dateData$;
 
     constructor(private dieService:DieService, private datesService:DatesService) {
@@ -35,14 +32,11 @@ export class Chart1Component implements OnInit {
       this.data2 =this.dieData.map(film=>{return film.Setpoint1});
       this.data3 =this.dieData.map(film=>{return film.Controller3});
       this.fechas= this.dieData.map(film=>{return new Date(film.date)});
-      this.startDate = new Date(this.startDat)
-      this.startDate1 = new Date(this.startDat1)
-
+    
     }
 
     ngOnInit():void {
-      // console.log(this.startDate>this.startDate1)
-     console.log(this.dateData$)
+      this.filterData();
       Chart.register(...registerables);
       this.myChart=document.getElementById('chart1');
       this.enableButton=document.getElementById('enableButton1')
@@ -122,15 +116,27 @@ export class Chart1Component implements OnInit {
     resetZoom(){
      this.chart.resetZoom();
     }
-//    filterData(){
-//   this.dieData2=[...this.dieData]
-//   console.log(this.dieData2)
-//  this.dieData.dieData2.filter((roll)=>{
-//    if(roll.date >= startDate && <= endDate){
-//      return roll
-//    }
+  filterData(){
+  this.dieData2=this.dieData
+  const indexStartDate= new Date(("2022/06/01")).getTime()
+  const indexEndDate=new Date(("2022/06/15")).getTime()
+  console.log(indexStartDate,indexEndDate)
+
+  this.dieData2.map(x => {
+    if (new Date(x.date).getTime() >= indexStartDate && new Date(x.date).getTime() <= indexEndDate  ){
+      console.log(x)
+      return x.date
+    }else{
+      console.log("no match")
+    }
+  })
+//   this.dieData2.filter((roll)=>{
+//     var date= new Date(roll.date);
+//   // return (dates.inRange(new Date("2022-06-01"),new Date("2022-06-15"))
 //  })
-//    }
+
+   }
+   
     setState(){
     this.enableState=this.chart.options.plugins.zoom.zoom.wheel.enabled;
     if(this.enableState){
@@ -144,6 +150,8 @@ export class Chart1Component implements OnInit {
       this.chart.options.plugins.zoom.zoom.wheel.enabled = !this.chart.options.plugins.zoom.zoom.wheel.enabled;
       this.setState();
       this.chart.update();
+      console.log(this.dieData2)
+
     }
 
 

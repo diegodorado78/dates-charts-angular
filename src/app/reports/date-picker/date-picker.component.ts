@@ -30,19 +30,16 @@ export class DatePickerComponent implements OnInit,OnDestroy {
   ngOnInit(): void {
   // this.message$ recieves the async value  from the service
    this.subscription = this.titleService.currentTitle$.subscribe(message=>this.message$=message)
-   console.log(this.dateData$)
 }
 
   ngOnDestroy(){
      this.subscription.unsubscribe();
    }
 
-   setDate(date:any){
+   setDate(date:Dates){
     this.newDate={startDate:this.startDate, endDate:this.endDate};
     date=this.newDate
-   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
    this.datesService.addDate(date);
-  //  console.log(typeof(this.startDate))
    }
 
 
