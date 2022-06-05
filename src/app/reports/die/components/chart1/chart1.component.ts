@@ -23,7 +23,7 @@ export class Chart1Component implements OnInit {
   stateMessage:String;
   enableButton:any;
   fechas:any;
-  
+
   dateData$= this.datesService.dateData$;
 
     constructor(private dieService:DieService, private datesService:DatesService) {
@@ -32,7 +32,7 @@ export class Chart1Component implements OnInit {
       this.data2 =this.dieData.map(film=>{return film.Setpoint1});
       this.data3 =this.dieData.map(film=>{return film.Controller3});
       this.fechas= this.dieData.map(film=>{return new Date(film.date)});
-    
+
     }
 
     ngOnInit():void {
@@ -130,13 +130,15 @@ export class Chart1Component implements OnInit {
       console.log("no match")
     }
   })
+  // realizar app header
+  // <bco-app-header />
 //   this.dieData2.filter((roll)=>{
 //     var date= new Date(roll.date);
 //   // return (dates.inRange(new Date("2022-06-01"),new Date("2022-06-15"))
 //  })
 
    }
-   
+
     setState(){
     this.enableState=this.chart.options.plugins.zoom.zoom.wheel.enabled;
     if(this.enableState){
