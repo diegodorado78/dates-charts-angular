@@ -1,6 +1,12 @@
-import { DatesService } from '@services/dates.service';
-import { Component, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit} from '@angular/core';
+
 import {DieService} from '@services/die.service';
+import {DatesService } from '@services/dates.service';
+import { Dates } from '@models/date.model';
+
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+
 import { Chart, registerables } from 'chart.js';
 import zoomPlugin from 'chartjs-plugin-zoom';
 Chart.register(zoomPlugin);
@@ -9,9 +15,8 @@ Chart.register(zoomPlugin);
   templateUrl: './chart1.component.html',
   styleUrls: ['./chart1.component.scss']
 })
-export class Chart1Component implements OnInit {
+export class Chart1Component implements OnInit,OnDestroy  {
   public chartTitle="Adapter 1";
-
   dieData:any;
   dieData2:any;
   data1:any;
@@ -22,24 +27,42 @@ export class Chart1Component implements OnInit {
   enableState:boolean;
   stateMessage:String;
   enableButton:any;
-  fechas:any;
-
-  dateData$= this.datesService.dateData$;
+  dateData$:any; 
+  selectedDates:Dates;
+  private unsubscribe$ = new Subject<void>();
 
     constructor(private dieService:DieService, private datesService:DatesService) {
-      this.dieData = this.dieService.getAllDataPoints();
-      this.data1 =this.dieData.map(film=>{return film.roll_id});
-      this.data2 =this.dieData.map(film=>{return film.Setpoint1});
-      this.data3 =this.dieData.map(film=>{return film.Controller3});
-      this.fechas= this.dieData.map(film=>{return new Date(film.date)});
-
+      // this.dieData = this.dieService.getAllDataPoints();
+      // // this.data1 =this.dieData.map(film=>{return film.roll_id});
+      // // this.data2 =this.dieData.map(film=>{return film.Setpoint1});
+      // // this.data3 =this.dieData.map(film=>{return film.Controller3});
+      // this.dateData$=this.datesService.dateData$;
+      // this.dateData$.pipe(
+      //   takeUntil(this.unsubscribe$) // unsubscribe to prevent memory leak
+      // ).subscribe(x=>this.selectedDates=x );
+      // const indexStartDate= this.selectedDates.startDate
+      // const indexEndDate=this.selectedDates.endDate
+      // this.dieData2= this.dieData.map(x => {
+      //   if (new Date(x.date) >= indexStartDate && new Date(x.date) <= indexEndDate  ){
+      //     console.log(x)
+      //     return x
+      //   }else{
+      //     console.log("no match")
+      //   }
+      // })
+      // this.data1 =this.dieData2.map(film=>{return film.roll_id});
+      // this.data2 =this.dieData2.map(film=>{return film.Setpoint1});
+      // this.data3 =this.dieData2.map(film=>{return film.Controller3});
     }
 
     ngOnInit():void {
-      this.filterData();
+     
+      // console.log(this.selectedDates)
+      // this.filterData();
       Chart.register(...registerables);
       this.myChart=document.getElementById('chart1');
       this.enableButton=document.getElementById('enableButton1')
+     
       this.chart= new Chart(this.myChart,{
         type: 'line',
         data: {
@@ -113,23 +136,27 @@ export class Chart1Component implements OnInit {
       })
        this.setState()
     }
+    ngOnDestroy(): void {
+      this.unsubscribe$.next();
+      this.unsubscribe$.complete();
+    }
     resetZoom(){
      this.chart.resetZoom();
     }
   filterData(){
-  this.dieData2=this.dieData
-  const indexStartDate= new Date(("2022/06/01")).getTime()
-  const indexEndDate=new Date(("2022/06/15")).getTime()
-  console.log(indexStartDate,indexEndDate)
-
-  this.dieData2.map(x => {
-    if (new Date(x.date).getTime() >= indexStartDate && new Date(x.date).getTime() <= indexEndDate  ){
-      console.log(x)
-      return x.date
-    }else{
-      console.log("no match")
-    }
-  })
+  // const indexStartDate= this.selectedDates.startDate
+  // const indexEndDate=this.selectedDates.endDate
+  // this.dieData2= this.dieData.map(x => {
+  //   if (new Date(x.date) >= indexStartDate && new Date(x.date) <= indexEndDate  ){
+  //     console.log(x)
+  //     return x
+  //   }else{
+  //     console.log("no match")
+  //   }
+  // })
+  // this.data1 =this.dieData2.map(film=>{return film.roll_id});
+  // this.data2 =this.dieData2.map(film=>{return film.Setpoint1});
+  // this.data3 =this.dieData2.map(film=>{return film.Controller3});
   // realizar app header
   // <bco-app-header />
 //   this.dieData2.filter((roll)=>{
@@ -152,7 +179,6 @@ export class Chart1Component implements OnInit {
       this.chart.options.plugins.zoom.zoom.wheel.enabled = !this.chart.options.plugins.zoom.zoom.wheel.enabled;
       this.setState();
       this.chart.update();
-      console.log(this.dieData2)
 
     }
 
