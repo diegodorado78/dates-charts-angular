@@ -4,7 +4,7 @@ import {DieService} from '@services/die.service';
 import {DatesService } from '@services/dates.service';
 import { Dates } from '@models/date.model';
 
-import { takeUntil } from 'rxjs/operators';
+import { map, takeUntil, tap } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 import { Chart, registerables } from 'chart.js';
@@ -17,6 +17,7 @@ Chart.register(zoomPlugin);
 })
 export class Chart1Component implements OnInit,OnDestroy  {
   public chartTitle="Adapter 1";
+
   dieData:any;
   dieData2:any;
   data1:any;
@@ -27,15 +28,20 @@ export class Chart1Component implements OnInit,OnDestroy  {
   enableState:boolean;
   stateMessage:String;
   enableButton:any;
-  dateData$:any; 
+  dieDataSource:any
   selectedDates:Dates;
   private unsubscribe$ = new Subject<void>();
 
     constructor(private dieService:DieService, private datesService:DatesService) {
-      // this.dieData = this.dieService.getAllDataPoints();
-      // // this.data1 =this.dieData.map(film=>{return film.roll_id});
-      // // this.data2 =this.dieData.map(film=>{return film.Setpoint1});
-      // // this.data3 =this.dieData.map(film=>{return film.Controller3});
+    this.dieDataSource=this.dieService.getDataSource();
+    console.log(this.dieDataSource)
+    //   this.dieData = this.dieDataSource$.pipe(
+    //    map(x=>{return x})
+    //  )
+    //  .subscribe();
+    //  this.data1 =this.dieData.map(film=>{return film.roll_id});
+    //  this.data2 =this.dieData.map(film=>{return film.Setpoint1});
+    //   this.data3 =this.dieData.map(film=>{return film.Controller3});
       // this.dateData$=this.datesService.dateData$;
       // this.dateData$.pipe(
       //   takeUntil(this.unsubscribe$) // unsubscribe to prevent memory leak
@@ -56,13 +62,14 @@ export class Chart1Component implements OnInit,OnDestroy  {
     }
 
     ngOnInit():void {
-     
+      console.log(this.dieData)
+
       // console.log(this.selectedDates)
       // this.filterData();
       Chart.register(...registerables);
       this.myChart=document.getElementById('chart1');
       this.enableButton=document.getElementById('enableButton1')
-     
+
       this.chart= new Chart(this.myChart,{
         type: 'line',
         data: {

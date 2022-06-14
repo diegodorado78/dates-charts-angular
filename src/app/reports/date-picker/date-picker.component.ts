@@ -15,6 +15,7 @@ export class DatePickerComponent implements OnInit,OnDestroy {
   subscription: Subscription
   dateData$= this.datesService.dateData$;
   dieDataSource:any;
+  filteredDataset:any
   startDate:string|Date;
   endDate:string|Date;
   newDate:Dates;
@@ -27,6 +28,7 @@ export class DatePickerComponent implements OnInit,OnDestroy {
     //this.dateData$= datesService.getValue();//no uso parentesis porque es un getter
     // this.newDate={startDate:this.startDate,endDate:this.endDate};
     this.dieDataSource = this.dieService.getAllDataPoints();
+
     console.log(this.dieDataSource)
 
   }
@@ -41,15 +43,27 @@ export class DatePickerComponent implements OnInit,OnDestroy {
      this.subscription.unsubscribe();
    }
 
-   setDate(date:Dates){
+   setDieDataSource(date:Dates){
    this.newDate={startDate:this.startDate, endDate:this.endDate};
    date=this.newDate
    this.datesService.addDate(date);
+
+   // method to filter and pass the data set to the chart
+   //date.pipe(
+    //   takeUntil(this.unsubscribe$) // unsubscribe to prevent memory leak
+    // ).subscribe(x=>this.selectedDates=x );
+    const indexStartDate= this.newDate.startDate
+    const indexEndDate=this.newDate.endDate
+    this.filteredDataset= this.dieDataSource.map(x => {
+      if (new Date(x.date) >= indexStartDate && new Date(x.date) <= indexEndDate  ){
+        return x
+      }
+    })
+    this.dieService.addDataSet(this.filteredDataset)
+    console.log(this.filteredDataset)
    }
 
-   setDieDataSource(){
 
-   }
 
 
 }

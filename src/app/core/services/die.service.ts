@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +42,16 @@ export class DieService {
    ]
 
   constructor() { }
+dataSource:any;
+getDataSource(){
+  return this.dataSource;
+}
+  public addDataSet(data:any){
+    this.dataSource.next(data)//actualizo en estado del obsevable con los valores que pase
+  }
+  // getfilteredDataset(){
+  //   return this.dataSource$
+  // }
   getAllDataPoints(){
     return this.dieData;
   }
