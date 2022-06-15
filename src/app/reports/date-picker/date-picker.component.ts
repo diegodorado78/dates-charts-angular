@@ -15,12 +15,12 @@ export class DatePickerComponent implements OnInit,OnDestroy {
   subscription: Subscription
   dateData$= this.datesService.dateData$;
   dieDataSource:any;
-  filteredDataset:any
+  filteredDataset=[]
   startDate:string|Date;
   endDate:string|Date;
   newDate:Dates;
   message$:string;
-
+  // dieDatafiltered=[];
   constructor(
     private titleService:TitleService,
     private datesService:DatesService,
@@ -28,8 +28,6 @@ export class DatePickerComponent implements OnInit,OnDestroy {
     //this.dateData$= datesService.getValue();//no uso parentesis porque es un getter
     // this.newDate={startDate:this.startDate,endDate:this.endDate};
     this.dieDataSource = this.dieService.getAllDataPoints();
-
-    console.log(this.dieDataSource)
 
   }
 
@@ -54,15 +52,17 @@ export class DatePickerComponent implements OnInit,OnDestroy {
     // ).subscribe(x=>this.selectedDates=x );
     const indexStartDate= this.newDate.startDate
     const indexEndDate=this.newDate.endDate
-    this.filteredDataset= this.dieDataSource.map(x => {
+     this.dieDataSource.forEach(x => {
       if (new Date(x.date) >= indexStartDate && new Date(x.date) <= indexEndDate  ){
-        return x
+         this.filteredDataset.push(x)
+      }else{
+        console.log("no match");
+
       }
     })
     this.dieService.addDataSet(this.filteredDataset)
     console.log(this.filteredDataset)
    }
-
 
 
 

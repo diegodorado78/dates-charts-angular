@@ -17,9 +17,8 @@ Chart.register(zoomPlugin);
 })
 export class Chart1Component implements OnInit,OnDestroy  {
   public chartTitle="Adapter 1";
-
   dieData:any;
-  dieData2:any;
+  dieData2:any=[];
   data1:any;
   data2:any;
   data3:any;
@@ -28,17 +27,18 @@ export class Chart1Component implements OnInit,OnDestroy  {
   enableState:boolean;
   stateMessage:String;
   enableButton:any;
-  dieDataSource:any
+  dieDataSource$:any
   selectedDates:Dates;
   private unsubscribe$ = new Subject<void>();
 
     constructor(private dieService:DieService, private datesService:DatesService) {
-    this.dieDataSource=this.dieService.getDataSource();
-    console.log(this.dieDataSource)
-    //   this.dieData = this.dieDataSource$.pipe(
-    //    map(x=>{return x})
-    //  )
-    //  .subscribe();
+    this.dieDataSource$=this.dieService.dataSource$;
+    console.log(this.dieDataSource$)
+      this.dieData = this.dieDataSource$.pipe(
+       map(x=>{return x})
+     )
+     .subscribe(x=>this.dieData2.push(x));
+     console.log(this.dieData)
     //  this.data1 =this.dieData.map(film=>{return film.roll_id});
     //  this.data2 =this.dieData.map(film=>{return film.Setpoint1});
     //   this.data3 =this.dieData.map(film=>{return film.Controller3});
@@ -62,7 +62,6 @@ export class Chart1Component implements OnInit,OnDestroy  {
     }
 
     ngOnInit():void {
-      console.log(this.dieData)
 
       // console.log(this.selectedDates)
       // this.filterData();

@@ -42,16 +42,15 @@ export class DieService {
    ]
 
   constructor() { }
-dataSource:any;
-getDataSource(){
-  return this.dataSource;
-}
+  private dataSource= new BehaviorSubject({});
+  dataSource$=this.dataSource.asObservable();
+
   public addDataSet(data:any){
     this.dataSource.next(data)//actualizo en estado del obsevable con los valores que pase
   }
-  // getfilteredDataset(){
-  //   return this.dataSource$
-  // }
+  getfilteredDataset(){
+    return this.dataSource$
+  }
   getAllDataPoints(){
     return this.dieData;
   }
