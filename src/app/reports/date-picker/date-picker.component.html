@@ -11,9 +11,7 @@
                       <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
                       <mat-datepicker touchUi="true" #pickerStart startView="multi-year" ></mat-datepicker>
                   </mat-form-field>
-                  <!-- <p>{{startDate|date}}</p> -->
-                      <p> {{(dateData$|async)?.startDate}}</p>
-                     <p> {{(dateData$|async)?.endDate}}</p>
+
                    <!-- Last Date -->
                 <mat-form-field>
                     <mat-label>To</mat-label>
@@ -26,10 +24,10 @@
                   <!-- buttons -->
                 <div class="datePickerButton__container">
                    <!-- Buttons depending on the case to render the trends -->
-                   <!-- <button  *ngSwitchCase="'extrusor'" routerLink="trends" type="submit" mat-raised-button  color="bco-activated" (click)="sendData(startDate,endDate)">Select </button>
-                   <button *ngSwitchCase="'die'" routerLink="trends" type="submit" mat-raised-button color="bco-activated" (click)="sendData(startDate,endDate)" >Select </button>
-                   <button *ngSwitchCase="'winder'" routerLink="trends" type="submit" mat-raised-button color="bco-activated" (click)="sendData(startDate,endDate)" >Select </button> -->
-                   <button  (click)="setDieDataSource(newDate)" routerLink="trends" type="submit"  mat-raised-button color="bco-activated" > See last month </button>
+                   <button  *ngSwitchCase="'extrusor'" routerLink="trends" type="submit" mat-raised-button  color="bco-activated" (click)="setDieDataSource(newDate)">Select </button>
+                   <button *ngSwitchCase="'die'" routerLink="trends" type="submit" mat-raised-button color="bco-activated" (click)="setDieDataSource(newDate)" >Select </button>
+                   <button *ngSwitchCase="'winder'" routerLink="trends" type="submit" mat-raised-button color="bco-activated" (click)="setDieDataSource(newDate)" >Select </button>
+                   <button  routerLink="trends" type="submit"  mat-raised-button color="bco-activated" > See last month </button>
 
                   </div>
                      <p> {{newDate|date}}</p>

@@ -40,7 +40,7 @@ html, body {
   flex-direction: column;
   height: 100%;
   }
-  
+
 // Global styles for charts
 .container2{
   display: flex;
@@ -61,7 +61,7 @@ html, body {
    text-align: center;
    font-weight: bold;
   }
-  
+
 }
 
 .charts__container{
@@ -85,12 +85,12 @@ html, body {
 
  mat-card{
   margin: 5px auto;
-   
+
    mat-card-header{
     justify-content: center;
     }
  }
- 
+
   .button-container{
    display: flex;
    flex-direction: row;
@@ -109,12 +109,12 @@ html, body {
     margin: 0px;
      }
    }
- 
+
  .mat-bco-activated{
   background-color: $primary-color;
   color: $secondary-color;
 }
-//styles for the chart zoom slider 
+//styles for the chart zoom slider
 ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
   background-color: $primary-color;
 }
@@ -135,18 +135,18 @@ html, body {
     height: 100%;
     margin: 10px auto;
   }
-  
+
   .charts__container{
     display:flex;
     flex-flow:wrap ;
     width: 90%;
-    justify-content: left;
+    justify-content: center;
 
   }
 
   mat-card{
     padding: 0;
-    width: 85%;
+    width: 100%;
     max-width: 500px;
     margin: 15px;
     }
@@ -156,4 +156,4 @@ html, body {
      }
   }
 
-  
+

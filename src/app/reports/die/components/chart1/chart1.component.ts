@@ -32,13 +32,11 @@ export class Chart1Component implements OnInit,OnDestroy  {
   private unsubscribe$ = new Subject<void>();
 
     constructor(private dieService:DieService, private datesService:DatesService) {
-    this.dieDataSource$=this.dieService.dataSource$;
-    console.log(this.dieDataSource$)
-      this.dieData = this.dieDataSource$.pipe(
-       map(x=>{return x})
-     )
-     .subscribe(x=>this.dieData2.push(x));
-     console.log(this.dieData)
+    this.dieData=this.dieService.getfilteredDataset().pipe(
+      tap(x=>{return x})
+    ).subscribe(x=>this.dieData2.push(x));
+    console.log(this.dieData2)
+     console.log(this.dieData2[0])
     //  this.data1 =this.dieData.map(film=>{return film.roll_id});
     //  this.data2 =this.dieData.map(film=>{return film.Setpoint1});
     //   this.data3 =this.dieData.map(film=>{return film.Controller3});
@@ -56,9 +54,9 @@ export class Chart1Component implements OnInit,OnDestroy  {
       //     console.log("no match")
       //   }
       // })
-      // this.data1 =this.dieData2.map(film=>{return film.roll_id});
-      // this.data2 =this.dieData2.map(film=>{return film.Setpoint1});
-      // this.data3 =this.dieData2.map(film=>{return film.Controller3});
+      this.data1 =this.dieData2[0].map(film=>{return film.roll_id});
+      this.data2 =this.dieData2[0].map(film=>{return film.Setpoint1});
+      this.data3 =this.dieData2[0].map(film=>{return film.Controller3});
     }
 
     ngOnInit():void {
