@@ -1,6 +1,7 @@
 export interface Response{
-        rollId: string,
-        setPoint: number,
-        actual: number,
-        filmTension: number
+        RollId: string,
+        Date:string|Date
+        SetPoint: number,
+        Actual: number,
+        FilmTension: number
 }

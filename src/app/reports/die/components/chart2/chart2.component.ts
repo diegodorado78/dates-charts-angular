@@ -1,6 +1,11 @@
-import { Component, OnInit} from '@angular/core';
-import { Chart, registerables } from 'chart.js';
+import { Component,OnDestroy, OnInit} from '@angular/core';
 import {DieService} from '@services/die.service';
+import { Dates } from '@models/date.model';
+
+import { tap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+
+import { Chart, registerables } from 'chart.js';
 import zoomPlugin from 'chartjs-plugin-zoom';
 Chart.register(zoomPlugin);
 @Component({
@@ -9,9 +14,9 @@ Chart.register(zoomPlugin);
   styleUrls: ['./chart2.component.scss']
 })
 export class Chart2Component implements OnInit {
-
 public chartTitle="Adapter 2";
 dieData:any;
+dieData2:any=[];
 data1:any;
 data2:any;
 data3:any;
@@ -20,12 +25,17 @@ myChart: any;
 enableState:boolean;
 stateMessage:String;
 enableButton:any;
+dieDataSource$:any
+selectedDates:Dates;
+private unsubscribe$ = new Subject<void>();
 
   constructor(private dieService:DieService) {
-    this.dieData = this.dieService.getAllDataPoints();
-    this.data1 =this.dieData.map(film=>{return film.roll_id});
-    this.data2 =this.dieData.map(film=>{return film.Setpoint1});
-    this.data3 =this.dieData.map(film=>{return film.Controller2});
+    this.dieData=this.dieService.getfilteredDataset().pipe(
+      tap(x=>{return x})
+    ).subscribe(x=>this.dieData2.push(x));
+    this.data1 =this.dieData2[0].map(film=>{return film.roll_id});
+    this.data2 =this.dieData2[0].map(film=>{return film.setpoint1});
+    this.data3 =this.dieData2[0].map(film=>{return film.controller2});
 
   }
 
@@ -106,9 +116,14 @@ enableButton:any;
     })
      this.setState()
   }
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
   resetZoom(){
    this.chart.resetZoom();
   }
+
 
   setState(){
   this.enableState=this.chart.options.plugins.zoom.zoom.wheel.enabled;
@@ -125,6 +140,6 @@ enableButton:any;
     this.chart.update();
   }
 
-  
-  
+
+
 }

@@ -5,45 +5,45 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class DieService {
-  dieData2=[{"roll_id":"0A1602221603","date":"2020-10-15","Setpoint1":1, "Controller3":0,"Controller2":138,"Controller":0,"Setpoint2_3":120,"Actual":59.4}];
-  dieData3=[{"roll_id":"0A1602221603","date":"2020-10-15","Setpoint1":0.45, "Controller3":0,"Controller2":138,"Controller":0,"Setpoint2_3":120,"Actual":59.4}];
+  dieData2=[{"roll_id":"0A1602221603","date":"2020/10/15","setpoint1":1, "controller3":0,"controller2":138,"controller":0,"setpoint2_3":120,"actual":59.4}];
+  dieData3=[{"roll_id":"0A1602221603","date":"2020/10/15","setpoint1":0.45, "controller3":0,"controller2":138,"controller":0,"setpoint2_3":120,"actual":59.4}];
   dieData=[
-{"roll_id":"0A1602221603","date":"2022/06/01","Setpoint1":220, "Controller3":0,"Controller2":138,"Controller":0,"Setpoint2_3":120,"Actual":59.4,},
-{"roll_id":"0A1602221748","date":"2022/06/02","Setpoint1":220, "Controller3":5,"Controller2":138,"Controller":0,"Setpoint2_3":120,"Actual":61.4,},
-{"roll_id":"0A1602221932","date":"2022/06/03","Setpoint1":220, "Controller3":10,"Controller2":138,"Controller":0,"Setpoint2_3":120,"Actual":50,},
-{"roll_id":"0A1602222327","date":"2022/06/04","Setpoint1":220, "Controller3":0,"Controller2":138,"Controller":0,"Setpoint2_3":120,"Actual":60.6,},
-{"roll_id":"0A1602230334","date":"2022/06/05","Setpoint1":220, "Controller3":0,"Controller2":139,"Controller":0,"Setpoint2_3":120,"Actual":56.5,},
-{"roll_id":"0A1602231554","date":"2022/06/06","Setpoint1":220, "Controller3":113,"Controller2":138,"Controller":0,"Setpoint2_3":120,"Actual":63.8,},
-{"roll_id":"0A1602232120","date":"2022/06/07","Setpoint1":220, "Controller3":113,"Controller2":138,"Controller":0,"Setpoint2_3":120,"Actual":50.1,},
-{"roll_id":"0A1602240211","date":"2022/06/09","Setpoint1":220, "Controller3":120,"Controller2":140,"Controller":0,"Setpoint2_3":120,"Actual":52.3,},
-{"roll_id":"0A1602240918","date":"2022/06/10","Setpoint1":220, "Controller3":120,"Controller2":139,"Controller":0,"Setpoint2_3":120,"Actual":61.3,},
-{"roll_id":"0A1602241019","date":"2022/06/11","Setpoint1":220, "Controller3":113,"Controller2":137,"Controller":0,"Setpoint2_3":120,"Actual":77.5,},
-{"roll_id":"0A1602241140","date":"2022/06/12","Setpoint1":220, "Controller3":113,"Controller2":138,"Controller":0,"Setpoint2_3":120,"Actual":62.9,},
-{"roll_id":"0A1602242455","date":"2022/06/13","Setpoint1":220, "Controller3":0,"Controller2":136,"Controller":0,"Setpoint2_3":120,"Actual":62.5,},
-{"roll_id":"0A1602250854","date":"2022/06/14","Setpoint1":220, "Controller3":111,"Controller2":137,"Controller":0,"Setpoint2_3":120,"Actual":61.3,},
-{"roll_id":"0A1602251419","date":"2022/06/15","Setpoint1":220, "Controller3":0,"Controller2":135,"Controller":0,"Setpoint2_3":120,"Actual":63.2,},
-{"roll_id":"0A1604240933","date":"2022/06/16","Setpoint1":200, "Controller3":0,"Controller2":142,"Controller":100,"Setpoint2_3":120,"Actual":51.6,},
-{"roll_id":"0A1604241245","date":"2022/06/17","Setpoint1":200, "Controller3":0,"Controller2":141,"Controller":100,"Setpoint2_3":120,"Actual":54.6,},
-{"roll_id":"0A1604241404","date":"2022/06/18","Setpoint1":200, "Controller3":67,"Controller2":141,"Controller":100,"Setpoint2_3":120,"Actual":52.9,},
-{"roll_id":"0A1604241701","date":"2022/06/19","Setpoint1":200, "Controller3":67,"Controller2":141,"Controller":100,"Setpoint2_3":120,"Actual":55.8,},
-{"roll_id":"0A1604242329","date":"2022/06/20","Setpoint1":200, "Controller3":62,"Controller2":141,"Controller":100,"Setpoint2_3":120,"Actual":59.1,},
-{"roll_id":"0A1604250142","date":"2022/06/21","Setpoint1":200, "Controller3":64,"Controller2":142,"Controller":100,"Setpoint2_3":120,"Actual":60.9,},
-{"roll_id":"0A1604250643","date":"2022/06/22","Setpoint1":200, "Controller3":66,"Controller2":143,"Controller":100,"Setpoint2_3":120,"Actual":61.1,},
-{"roll_id":"0A1604251351","date":"2022/06/23","Setpoint1":200, "Controller3":66,"Controller2":142,"Controller":100,"Setpoint2_3":120,"Actual":68.8,},
-{"roll_id":"0A1604251719","date":"2022/06/24","Setpoint1":200, "Controller3":55,"Controller2":144,"Controller":100,"Setpoint2_3":120,"Actual":61,},
-{"roll_id":"0A1604251904","date":"2022/06/25","Setpoint1":200, "Controller3":115,"Controller2":140,"Controller":100,"Setpoint2_3":120,"Actual":61.7,},
-{"roll_id":"0A1606101615","date":"2022/06/26","Setpoint1":200, "Controller3":115,"Controller2":140,"Controller":100,"Setpoint2_3":120,"Actual":73,},
-{"roll_id":"0A1606101822","date":"2022/06/27","Setpoint1":200, "Controller3":115,"Controller2":134,"Controller":100,"Setpoint2_3":120,"Actual":48.9,},
-{"roll_id":"0A1606102326","date":"2022/06/28","Setpoint1":220, "Controller3":115,"Controller2":131,"Controller":100,"Setpoint2_3":120,"Actual":52.9,},
-{"roll_id":"0A1606110251","date":"2022/06/29","Setpoint1":220, "Controller3":116,"Controller2":139,"Controller":52,"Setpoint2_3":120,"Actual":48.4,},
-{"roll_id":"0A1606110733","date":"2022/06/30","Setpoint1":220, "Controller3":116,"Controller2":139,"Controller":100,"Setpoint2_3":120,"Actual":39.8,},
-{"roll_id":"0A1606111154","date":"2022/06/29","Setpoint1":220, "Controller3":116,"Controller2":138,"Controller":100,"Setpoint2_3":120,"Actual":40.9,},
-{"roll_id":"0A1606111514","date":"2022/06/29","Setpoint1":220, "Controller3":116,"Controller2":138,"Controller":82,"Setpoint2_3":120,"Actual":44.9,},
-   ]
+{"roll_id":"0A1602221603","date":"2022/06/01","setpoint1":220, "controller3":0,"controller2":138,"controller":0,"setpoint2_3":120,"actual":59.4,},
+{"roll_id":"0A1602221748","date":"2022/06/02","setpoint1":220, "controller3":5,"controller2":138,"controller":0,"setpoint2_3":120,"actual":61.4,},
+{"roll_id":"0A1602221932","date":"2022/06/03","setpoint1":220, "controller3":10,"controller2":138,"controller":0,"setpoint2_3":120,"actual":50,},
+{"roll_id":"0A1602222327","date":"2022/06/04","setpoint1":220, "controller3":0,"controller2":138,"controller":0,"setpoint2_3":120,"actual":60.6,},
+{"roll_id":"0A1602230334","date":"2022/06/05","setpoint1":220, "controller3":0,"controller2":139,"controller":0,"setpoint2_3":120,"actual":56.5,},
+{"roll_id":"0A1602231554","date":"2022/06/06","setpoint1":220, "controller3":113,"controller2":138,"controller":0,"setpoint2_3":120,"actual":63.8,},
+{"roll_id":"0A1602232120","date":"2022/06/07","setpoint1":220, "controller3":113,"controller2":138,"controller":0,"setpoint2_3":120,"actual":50.1,},
+{"roll_id":"0A1602240211","date":"2022/06/09","setpoint1":220, "controller3":120,"controller2":140,"controller":0,"setpoint2_3":120,"actual":52.3,},
+{"roll_id":"0A1602240918","date":"2022/06/10","setpoint1":220, "controller3":120,"controller2":139,"controller":0,"setpoint2_3":120,"actual":61.3,},
+{"roll_id":"0A1602241019","date":"2022/06/11","setpoint1":220, "controller3":113,"controller2":137,"controller":0,"setpoint2_3":120,"actual":77.5,},
+{"roll_id":"0A1602241140","date":"2022/06/12","setpoint1":220, "controller3":113,"controller2":138,"controller":0,"setpoint2_3":120,"actual":62.9,},
+{"roll_id":"0A1602242455","date":"2022/06/13","setpoint1":220, "controller3":0,"controller2":136,"controller":0,"setpoint2_3":120,"actual":62.5,},
+{"roll_id":"0A1602250854","date":"2022/06/14","setpoint1":220, "controller3":111,"controller2":137,"controller":0,"setpoint2_3":120,"actual":61.3,},
+{"roll_id":"0A1602251419","date":"2022/06/15","setpoint1":220, "controller3":0,"controller2":135,"controller":0,"setpoint2_3":120,"actual":63.2,},
+{"roll_id":"0A1604240933","date":"2022/06/16","setpoint1":200, "controller3":0,"controller2":142,"controller":100,"setpoint2_3":120,"actual":51.6,},
+{"roll_id":"0A1604241245","date":"2022/06/17","setpoint1":200, "controller3":0,"controller2":141,"controller":100,"setpoint2_3":120,"actual":54.6,},
+{"roll_id":"0A1604241404","date":"2022/06/18","setpoint1":200, "controller3":67,"controller2":141,"controller":100,"setpoint2_3":120,"actual":52.9,},
+{"roll_id":"0A1604241701","date":"2022/06/19","setpoint1":200, "controller3":67,"controller2":141,"controller":100,"setpoint2_3":120,"actual":55.8,},
+{"roll_id":"0A1604242329","date":"2022/06/20","setpoint1":200, "controller3":62,"controller2":141,"controller":100,"setpoint2_3":120,"actual":59.1,},
+{"roll_id":"0A1604250142","date":"2022/06/21","setpoint1":200, "controller3":64,"controller2":142,"controller":100,"setpoint2_3":120,"actual":60.9,},
+{"roll_id":"0A1604250643","date":"2022/06/22","setpoint1":200, "controller3":66,"controller2":143,"controller":100,"setpoint2_3":120,"actual":61.1,},
+{"roll_id":"0A1604251351","date":"2022/06/23","setpoint1":200, "controller3":66,"controller2":142,"controller":100,"setpoint2_3":120,"actual":68.8,},
+{"roll_id":"0A1604251719","date":"2022/06/24","setpoint1":200, "controller3":55,"controller2":144,"controller":100,"setpoint2_3":120,"actual":61,},
+{"roll_id":"0A1604251904","date":"2022/06/25","setpoint1":200, "controller3":115,"controller2":140,"controller":100,"setpoint2_3":120,"actual":61.7,},
+{"roll_id":"0A1606101615","date":"2022/06/26","setpoint1":200, "controller3":115,"controller2":140,"controller":100,"setpoint2_3":120,"actual":73,},
+{"roll_id":"0A1606101822","date":"2022/06/27","setpoint1":200, "controller3":115,"controller2":134,"controller":100,"setpoint2_3":120,"actual":48.9,},
+{"roll_id":"0A1606102326","date":"2022/06/28","setpoint1":220, "controller3":115,"controller2":131,"controller":100,"setpoint2_3":120,"actual":52.9,},
+{"roll_id":"0A1606110251","date":"2022/06/29","setpoint1":220, "controller3":116,"controller2":139,"controller":52,"setpoint2_3":120,"actual":48.4,},
+{"roll_id":"0A1606110733","date":"2022/06/30","setpoint1":220, "controller3":116,"controller2":139,"controller":100,"setpoint2_3":120,"actual":39.8,},
+{"roll_id":"0A1606111154","date":"2022/06/29","setpoint1":220, "controller3":116,"controller2":138,"controller":100,"setpoint2_3":120,"actual":40.9,},
+{"roll_id":"0A1606111514","date":"2022/06/29","setpoint1":220, "controller3":116,"controller2":138,"controller":82,"setpoint2_3":120,"actual":44.9,},
+ ]
+   private dataSource= new BehaviorSubject({});
+   dataSource$=this.dataSource.asObservable();
 
   constructor() { }
-  private dataSource= new BehaviorSubject({});
-  dataSource$=this.dataSource.asObservable();
 
   public addDataSet(data:any){
     this.dataSource.next(data)//actualizo en estado del obsevable con los valores que pase

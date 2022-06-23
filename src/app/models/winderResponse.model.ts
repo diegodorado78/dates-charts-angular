@@ -1,5 +1,6 @@
 export interface WResponse{
-        rollId: string,
+        RollId: string,
+        Date:string|Date;
         //winder 1
         w1TensionP1:number,
         w1TensionP2:number,

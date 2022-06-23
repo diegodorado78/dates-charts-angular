@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 import { WinderService } from '@services/winder.service';
-import {WResponse} from '../../../../winderResponse.model'
+import {WResponse} from '../../../../models/winderResponse.model'
 import zoomPlugin from 'chartjs-plugin-zoom';
 Chart.register(zoomPlugin);
 
@@ -26,7 +26,7 @@ export class Chart3Component implements OnInit {
 
     constructor(private winderService:WinderService) {
       this.winderData = this.winderService.getAllGapWinding();
-      this.dataId =this.winderData.map(film=>{return film.rollId});
+      this.dataId =this.winderData.map(film=>{return film.RollId});
       this.data1_1 =this.winderData.map(film=>{return film.w1TensionP1});
       this.data2_1 =this.winderData.map(film=>{return film.w2TensionP1});
       this.data1_2 =this.winderData.map(film=>{return film.w1TensionP2});

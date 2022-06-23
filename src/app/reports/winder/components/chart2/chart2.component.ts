@@ -24,9 +24,9 @@ export class Chart2Component implements OnInit {
 
     constructor(private winderService:WinderService) {
       this.winderData = this.winderService.getAllDataPoints();
-      this.data1 =this.winderData.map(film=>{return film.rollId});
-      this.data2 =this.winderData.map(film=>{return film.filmTension});
-      this.data3 =this.winderData.map(film=>{return film.actual});
+      this.data1 =this.winderData.map(film=>{return film.RollId});
+      this.data2 =this.winderData.map(film=>{return film.FilmTension});
+      this.data3 =this.winderData.map(film=>{return film.Actual});
     }
 
     ngOnInit():void {

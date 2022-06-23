@@ -2,8 +2,9 @@ import { Component, OnInit,Input, OnDestroy } from '@angular/core';
 import { Observable,Subscription } from 'rxjs';
 import { TitleService} from '@services/title.service';
 import { DatesService } from '@services/dates.service';
+import {ExtrusorService} from '@services/extrusor.service';
 import {DieService} from '@services/die.service';
-
+import {WinderService} from '@services/winder.service';
 import { Dates } from '@models/date.model';
 
 @Component({
@@ -14,56 +15,69 @@ import { Dates } from '@models/date.model';
 export class DatePickerComponent implements OnInit,OnDestroy {
   subscription: Subscription
   dateData$= this.datesService.dateData$;
+  extrusorDataSource:any;
   dieDataSource:any;
+  winderDataSource:any;
   filteredDataset=[]
   startDate:string|Date;
   endDate:string|Date;
   newDate:Dates;
   message$:string;
-  // dieDatafiltered=[];
   constructor(
     private titleService:TitleService,
     private datesService:DatesService,
-    private dieService:DieService) {//dateService vive solo en el constructor
-    //this.dateData$= datesService.getValue();//no uso parentesis porque es un getter
-    // this.newDate={startDate:this.startDate,endDate:this.endDate};
-    this.dieDataSource = this.dieService.getAllDataPoints();
-
-  }
+    private extrusorService:ExtrusorService,
+    private dieService:DieService,
+    private winderService:WinderService){}
 
   ngOnInit(): void {
-  // this.message$ recieves the async value  from the service
    this.subscription = this.titleService.currentTitle$.subscribe(message=>this.message$=message);
-
-}
+  }
 
   ngOnDestroy(){
      this.subscription.unsubscribe();
    }
+   setExtrusorDataSource(date:Dates){
+    this.extrusorDataSource = this.extrusorService.getAllDataPoints();
+    this.newDate={startDate:this.startDate, endDate:this.endDate};
+    date=this.newDate
+    this.datesService.addDate(date);
+    const indexStartDate= this.newDate.startDate
+    const indexEndDate=this.newDate.endDate
+    this.extrusorDataSource.forEach(x => {
+       if (new Date(x.date) >= indexStartDate && new Date(x.date) <= indexEndDate){
+          this.filteredDataset.push(x)}
+     })
+     this.extrusorService.addDataSet(this.filteredDataset)
+   }
 
    setDieDataSource(date:Dates){
+   this.dieDataSource = this.dieService.getAllDataPoints();
    this.newDate={startDate:this.startDate, endDate:this.endDate};
    date=this.newDate
    this.datesService.addDate(date);
-
-   // method to filter and pass the data set to the chart
-   //date.pipe(
-    //   takeUntil(this.unsubscribe$) // unsubscribe to prevent memory leak
-    // ).subscribe(x=>this.selectedDates=x );
-    const indexStartDate= this.newDate.startDate
-    const indexEndDate=this.newDate.endDate
-     this.dieDataSource.forEach(x => {
-      if (new Date(x.date) >= indexStartDate && new Date(x.date) <= indexEndDate  ){
-         this.filteredDataset.push(x)
-      }else{
-        console.log("no match");
-
-      }
+   const indexStartDate= this.newDate.startDate
+   const indexEndDate=this.newDate.endDate
+   this.dieDataSource.forEach(x => {
+      if (new Date(x.date) >= indexStartDate && new Date(x.date)<= indexEndDate){
+         this.filteredDataset.push(x)}
     })
     this.dieService.addDataSet(this.filteredDataset)
-    console.log(this.filteredDataset)
    }
 
+   setWinderDataSource(date:Dates){
+    this.winderDataSource = this.winderService.getAllDataPoints();
+    this.newDate={startDate:this.startDate, endDate:this.endDate};
+    date=this.newDate
+    this.datesService.addDate(date);
+    const indexStartDate= this.newDate.startDate
+    const indexEndDate=this.newDate.endDate
+    this.winderDataSource.forEach(x => {
+       if (new Date(x.date) >= indexStartDate && new Date(x.date) <= indexEndDate){
+          this.filteredDataset.push(x)}
+     })
+     this.winderService.addDataSet(this.filteredDataset)
+   }
 
 
 }
