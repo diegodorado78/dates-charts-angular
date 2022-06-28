@@ -1,4 +1,4 @@
-  <form  class="container2" [ngSwitch]="message$" >
+  <form  class="container2">
     <div class="datePicker__container">
         <h1> Select Dates for {{message$ |titlecase}}</h1>
             <!-- START DATE -->
@@ -21,7 +21,7 @@
                   </mat-form-field>
 
                   <!-- buttons -->
-                <div class="datePickerButton__container">
+                <div class="datePickerButton__container" [ngSwitch]="message$" >
                    <!-- Buttons depending on the case to render the trends -->
                    <button  *ngSwitchCase="'extrusor'" routerLink="trends" type="submit" mat-raised-button  color="bco-activated" (click)="setExtrusorDataSource(newDate)">Select </button>
                    <button *ngSwitchCase="'die'" routerLink="trends" type="submit" mat-raised-button color="bco-activated" (click)="setDieDataSource(newDate)" >Select </button>

@@ -1,7 +1,11 @@
-import { Component, OnInit} from '@angular/core';
+import { Component,OnDestroy, OnInit} from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 import { WinderService } from '@services/winder.service';
-import {Response} from '@models/response.model' ;
+import { Dates } from '@models/date.model';
+
+import { tap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+
 import zoomPlugin from 'chartjs-plugin-zoom';
 Chart.register(zoomPlugin);
 
@@ -10,10 +14,10 @@ Chart.register(zoomPlugin);
   templateUrl: './chart1.component.html',
   styleUrls: ['./chart1.component.scss']
 })
-export class Chart1Component implements OnInit {
-
+export class Chart1Component implements OnInit,OnDestroy {
 public chartTitle="Thickness Control";
-winderData:Response[];
+winderData:any;
+winderData2:any=[];
 data1:any;
 data2:any;
 data3:any;
@@ -22,12 +26,16 @@ myChart: any;
 enableState:boolean;
 stateMessage:String;
 enableButton:any;
+// winderDataSource$:any
+selectedDates:Dates;
+private unsubscribe$ = new Subject<void>();
 
   constructor(private winderService:WinderService) {
-    this.winderData = this.winderService.getAllDataPoints();
-    this.data1 =this.winderData.map(film=>{return film.RollId});
-    this.data2 =this.winderData.map(film=>{return film.FilmTension});
-    this.data3 =this.winderData.map(film=>{return film.Actual});
+    this.winderData = this.winderService.getFilteredDataset().pipe(
+      tap(x=>{return x})
+    ).subscribe(x=>this.winderData2.push(x));
+    this.data1 =this.winderData2[0][0].map(film=>{return film.rollId});
+    this.data2 =this.winderData2[0][0].map(film=>{return film.filmTension});
   }
 
   ngOnInit():void {
@@ -101,6 +109,10 @@ enableButton:any;
   resetZoom(){
    this.chart.resetZoom();
   }
+  ngOnDestroy(): void {
+      this.unsubscribe$.next();
+      this.unsubscribe$.complete();
+    }
 
   setState(){
   this.enableState=this.chart.options.plugins.zoom.zoom.wheel.enabled;

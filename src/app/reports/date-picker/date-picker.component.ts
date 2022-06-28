@@ -15,9 +15,12 @@ import { Dates } from '@models/date.model';
 export class DatePickerComponent implements OnInit,OnDestroy {
   subscription: Subscription
   dateData$= this.datesService.dateData$;
-  extrusorDataSource:any;
+  extrusorDataSourceAll:any;
+  extrusorDataSourceMain:any=[];
   dieDataSource:any;
-  winderDataSource:any;
+  winderDataSourceAll:any;
+  winderDataSourceGap:any;
+  winderDataSourceContact:any;
   filteredDataset=[]
   startDate:string|Date;
   endDate:string|Date;
@@ -38,16 +41,26 @@ export class DatePickerComponent implements OnInit,OnDestroy {
      this.subscription.unsubscribe();
    }
    setExtrusorDataSource(date:Dates){
-    this.extrusorDataSource = this.extrusorService.getAllDataPoints();
+    this.extrusorDataSourceAll = this.extrusorService.getAllDataPoints();
+    this.extrusorDataSourceMain = this.extrusorService.getAllDataPointsMain();
+
     this.newDate={startDate:this.startDate, endDate:this.endDate};
     date=this.newDate
     this.datesService.addDate(date);
     const indexStartDate= this.newDate.startDate
     const indexEndDate=this.newDate.endDate
-    this.extrusorDataSource.forEach(x => {
+
+    this.extrusorDataSourceAll.filter(x => {
        if (new Date(x.date) >= indexStartDate && new Date(x.date) <= indexEndDate){
-          this.filteredDataset.push(x)}
+        return x
+      }
      })
+     this.extrusorDataSourceMain.filter(main => {
+      if (new Date(main.date) >= indexStartDate && new Date(main.date) <= indexEndDate){
+       return main
+     }
+    })
+    this.filteredDataset=[this.extrusorDataSourceAll,this.extrusorDataSourceMain]
      this.extrusorService.addDataSet(this.filteredDataset)
    }
 
@@ -58,24 +71,41 @@ export class DatePickerComponent implements OnInit,OnDestroy {
    this.datesService.addDate(date);
    const indexStartDate= this.newDate.startDate
    const indexEndDate=this.newDate.endDate
-   this.dieDataSource.forEach(x => {
-      if (new Date(x.date) >= indexStartDate && new Date(x.date)<= indexEndDate){
-         this.filteredDataset.push(x)}
-    })
+        this.dieDataSource.forEach(x => {
+           if (new Date(x.date) >= indexStartDate && new Date(x.date)<= indexEndDate){
+               this.filteredDataset.push(x)}
+               })
+
     this.dieService.addDataSet(this.filteredDataset)
    }
 
    setWinderDataSource(date:Dates){
-    this.winderDataSource = this.winderService.getAllDataPoints();
+    this.winderDataSourceAll = this.winderService.getAllDataPoints();
+    this.winderDataSourceGap = this.winderService.getAllGapWinding();
+    this.winderDataSourceContact = this.winderService.getAllContactWinding();
+
     this.newDate={startDate:this.startDate, endDate:this.endDate};
     date=this.newDate
     this.datesService.addDate(date);
-    const indexStartDate= this.newDate.startDate
-    const indexEndDate=this.newDate.endDate
-    this.winderDataSource.forEach(x => {
+    const indexStartDate= this.newDate.startDate;
+    const indexEndDate=this.newDate.endDate;
+
+    this.winderDataSourceAll.filter(x => {
        if (new Date(x.date) >= indexStartDate && new Date(x.date) <= indexEndDate){
-          this.filteredDataset.push(x)}
+          return x;
+        }
      })
+     this.winderDataSourceGap.filter(gap => {
+      if (new Date(gap.date) >= indexStartDate && new Date(gap.date) <= indexEndDate){
+        return gap;
+        }
+    })
+    this.winderDataSourceContact.forEach(contact => {
+      if (new Date(contact.date) >= indexStartDate && new Date(contact.date) <= indexEndDate){
+       return contact;
+      }
+    })
+    this.filteredDataset= [this.winderDataSourceAll,this.winderDataSourceGap,this.winderDataSourceContact]
      this.winderService.addDataSet(this.filteredDataset)
    }
 

@@ -1,6 +1,9 @@
 import { Component, OnInit} from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 import {ExtrusorService} from '@services/extrusor.service';
+import { Dates } from '@models/date.model';
+import { tap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 import zoomPlugin from 'chartjs-plugin-zoom';
 Chart.register(zoomPlugin);
 @Component({
@@ -12,6 +15,7 @@ Chart.register(zoomPlugin);
 export class Chart2Component implements OnInit {
 public chartTitle="Coextrusor 1";
   extrusorData:any;
+  extrusorData2:any=[];
   data1:any;
   data2:any;
   data3:any;
@@ -20,15 +24,20 @@ public chartTitle="Coextrusor 1";
   enableState:boolean;
   stateMessage:String;
   enableButton:any;
-  
+  selectedDates:Dates;
+  private unsubscribe$ = new Subject<void>();
+
     constructor(private extrusorService:ExtrusorService) {
-      this.extrusorData = this.extrusorService.getAllDataPoints();
-      this.data1 =this.extrusorData.map(film=>{return film.roll_id});
-      this.data2 =this.extrusorData.map(film=>{return film.MeltTempetaruteActual});
-      this.data3 =this.extrusorData.map(film=>{return film.SetpointHeating});
+      this.extrusorData = this.extrusorService.getFilteredDataset().pipe(
+        tap(x=>{return x})
+      ).subscribe(x=>this.extrusorData2.push(x));
+
+      this.data1 =this.extrusorData2[0][0].map(film=>{return film.rollId});
+      this.data2 =this.extrusorData2[0][0].map(film=>{return film.meltTempetaruteActual});
+      this.data3 =this.extrusorData2[0][0].map(film=>{return film.setPointHeating});
 
     }
-  
+
     ngOnInit():void {
       Chart.register(...registerables);
       this.myChart=document.getElementById('chart2');
@@ -61,7 +70,7 @@ public chartTitle="Coextrusor 1";
         options:{
           responsive:true,
           maintainAspectRatio:false,
-  
+
           scales:{
             y:{
               beginAtZero:true,
@@ -106,19 +115,24 @@ public chartTitle="Coextrusor 1";
       })
        this.setState()
     }
+
+    ngOnDestroy(): void {
+      this.unsubscribe$.next();
+      this.unsubscribe$.complete();
+    }
+
     resetZoom(){
      this.chart.resetZoom();
     }
-  
+
     setState(){
     this.enableState=this.chart.options.plugins.zoom.zoom.wheel.enabled;
     if(this.enableState){
       return this.stateMessage="On"
     }else{
-      return this.stateMessage="Off";
+      return this.stateMessage="Off";}
     }
-    }
-  
+
     enableZoom(){
       this.chart.options.plugins.zoom.zoom.wheel.enabled = !this.chart.options.plugins.zoom.zoom.wheel.enabled;
       this.setState();

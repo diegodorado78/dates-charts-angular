@@ -1,6 +1,9 @@
 import { Component, OnInit} from '@angular/core';
 import { Chart, registerables } from 'chart.js';
-import {ExtrusorService} from '@services/extrusor.service'
+import {ExtrusorService} from '@services/extrusor.service';
+import { Dates } from '@models/date.model';
+import { tap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 import zoomPlugin from 'chartjs-plugin-zoom';
 Chart.register(zoomPlugin);
 @Component({
@@ -11,6 +14,7 @@ Chart.register(zoomPlugin);
 export class Chart3Component implements OnInit {
   public chartTitle="Main Extrusor";
   extrusorData:any;
+  extrusorData2:any=[];
   data1:any;
   data2:any;
   data3:any;
@@ -20,15 +24,19 @@ export class Chart3Component implements OnInit {
   enableState:boolean;
   stateMessage:String;
   enableButton:any;
-  
+  selectedDates:Dates;
+  private unsubscribe$ = new Subject<void>();
+
     constructor(private extrusorService:ExtrusorService) {
-      this.extrusorData = this.extrusorService.getAllMainDataPoints();
-      this.data1 =this.extrusorData.map(film=>{return film.roll_id});
-      this.data2 =this.extrusorData.map(film=>{return film.SetpointRpm});
-      this.data3 =this.extrusorData.map(film=>{return film.Setpoint});
-      this.data4 =this.extrusorData.map(film=>{return film.Actual});
+      this.extrusorData = this.extrusorService.getFilteredDataset().pipe(
+        tap(x=>{return x})
+      ).subscribe(x=>this.extrusorData2.push(x));
+      this.data1 =this.extrusorData2[0][1].map(film=>{return film.rollId});
+      this.data2 =this.extrusorData2[0][1].map(film=>{return film.setPointRpm});
+      this.data3 =this.extrusorData2[0][1].map(film=>{return film.setPoint});
+      this.data4 =this.extrusorData2[0][1].map(film=>{return film.actual});
     }
-  
+
     ngOnInit():void {
       Chart.register(...registerables);
       this.myChart=document.getElementById('chart3');
@@ -64,14 +72,14 @@ export class Chart3Component implements OnInit {
                     tension: 0.5,
                     pointRadius:2,
                     pointBorderColor:' #128385'
-               }     
-                  
+               }
+
                 ]
        },
         options:{
           responsive:true,
           maintainAspectRatio:false,
-  
+
           scales:{
             y:{
               beginAtZero:true,
@@ -116,19 +124,24 @@ export class Chart3Component implements OnInit {
       })
        this.setState()
     }
+
+    ngOnDestroy(): void {
+      this.unsubscribe$.next();
+      this.unsubscribe$.complete();
+    }
+
     resetZoom(){
      this.chart.resetZoom();
     }
-  
+
     setState(){
     this.enableState=this.chart.options.plugins.zoom.zoom.wheel.enabled;
     if(this.enableState){
       return this.stateMessage="On"
     }else{
-      return this.stateMessage="Off";
+      return this.stateMessage="Off"; }
     }
-    }
-  
+
     enableZoom(){
       this.chart.options.plugins.zoom.zoom.wheel.enabled = !this.chart.options.plugins.zoom.zoom.wheel.enabled;
       this.setState();

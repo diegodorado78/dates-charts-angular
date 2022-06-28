@@ -1,7 +1,11 @@
 import { Component, OnInit} from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 import { WinderService } from '@services/winder.service';
-import {WResponse} from '../../../../models/winderResponse.model'
+import { Dates } from '@models/date.model';
+
+import { tap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+
 import zoomPlugin from 'chartjs-plugin-zoom';
 Chart.register(zoomPlugin);
 
@@ -12,7 +16,8 @@ Chart.register(zoomPlugin);
 })
 export class Chart3Component implements OnInit {
   chartTitle='Gap Winding';
-  winderData:WResponse[];
+  winderData:any;
+  winderData2:any=[];
   dataId:any;
   data1_1:any;
   data2_1:any;
@@ -23,14 +28,19 @@ export class Chart3Component implements OnInit {
   enableState:boolean;
   stateMessage:String;
   enableButton:any;
+  selectedDates:Dates;
+  private unsubscribe$ = new Subject<void>();
 
     constructor(private winderService:WinderService) {
-      this.winderData = this.winderService.getAllGapWinding();
-      this.dataId =this.winderData.map(film=>{return film.RollId});
-      this.data1_1 =this.winderData.map(film=>{return film.w1TensionP1});
-      this.data2_1 =this.winderData.map(film=>{return film.w2TensionP1});
-      this.data1_2 =this.winderData.map(film=>{return film.w1TensionP2});
-      this.data2_2 =this.winderData.map(film=>{return film.w2TensionP2});
+      this.winderData = this.winderService.getFilteredDataset().pipe(
+        tap(x=>{return x})
+      ).subscribe(x=>this.winderData2.push(x));
+
+      this.dataId =this.winderData2[0][1].map(film=>{return film.rollId});
+      this.data1_1 =this.winderData2[0][1].map(film=>{return film.w1TensionP1});
+      this.data2_1 =this.winderData2[0][1].map(film=>{return film.w2TensionP1});
+      this.data1_2 =this.winderData2[0][1].map(film=>{return film.w1TensionP2});
+      this.data2_2 =this.winderData2[0][1].map(film=>{return film.w2TensionP2});
     }
 
     ngOnInit():void {
@@ -130,6 +140,10 @@ export class Chart3Component implements OnInit {
     }
     resetZoom(){
      this.chart.resetZoom();
+    }
+    ngOnDestroy(): void {
+      this.unsubscribe$.next();
+      this.unsubscribe$.complete();
     }
 
     setState(){

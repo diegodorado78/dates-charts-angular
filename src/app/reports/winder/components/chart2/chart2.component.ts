@@ -1,7 +1,11 @@
 import { Component, OnInit} from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 import { WinderService } from '@services/winder.service';
-import {Response} from '@models/response.model' ;
+import { Dates } from '@models/date.model';
+
+import { tap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+
 import zoomPlugin from 'chartjs-plugin-zoom';
 Chart.register(zoomPlugin);
 
@@ -12,7 +16,8 @@ Chart.register(zoomPlugin);
 })
 export class Chart2Component implements OnInit {
   public chartTitle="Tension Control";
-  winderData:Response[];
+  winderData:any;
+  winderData2:any=[];
   data1:any;
   data2:any;
   data3:any;
@@ -21,12 +26,16 @@ export class Chart2Component implements OnInit {
   enableState:boolean;
   stateMessage:String;
   enableButton:any;
+  selectedDates:Dates;
+  private unsubscribe$ = new Subject<void>();
 
     constructor(private winderService:WinderService) {
-      this.winderData = this.winderService.getAllDataPoints();
-      this.data1 =this.winderData.map(film=>{return film.RollId});
-      this.data2 =this.winderData.map(film=>{return film.FilmTension});
-      this.data3 =this.winderData.map(film=>{return film.Actual});
+      this.winderData = this.winderService.getFilteredDataset().pipe(
+        tap(x=>{return x})
+      ).subscribe(x=>this.winderData2.push(x));
+      this.data1 =this.winderData2[0][0].map(film=>{return film.rollId});
+      this.data2 =this.winderData2[0][0].map(film=>{return film.filmTension});
+      this.data3 =this.winderData2[0][0].map(film=>{return film.actual});
     }
 
     ngOnInit():void {
@@ -108,6 +117,10 @@ export class Chart2Component implements OnInit {
     }
     resetZoom(){
      this.chart.resetZoom();
+    }
+    ngOnDestroy(): void {
+      this.unsubscribe$.next();
+      this.unsubscribe$.complete();
     }
 
     setState(){
