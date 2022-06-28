@@ -35,6 +35,7 @@ public chartTitle="Coextrusor 1";
       this.extrusorData = this.extrusorService.getFilteredDataset().pipe(
         tap(x=>{return x})
       ).subscribe(x=>this.extrusorData2.push(x));
+console.log(this.extrusorData2);
 
       this.data1 =this.extrusorData2[0][0].map(film=>{return film.rollId});
       this.data2 =this.extrusorData2[0][0].map(film=>{return film.setPoint});
