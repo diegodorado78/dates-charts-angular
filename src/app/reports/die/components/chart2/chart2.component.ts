@@ -31,8 +31,8 @@ private unsubscribe$ = new Subject<void>();
 
   constructor(private dieService:DieService) {
     this.dieData=this.dieService.getFilteredDataset().pipe(
-      tap(x=>{return x})
-    ).subscribe(x=>this.dieData2.push(x));
+      tap(dataPoint=>{return dataPoint})
+    ).subscribe(dataPoint=>this.dieData2.push(dataPoint));
     this.data1 =this.dieData2[0].map(film=>{return film.rollId});
     this.data2 =this.dieData2[0].map(film=>{return film.setPoint1});
     this.data3 =this.dieData2[0].map(film=>{return film.controller2});
@@ -127,12 +127,11 @@ private unsubscribe$ = new Subject<void>();
 
   setState(){
   this.enableState=this.chart.options.plugins.zoom.zoom.wheel.enabled;
-  if(this.enableState){
+     if(this.enableState){
     return this.stateMessage="On"
-  }else{
-    return this.stateMessage="Off";
-  }
-  }
+       }else{
+    return this.stateMessage="Off";}
+       }
 
   enableZoom(){
     this.chart.options.plugins.zoom.zoom.wheel.enabled = !this.chart.options.plugins.zoom.zoom.wheel.enabled;

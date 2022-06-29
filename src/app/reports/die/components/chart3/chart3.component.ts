@@ -30,9 +30,9 @@ export class Chart3Component implements OnInit {
   private unsubscribe$ = new Subject<void>();
 
     constructor(private dieService:DieService) {
-this.dieData=this.dieService.getFilteredDataset().pipe(
-      tap(x=>{return x})
-    ).subscribe(x=>this.dieData2.push(x));
+    this.dieData=this.dieService.getFilteredDataset().pipe(
+      tap(dataPoint=>{return dataPoint})
+    ).subscribe(dataPoint=>this.dieData2.push(dataPoint));
       this.data1 =this.dieData2[0].map(film=>{return film.rollId});
       this.data2 =this.dieData2[0].map(film=>{return film.setPoint2_3});
       this.data3 =this.dieData2[0].map(film=>{return film.actual});

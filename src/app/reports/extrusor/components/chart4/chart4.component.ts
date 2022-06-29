@@ -29,8 +29,8 @@ export class Chart4Component implements OnInit {
 
     constructor(private extrusorService:ExtrusorService) {
       this.extrusorData = this.extrusorService.getFilteredDataset().pipe(
-        tap(x=>{return x})
-      ).subscribe(x=>this.extrusorData2.push(x));
+        tap(dataPoint=>{return dataPoint})
+      ).subscribe(dataPoint=>this.extrusorData2.push(dataPoint));
       this.data1 =this.extrusorData2[0][1].map(film=>{return film.rollId});
       this.data2 =this.extrusorData2[0][1].map(film=>{return film.meteringExtruderOulet});
       this.data3 =this.extrusorData2[0][1].map(film=>{return film.actual});

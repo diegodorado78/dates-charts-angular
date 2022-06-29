@@ -33,8 +33,8 @@ export class Chart3Component implements OnInit {
 
     constructor(private winderService:WinderService) {
       this.winderData = this.winderService.getFilteredDataset().pipe(
-        tap(x=>{return x})
-      ).subscribe(x=>this.winderData2.push(x));
+        tap(dataPoint=>{return dataPoint})
+      ).subscribe(dataPoint=>this.winderData2.push(dataPoint));
 
       this.dataId =this.winderData2[0][1].map(film=>{return film.rollId});
       this.data1_1 =this.winderData2[0][1].map(film=>{return film.w1TensionP1});
