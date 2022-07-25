@@ -8,7 +8,7 @@
    <!-- bruckner img -->
       <div class="header__nav_logo ">
       <a routerLink="/home">
-        <img  [src]="bcoLogo" alt="bruckner_logo">
+        <img [src]="bcoLogo" alt="bruckner_logo">
       </a>
       </div>
 
@@ -18,14 +18,14 @@
        <!-- user menu -->
        <div class="user__container">
         <mat-icon class="header__user-icon" matBadgeSize="small" mat-button [matMenuTriggerFor]="menu">person</mat-icon>
-       
+
         <mat-menu #menu="matMenu" xPosition="after" yPosition="above" class="myMenu">
          <button mat-menu-item>Edit Profile</button>
          <button mat-menu-item>Settings</button>
          <button mat-menu-item>Sign Out</button>
        </mat-menu>
-       
+
        </div>
-       
+
 </mat-toolbar-row>
 </mat-toolbar>

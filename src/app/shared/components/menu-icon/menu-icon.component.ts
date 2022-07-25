@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl} from '@angular/forms';
+import {MatDrawerMode} from '@angular/material/sidenav';
+
 import { TitleService} from './../../../core/services/title.service';
 import { Subscription } from 'rxjs';
 import { Router} from '@angular/router';
@@ -11,6 +14,8 @@ import '@dile/dile-menu-hamburger/dile-menu-hamburger.js';
 })
 
 export class MenuIconComponent implements OnInit {
+  mode = new FormControl('over' as MatDrawerMode);
+  shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(window.location.host);
   menuOpened=false;
   titleInput:string='';
   message$:string;
@@ -23,7 +28,7 @@ export class MenuIconComponent implements OnInit {
   menuOpenedHandler(){
       this.menuOpened=true;
    }
- 
+
    menuClosedHandler(){
     this.menuOpened=false;
    }
