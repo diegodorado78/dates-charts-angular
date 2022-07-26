@@ -1,3 +1,4 @@
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
@@ -11,6 +12,12 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { NotFoundPageComponent } from './pages/components/not-found-page/not-found-page.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { LayoutModule } from '@angular/cdk/layout';
 // import { NotificationsDialogComponent } from './shared/components/notifications-dialog/notifications-dialog.component';
 
 @NgModule({
@@ -18,6 +25,8 @@ import { NotFoundPageComponent } from './pages/components/not-found-page/not-fou
     AppComponent,
     LayoutComponent,
     NotFoundPageComponent,
+
+
   ],
   entryComponents:[
   //  NotificationsDialogComponent
@@ -31,7 +40,14 @@ import { NotFoundPageComponent } from './pages/components/not-found-page/not-fou
     SharedModule,
     CoreModule,
     HttpClientModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSidenavModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

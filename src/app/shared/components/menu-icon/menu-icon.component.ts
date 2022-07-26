@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {MatDrawerMode} from '@angular/material/sidenav';
 
 import { TitleService} from './../../../core/services/title.service';
 import { Subscription } from 'rxjs';
 import { Router} from '@angular/router';
 
-import '@dile/dile-menu-hamburger/dile-menu-hamburger.js';
 @Component({
   selector: 'app-menu-icon',
   templateUrl: './menu-icon.component.html',
@@ -14,23 +12,22 @@ import '@dile/dile-menu-hamburger/dile-menu-hamburger.js';
 })
 
 export class MenuIconComponent implements OnInit {
-  mode = new FormControl('over' as MatDrawerMode);
-  shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(window.location.host);
-  menuOpened=false;
+
+  opened=true;
   titleInput:string='';
   message$:string;
   subscription: Subscription
-  constructor(private titleService:TitleService, private router: Router,) { }
+  constructor(private titleService:TitleService, private router: Router) { }
 
   ngOnInit(): void {
     this.subscription = this.titleService.currentTitle$.subscribe(message=>this.message$=message)
   }
   menuOpenedHandler(){
-      this.menuOpened=true;
+      this.opened=true;
    }
 
    menuClosedHandler(){
-    this.menuOpened=false;
+    this.opened=false;
    }
    newTitle(titleInput:string) {
      //call the title service method . setTitle to past the string from the anchor

@@ -10,12 +10,18 @@ mat-toolbar-row{
   margin: 0 ;
 }
 
-.header__menu{
+.header__menu-icon{
   grid-column: 1/2;
   display: flex;
   height: 100%;
   margin: 0 10px;
   justify-content: center;
+  padding: auto;
+  mat-icon{
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+  }
 }
 .header__nav_logo{
   grid-column: 2/7;
@@ -45,8 +51,31 @@ display: flex;
 
   }
 }
+
+  .example-sidenav-content {
+    display: flex;
+    width: 20%;
+    height: 20%;
+
+    align-items:flex-start;
+    justify-content: left;
+  }
+
+  .example-sidenav {
+    padding: 20px;
+  }
+  .sidenav__container{
+    position: absolute;
+    z-index: 3;
+    background-color: rgb(206, 63, 63);
+    height: 100vh;
+    opacity:0.9;
+    top:80px;
+    left:1px;
+  }
+
 // .myMenu{
-  
+
 //     display: flex;
 //     align-content: left;
 //     background-color: red;
@@ -63,7 +92,7 @@ display: flex;
     height: 80%;
     margin: 10% 5%;
   }
-  
+
 .header__nav_logo{
   margin:  auto 0;
   img {

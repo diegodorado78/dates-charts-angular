@@ -1,3 +1,4 @@
+import { MenuIconComponent } from './shared/components/menu-icon/menu-icon.component';
 import { NgModule } from '@angular/core';
 import {PreloadAllModules, Routes, RouterModule } from '@angular/router';
 import { NotFoundPageComponent } from './pages/components/not-found-page/not-found-page.component';
@@ -17,7 +18,7 @@ const routes: Routes = [
       {
         path: 'home',
         loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)        },
-      
+
       {
         path: 'kpis',
         // canActivate: [AdminGuard],
@@ -35,7 +36,7 @@ const routes: Routes = [
     component:NotFoundPageComponent ,
 
   }
-  
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes,{

@@ -1,8 +1,21 @@
 <mat-toolbar >
  <mat-toolbar-row class="layout__header">
 
-  <div class="header__menu">
-    <app-menu-icon></app-menu-icon>
+  <div class="header__menu-icon">
+    <!-- <app-menu-icon></app-menu-icon> -->
+
+    <!-- <mat-sidenav-container class="" > -->
+
+<!-- </mat-sidenav-container> -->
+    <mat-sidenav #sidenav class="sidenav__container" mode="side">
+    <p>Auto-resizing sidenav</p>
+    <!-- <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button> -->
+  </mat-sidenav>
+  <button type="button" mat-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+
   </div>
 
    <!-- bruckner img -->
@@ -29,3 +42,5 @@
 
 </mat-toolbar-row>
 </mat-toolbar>
+
+

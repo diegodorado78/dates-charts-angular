@@ -23,8 +23,6 @@ import { NotificationsDialogComponent } from './components/notifications-dialog/
     NavBarComponent,
     LineInfoComponent,
     NotificationsDialogComponent
-    
-
   ],
    imports: [
     CommonModule,

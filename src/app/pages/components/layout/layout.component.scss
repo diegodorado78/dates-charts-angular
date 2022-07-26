@@ -1,12 +1,31 @@
 
-.container{
- width: 100%;
- margin: auto;
- 
-}
+// .container{
+//  width: 100%;
+//  margin: auto;
+
+// }
 // .footer{
 //  background-color: #3D404B;
 //  height: 10%;
 // }
+
+.example-container {
+  width: 80%;
+  height: 100vh;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  margin:0 auto
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items:flex-start;
+  justify-content: left;
+}
+
+.example-sidenav {
+  padding: 20px;
+}
+
 @media (min-width:720px) {
 }

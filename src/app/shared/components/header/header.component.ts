@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NotificationsDialogComponent } from '../notifications-dialog/notifications-dialog.component';
 @Component({
@@ -7,8 +7,11 @@ import { NotificationsDialogComponent } from '../notifications-dialog/notificati
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-bcoLogo:string = '../../../../assets/images/bco-logo-white.png'
- notification:number=0
+  @Output() newItemEvent = new EventEmitter<boolean>();
+ bcoLogo:string = '../../../../assets/images/bco-logo-white.png'
+ notification:number=0;
+ showFiller = false;
+
   constructor(public dialog:MatDialog) { }
 
   ngOnInit(): void {
@@ -16,4 +19,5 @@ bcoLogo:string = '../../../../assets/images/bco-logo-white.png'
 openDialog(){
 this.dialog.open(NotificationsDialogComponent);
 }
+
 }
