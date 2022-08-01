@@ -1,34 +1,23 @@
+@import '../../../shared/variables.scss' ;
 
-// .container{
-//  width: 100%;
-//  margin: auto;
-
-// }
-// .footer{
-//  background-color: #3D404B;
-//  height: 10%;
-// }
-
-.example-container {
-  display: block;
+.sidenav__container {
   width: 100%;
-  height: 100vh;
-  border: 1px solid red;
-  margin:0 auto
+  margin:0 auto;
+  background-color: transparent;
 }
 
-.example-sidenav-content {
+.sidenav__content {
   display: flex;
   height: 100%;
-  align-items:flex-start;
-  justify-content: left;
-}
-
-.example-sidenav {
-  margin: 0;
-  padding: 20px;
-  background-color: red;
-
+  width: 110px;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+ background:$background-color3;
+  a{
+    width: 100%;
+  }
 }
 
 @media (min-width:720px) {

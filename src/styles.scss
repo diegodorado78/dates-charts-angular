@@ -16,11 +16,12 @@ $charts2-theme: mat-light-theme($charts2-primary, $charts2-accent, $charts2-warn
 html, body {
   font-size: 62.5%;  ;
   color: $primary-color;
+  background:$background-color2;
   font-family: 'Roboto';
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background:$background-color ;
+  height: 100vh;
   a{
     text-decoration: none;
     color:$primary-color ;
@@ -39,21 +40,23 @@ html, body {
   display: flex;
   flex-direction: column;
   height: 100%;
+  background: $background-color2 ;
+
   }
 
 // Global styles for charts
 .container2{
   display: flex;
-  background: $background-color2;
+  background: $background-color;
   flex-direction: column;
   border-radius: 5px;
-  width: 80%;
+  width: 90%;
   height: 100%;
-  margin:  10px auto;
+  margin:  5% auto;
   padding: auto 0;
   align-items: center;
   justify-items: center;
-}
+  box-shadow: 5px 5px 20px 2px #ccc;}
 
 .mat-typography{
    h1{
@@ -90,7 +93,9 @@ html, body {
     justify-content: center;
     }
  }
-
+app-home{
+  background-color: red;
+}
   .button-container{
    display: flex;
    flex-direction: row;
