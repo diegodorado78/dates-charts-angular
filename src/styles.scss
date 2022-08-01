@@ -88,14 +88,14 @@ html, body {
 
  mat-card{
   margin: 5px auto;
+  box-shadow: 5px 5px 20px 2px red;
+
 
    mat-card-header{
     justify-content: center;
     }
  }
-app-home{
-  background-color: red;
-}
+
   .button-container{
    display: flex;
    flex-direction: row;
