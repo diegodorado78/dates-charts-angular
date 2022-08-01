@@ -72,8 +72,8 @@ export class ExtrusorService {
     return this.mainExtrusorData;
   }
   getDataPoint(id:string){
-    return this.extrusorData.find(item=>id=== item.rollId); // busca y dev"SetpointHeating":250,"MeltTempetaruteActual":256,uelve el item del param id
-  }
+    return this.extrusorData.find(item=>id=== item.rollId);  }
+
   addDataSet(data:any){
     this.dataSource.next(data)//actualizo en estado del obsevable con los valores que pase
 

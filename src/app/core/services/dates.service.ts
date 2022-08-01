@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Dates } from '@models/date.model';
-
  @Injectable({
   providedIn: 'root'
 })
@@ -15,16 +14,7 @@ export class DatesService {
   dateDto:any;
 
   public addDate(data:Dates){
-    // this.currentData=data;
-    // this.dateDto=data;
-    this.dateData.next(data)//actualizo en estado del obsevable con los valores que pase
+    this.dateData.next(data)
   }
 }
- //metodos creados de la forma comun
-  // getDateObservable(){
-  //   return this.dateObservable.asObservable();// convierte el objeto en solo visible o escuchable No modificable
-  // }
-  // setDateObeservable(data:Dates){
-  //   this.dateObservable.next(data)//actualizo en estado del obsevable con los valores que pase
 
-  // }

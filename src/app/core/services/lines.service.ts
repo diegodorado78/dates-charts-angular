@@ -51,7 +51,7 @@ capacityData=[{
     return this.lines;
   }
   getLine(id:string){
-    return this.lines.find(item=>id=== item.id); // busca y devuelve el item del param id
+    return this.lines.find(item=>id=== item.id);
   }
   getYieldData(){
     return this.yieldData
@@ -62,5 +62,5 @@ capacityData=[{
   getCapacityData(){
     return this.capacityData
   }
- 
+
 }
