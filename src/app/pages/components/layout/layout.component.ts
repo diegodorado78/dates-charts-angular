@@ -1,6 +1,7 @@
+import { tap } from 'rxjs/operators';
 import { MenuToggleService } from '@services/menu-toggle.service';
-import { Component, OnInit,Input } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit,Input,AfterViewInit, OnChanges,ViewChild} from '@angular/core';
+import { Subscription,} from 'rxjs';
 import { Router} from '@angular/router';
 
 @Component({
@@ -10,17 +11,30 @@ import { Router} from '@angular/router';
 })
 export class LayoutComponent implements OnInit {
   subscription: Subscription
-  showFiller$;
+  showFiller$=false;
+   drawer:any=false;
    constructor(
     private router: Router,
     private menuToggleService:MenuToggleService,
 
-    ) { }
+    ) {
 
-  ngOnInit(): void {
-    this.subscription = this.menuToggleService.toggleState$.subscribe(message=>this.showFiller$=message);
+    }
 
-  }
-  }
+    ngOnInit(): void {
+      console.log(this.showFiller$);
+
+     !this.showFiller$?(this.drawer.toggle()
+    ):(this.showFiller$=false)
+   };
+
+    }
+  // ngAfterViewInit(): void {
+
+
+
+  // }
+
+
 
 

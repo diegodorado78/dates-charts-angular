@@ -20,21 +20,21 @@
 
 
 <app-header></app-header>
-<mat-drawer-container class="example-container" autosize>
-  <mat-drawer *ngIf="showFiller$" #drawer class="example-sidenav" mode="side">
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav  #drawer class="example-sidenav" mode="side">
     <p>Auto-resizing sidenav</p>
     <p>Lorem, ipsum dolor sit amet consectetur.</p>
     <!-- <button (click)="showFiller = !showFiller" mat-raised-button>
       Toggle extra text
     </button> -->
-  </mat-drawer>
+  </mat-sidenav>
 
   <div class="example-sidenav-content">
-    <!-- <button type="button" mat-button (click)="drawer.toggle()">
+    <button type="button" mat-button (click)="drawer.toggle()">
       Toggle sidenav
-    </button> -->
+    </button>
     <router-outlet></router-outlet>
 
   </div>
 
-</mat-drawer-container>
+</mat-sidenav-container>

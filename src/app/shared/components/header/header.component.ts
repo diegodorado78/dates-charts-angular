@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
  notification:number=0;
  showFiller$: boolean;
  subscription: Subscription
-
+ toggle = new EventEmitter<string>();
   constructor(public dialog:MatDialog,private menuToggleService:MenuToggleService) { }
 
   ngOnInit(): void {
@@ -26,7 +26,9 @@ this.dialog.open(NotificationsDialogComponent);
 }
 toggleMenu(state){
 this.menuToggleService.setToggleState(!state);
-console.log("hello world");
+console.log(state);
+console.log(!state);
+
 
 
 }
