@@ -88,7 +88,6 @@ export class WinderService {
 private dataSource= new BehaviorSubject({});
 dataSource$=this.dataSource.asObservable();
 
-//film tension service--> returns fil tension
   constructor(private http:HttpClient) { }
 
   getAllDataPoints():Response[] {

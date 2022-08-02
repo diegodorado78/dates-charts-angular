@@ -75,7 +75,7 @@ export class ExtrusorService {
     return this.extrusorData.find(item=>id=== item.rollId);  }
 
   addDataSet(data:any){
-    this.dataSource.next(data)//actualizo en estado del obsevable con los valores que pase
+    this.dataSource.next(data)
 
   }
 }

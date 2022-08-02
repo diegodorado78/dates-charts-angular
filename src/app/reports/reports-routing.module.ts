@@ -15,12 +15,10 @@ const routes: Routes = [
  },
  {
   path: 'winder',
-  // canActivate: [AdminGuard],
   loadChildren: () => import('../reports/winder/winder.module').then(m => m.WinderModule)
  },
  {
   path: 'extrusor',
- // canActivate: [AdminGuard],
  loadChildren: () => import('../reports/extrusor/extrusor.module').then(m => m.ExtrusorModule)
  },
  {

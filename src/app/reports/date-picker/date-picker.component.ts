@@ -1,5 +1,5 @@
 import { Component, OnInit,Input, OnDestroy } from '@angular/core';
-import { Observable,Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { TitleService} from '@services/title.service';
 import { DatesService } from '@services/dates.service';
 import {ExtrusorService} from '@services/extrusor.service';
@@ -47,12 +47,7 @@ export class DatePickerComponent implements OnInit,OnDestroy {
     this.datesService.addDate(date);
     const indexStartDate= this.newDate.startDate
     const indexEndDate=this.newDate.endDate
-    //FIRST WAY TO DO IT
-    // this.extrusorDataSourceAll=this.extrusorService.getAllDataPoints().forEach(dataPoint => {
-    //   if (new Date(dataPoint.date) >= indexStartDate && new Date(dataPoint.date) <= indexEndDate){
-    //    this.filteredExtrusorAll.push(dataPoint)}})
 
-    //NEW WAY TO DO IT
     this.extrusorDataSourceAll=this.extrusorService.getAllDataPoints()
     .filter(dataPoint => new Date(dataPoint.date) >= indexStartDate && new Date(dataPoint.date) <= indexEndDate)
 

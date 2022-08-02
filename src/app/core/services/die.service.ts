@@ -46,7 +46,7 @@ export class DieService {
   constructor() { }
 
   public addDataSet(data:any){
-    this.dataSource.next(data)//actualizo en estado del obsevable con los valores que pase
+    this.dataSource.next(data)
   }
   getFilteredDataset(){
     return this.dataSource$

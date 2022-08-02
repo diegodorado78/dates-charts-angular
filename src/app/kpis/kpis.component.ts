@@ -1,6 +1,5 @@
-import { Component, OnInit,Input,Output,EventEmitter,OnDestroy } from '@angular/core';
+import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import {LinesService} from '@services/lines.service';
-
 @Component({
   selector: 'app-kpis',
   templateUrl: './kpis.component.html',
@@ -12,13 +11,9 @@ export class KpisComponent implements OnInit {
 @Output() lineClicked: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private linesService: LinesService) { }
- clickLine(id: Event){// @output emite el id
-    console.log(id); //
+ clickLine(id: Event){
   }
   ngOnInit(): void {
-     this.lines = this.linesService.getAllLines(); // traigo a productos los datos con el metodo getAllProducts del service
-     console.log(this.lines);
+     this.lines = this.linesService.getAllLines();
   }
-
-
 }

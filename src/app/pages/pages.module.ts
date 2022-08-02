@@ -8,8 +8,6 @@ import { MaterialModule } from 'src/app/material/material.module';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CoreModule } from '../core/core.module';
 
-
-
 @NgModule({
   declarations:
    [HomeComponent],

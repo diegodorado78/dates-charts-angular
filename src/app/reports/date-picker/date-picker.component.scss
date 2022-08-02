@@ -2,7 +2,6 @@
 .datePicker__container{
   display: flex;
   flex-direction: column;
- 
 }
 
 .form__container{
@@ -13,7 +12,6 @@
   margin: 10% auto;
   align-items: center;
   justify-content: center;
-
 }
 
 .datePickerButton__container{
@@ -22,16 +20,15 @@
     width: auto;
     margin: 5px 5px;
     padding: 0 5px;
-
   }
 }
 @media (min-width: 768px) {
-  
+
   .datePicker__container{
     width: 50%;
     height: 60vh;
-
   }
+
   .form__container{
     display: flex;
     height: 80%;

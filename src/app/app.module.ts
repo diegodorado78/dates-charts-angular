@@ -25,11 +25,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     AppComponent,
     LayoutComponent,
     NotFoundPageComponent,
-
-
   ],
   entryComponents:[
-  //  NotificationsDialogComponent
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   imports: [

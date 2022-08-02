@@ -8,7 +8,6 @@ import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 
-
 @NgModule({
   declarations: [
     ReportsComponent,

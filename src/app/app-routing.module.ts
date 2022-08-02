@@ -1,4 +1,3 @@
-import { MenuIconComponent } from './shared/components/menu-icon/menu-icon.component';
 import { NgModule } from '@angular/core';
 import {PreloadAllModules, Routes, RouterModule } from '@angular/router';
 import { NotFoundPageComponent } from './pages/components/not-found-page/not-found-page.component';

@@ -9,7 +9,7 @@ export class DatesService {
 
   constructor() { }
   currentData:Dates={startDate:"1/6/2022",endDate:"15/6/2022"};
-  private dateData= new BehaviorSubject<Dates>(this.currentData);//debe tener un valor inicial
+  private dateData= new BehaviorSubject<Dates>(this.currentData);
   dateData$=this.dateData.asObservable();
   dateDto:any;
 

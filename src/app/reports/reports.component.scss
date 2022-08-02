@@ -1,12 +1,11 @@
-@import 'variables';
   ul {
     box-sizing: border-box;
     height: 90%;
     width: 80%;
     margin: 5% auto;
     list-style: none;
-
   }
+
   a {
     display: flex;
     flex-direction: column;
@@ -31,7 +30,6 @@
     }
   }
 
-
 @media (min-width: 768px) {
   .reports__container{
     width: 60%;
@@ -43,4 +41,4 @@
     }
   }
 }
- 
+
