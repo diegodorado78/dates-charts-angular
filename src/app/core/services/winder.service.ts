@@ -100,7 +100,6 @@ dataSource$=this.dataSource.asObservable();
   getFilteredDataset(){
     return this.dataSource$
   }
-  //tension control service returns setpoint y actual
     getAllTensionControl(){
     // return this.http.get<Response[]>(`${environment.url_api}/winder/tension-control`);
     }

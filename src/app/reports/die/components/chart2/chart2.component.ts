@@ -1,4 +1,4 @@
-import { Component,OnDestroy, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {DieService} from '@services/die.service';
 import { Dates } from '@models/date.model';
 

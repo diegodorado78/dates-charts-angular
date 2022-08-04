@@ -7,7 +7,7 @@ import {LinesService} from '@services/lines.service';
 })
 export class KpisComponent implements OnInit {
  lines =[];
-@Input() line:any = Input(); // para resolver problema de strict mode
+@Input() line:any = Input();
 @Output() lineClicked: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private linesService: LinesService) { }

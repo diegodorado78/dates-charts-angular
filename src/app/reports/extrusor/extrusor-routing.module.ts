@@ -12,14 +12,14 @@ import { DatePickerComponent } from '../date-picker/date-picker.component';
     path: 'trends',
     component: ExtrusorComponent
  }
- 
+
 ];
  @NgModule({
 imports: [
- RouterModule.forChild(routes), // importa los child de la const routes
+ RouterModule.forChild(routes),
 ],
 exports: [
- RouterModule // lo dejo disponible para otros modulos
+ RouterModule
 ]
  })
  export class ExtrusorRoutingModule{

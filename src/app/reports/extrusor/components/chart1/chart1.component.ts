@@ -78,7 +78,6 @@ public chartTitle="Coextrusor 1";
                     pointRadius:2,
                     pointBorderColor:'DarkBlue'
                }
-
                 ]
        },
         options:{

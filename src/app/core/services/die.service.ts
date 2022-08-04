@@ -61,6 +61,6 @@ export class DieService {
     return this.dieData3;
   }
   getDataPoint(id:string){
-    return this.dieData.find(item=>id=== item.rollId); // find and return the object with the id===arg
+    return this.dieData.find(item=>id=== item.rollId);
   }
 }
