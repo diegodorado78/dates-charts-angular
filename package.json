@@ -1,5 +1,5 @@
 {
-  "name": "charts2",
+  "name": "btar",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -23,12 +23,8 @@
     "@angular/platform-browser-dynamic": "~9.1.13",
     "@angular/router": "~9.1.13",
     "@angular/service-worker": "~9.1.13",
-    "@dile/dile-menu-hamburger": "^1.0.1",
     "chart.js": "^3.7.0",
     "chartjs-plugin-zoom": "^1.2.0",
-    "dile-hamburger": "^2.0.1",
-    "jspdf": "^2.4.0",
-    "lit": "^2.0.0-rc.2",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
@@ -37,7 +33,6 @@
     "@angular-devkit/build-angular": "~0.901.15",
     "@angular/cli": "~9.1.15",
     "@angular/compiler-cli": "~9.1.13",
-    "@types/d3": "^6.7.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/jspdf": "^2.0.0",
