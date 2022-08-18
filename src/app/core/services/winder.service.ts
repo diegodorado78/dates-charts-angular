@@ -105,20 +105,18 @@ dataSource$=this.dataSource.asObservable();
     getAllTensionControl(){
     // return this.http.get<Response[]>(`${environment.url_api}/winder/tension-control`);
     }
-    // getAllFilmTension(){
-    //   // const url = `${environment.url_api}/winder/film-tension?startDate=2018%2F01%2F01&endDate=2018%2F01%2F02`;
-    //    const url = `${environment.url_api}/winder/film-tension`;
+    getAllFilmTension(){
+      // const url = `${environment.url_api}/winder/film-tension?startDate=2018%2F01%2F01&endDate=2018%2F01%2F02`;
+    const url = `${environment.url_api}/winder/film-tension`;
 
-    // const dateParams={
-    //   startDate: "2018/01/01",
-    //   endDate: "2018/01/02"
-    // }
-    // let queryParams=new HttpParams({fromObject:dateParams});
-    // // console.log(this.http.get<any>(url,{params:queryParams}));
-    // console.log(this.http.get<any>(url,{params:queryParams}))
-    // return this.http.get<any>(url,{params:queryParams});
+    const dateParams={
+      startDate: "2018/01/01",
+      endDate: "2018/01/03"
+    }
+    let queryParams=new HttpParams({fromObject:dateParams});
 
-    //   }
+    return this.http.get<any>(url,{params:queryParams});
+      }
     getAllGapWinding(){
     // return this.http.get<WResponse[]>(`${environment.url_api}/winder/gap-winding`)}
     return this.gapWinding;

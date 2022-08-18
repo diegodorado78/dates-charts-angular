@@ -80,9 +80,9 @@ export class DatePickerComponent implements OnInit,OnDestroy {
     const indexStartDate= this.newDate.startDate;
     const indexEndDate=this.newDate.endDate;
 
-    this.winderDataSourceAll=this.winderService.getAllDataPoints()
-     .filter(dataPoint => new Date(dataPoint.date) >= indexStartDate && new Date(dataPoint.date) <= indexEndDate);
-    // this.winderDataSourceFilm=this.winderService.getAllFilmTension()
+    // this.winderDataSourceAll=this.winderService.getAllDataPoints()
+    //  .filter(dataPoint => new Date(dataPoint.date) >= indexStartDate && new Date(dataPoint.date) <= indexEndDate);
+     this.winderDataSourceFilm=this.winderService.getAllFilmTension()
 
 
 
@@ -93,7 +93,7 @@ export class DatePickerComponent implements OnInit,OnDestroy {
     this.winderDataSourceContact=this.winderService.getAllContactWinding()
     .filter(contact =>new Date(contact.date) >= indexStartDate && new Date(contact.date) <= indexEndDate)
 
-    this.filteredDataset= [this.winderDataSourceAll,this.winderDataSourceGap,this.winderDataSourceContact]
+    this.filteredDataset= [this.winderDataSourceFilm,this.winderDataSourceGap,this.winderDataSourceContact]
     this.winderService.addDataSet(this.filteredDataset)
    }
 }

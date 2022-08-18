@@ -1,3 +1,6 @@
+.layout{
+  height: 90vh;
+}
   ul {
     box-sizing: border-box;
     height: 90%;
@@ -32,7 +35,7 @@
 
 @media (min-width: 768px) {
   .reports__container{
-    width: 60%;
+    width: 50%;
     margin: 10px auto;
   }
   ul{
