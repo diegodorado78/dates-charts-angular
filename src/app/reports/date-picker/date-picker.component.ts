@@ -21,6 +21,7 @@ export class DatePickerComponent implements OnInit,OnDestroy {
   winderDataSourceAll:any;
   winderDataSourceGap:any;
   winderDataSourceContact:any;
+  winderDataSourceFilm:any;
   filteredDataset=[]
   startDate:string|Date;
   endDate:string|Date;
@@ -80,7 +81,11 @@ export class DatePickerComponent implements OnInit,OnDestroy {
     const indexEndDate=this.newDate.endDate;
 
     this.winderDataSourceAll=this.winderService.getAllDataPoints()
-    .filter(dataPoint => new Date(dataPoint.date) >= indexStartDate && new Date(dataPoint.date) <= indexEndDate);
+     .filter(dataPoint => new Date(dataPoint.date) >= indexStartDate && new Date(dataPoint.date) <= indexEndDate);
+    // this.winderDataSourceFilm=this.winderService.getAllFilmTension()
+
+
+
 
      this.winderDataSourceGap=this.winderService.getAllGapWinding()
      .filter(gap =>new Date(gap.date) >= indexStartDate && new Date(gap.date) <= indexEndDate)

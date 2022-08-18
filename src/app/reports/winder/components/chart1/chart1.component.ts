@@ -2,7 +2,6 @@ import { Component,OnDestroy, OnInit} from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 import { WinderService } from '@services/winder.service';
 import { Dates } from '@models/date.model';
-
 import { tap } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
@@ -31,80 +30,89 @@ selectedDates:Dates;
 private unsubscribe$ = new Subject<void>();
 
   constructor(private winderService:WinderService) {
-    this.winderData = this.winderService.getFilteredDataset().pipe(
-      tap(dataPoint=>{return dataPoint})
-    ).subscribe(dataPoint=>this.winderData2.push(dataPoint));
-    this.data1 =this.winderData2[0][0].map(film=>{return film.rollId});
-    this.data2 =this.winderData2[0][0].map(film=>{return film.filmTension});
+    // this.winderData = this.winderService.getAllFilmTension()
+    // .subscribe((dataPoint)=>{
+    //   this.winderData2.push(dataPoint.data)
+    //   this.data1 =this.winderData2.map(film=>{return film.rollId});
+    //   this.data2 =this.winderData2.map(film=>{return film.filmTension});
+    //   console.log(this.winderData2);
+
+    // });
+
+    // console.log(this.winderData2);
+
+
   }
 
   ngOnInit():void {
-    Chart.register(...registerables);
-    this.myChart=document.getElementById('chart1');
-    this.enableButton=document.getElementById('enableButton1')
-    this.chart= new Chart(this.myChart,{
-      type: 'line',
-      data: {
-          labels: this.data1 ,
-          datasets: [
-              {
-              label: 'Film tension',
-              data: this.data2,
-              borderColor: 'rgba(255, 99, 132, 1)',
-              borderWidth: 3,
-              tension: 0.5,
-              pointRadius:2,
-              pointBorderColor:'rgba(255, 0, 0, 0.8)'
-              }
-              ]
-     },
-      options:{
-        responsive:true,
-        maintainAspectRatio:false,
+    // console.log(this.winderData2);
 
-        scales:{
-          y:{
-            beginAtZero:true,
-            ticks:{
-              font:{
-                size:10
-              }
-            }
-          },
-          x:{
-            ticks:{
-              font:{
-                size:10
-              }
-            }
-          },
-        },
-        plugins:{
-          legend: {
-            labels: {
-                font: {
-                    size: 10
-                }
-            }
-        },
-          zoom:{
-            zoom: {
-              wheel: {
-                enabled: false,
-              },
-              pinch: {
-                enabled: false
-              },
-              mode: 'xy',
-            },
-            pan:{
-              enabled:true
-            },
-          }
-        }
-      },
-    })
-     this.setState()
+    // Chart.register(...registerables);
+    // this.myChart=document.getElementById('chart1');
+    // this.enableButton=document.getElementById('enableButton1')
+    // this.chart= new Chart(this.myChart,{
+    //   type: 'line',
+    //   data: {
+    //       labels: this.data1 ,
+    //       datasets: [
+    //           {
+    //           label: 'Film tension',
+    //           data: this.data2,
+    //           borderColor: 'rgba(255, 99, 132, 1)',
+    //           borderWidth: 3,
+    //           tension: 0.5,
+    //           pointRadius:2,
+    //           pointBorderColor:'rgba(255, 0, 0, 0.8)'
+    //           }
+    //           ]
+    //  },
+    //   options:{
+    //     responsive:true,
+    //     maintainAspectRatio:false,
+
+    //     scales:{
+    //       y:{
+    //         beginAtZero:true,
+    //         ticks:{
+    //           font:{
+    //             size:10
+    //           }
+    //         }
+    //       },
+    //       x:{
+    //         ticks:{
+    //           font:{
+    //             size:10
+    //           }
+    //         }
+    //       },
+    //     },
+    //     plugins:{
+    //       legend: {
+    //         labels: {
+    //             font: {
+    //                 size: 10
+    //             }
+    //         }
+    //     },
+    //       zoom:{
+    //         zoom: {
+    //           wheel: {
+    //             enabled: false,
+    //           },
+    //           pinch: {
+    //             enabled: false
+    //           },
+    //           mode: 'xy',
+    //         },
+    //         pan:{
+    //           enabled:true
+    //         },
+    //       }
+    //     }
+    //   },
+    // })
+    //  this.setState()
   }
   resetZoom(){
    this.chart.resetZoom();

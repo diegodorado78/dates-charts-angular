@@ -12,7 +12,6 @@ export class LayoutComponent implements OnInit {
    constructor() {}
 
     ngOnInit(): void {
-     console.log("componente inciado");
 
    };
    toggleMenufromLayout(event){

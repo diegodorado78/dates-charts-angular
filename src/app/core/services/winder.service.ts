@@ -1,15 +1,16 @@
+import { Dates } from './../../models/date.model';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import {WResponse} from '@models/winderResponse.model' ;
 import {Response} from '@models/response.model' ;
 import {BehaviorSubject } from 'rxjs';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class WinderService {
+  params:Dates;
  winderData:Response[]= [
 {"rollId":"0A16022216","date":"2022/06/01","filmTension":132,"setPoint":42.8,"actual":29.4,},
 {"rollId":"0A16022217","date":"2022/06/02","filmTension":139.1,"setPoint":42.9,"actual":31.4,},
@@ -90,9 +91,10 @@ dataSource$=this.dataSource.asObservable();
 
   constructor(private http:HttpClient) { }
 
-  getAllDataPoints():Response[] {
+  getAllDataPoints(){
+
       return this.winderData;
-    //return this.http.get<Response[]>(`${environment.url_api}/winder/film-tension`);
+
   }
   // getDataPoint(id:string){
   //   return this.winderData.find(item=>id=== item.roll_id); // busca y devuelve el item del param id
@@ -103,6 +105,20 @@ dataSource$=this.dataSource.asObservable();
     getAllTensionControl(){
     // return this.http.get<Response[]>(`${environment.url_api}/winder/tension-control`);
     }
+    // getAllFilmTension(){
+    //   // const url = `${environment.url_api}/winder/film-tension?startDate=2018%2F01%2F01&endDate=2018%2F01%2F02`;
+    //    const url = `${environment.url_api}/winder/film-tension`;
+
+    // const dateParams={
+    //   startDate: "2018/01/01",
+    //   endDate: "2018/01/02"
+    // }
+    // let queryParams=new HttpParams({fromObject:dateParams});
+    // // console.log(this.http.get<any>(url,{params:queryParams}));
+    // console.log(this.http.get<any>(url,{params:queryParams}))
+    // return this.http.get<any>(url,{params:queryParams});
+
+    //   }
     getAllGapWinding(){
     // return this.http.get<WResponse[]>(`${environment.url_api}/winder/gap-winding`)}
     return this.gapWinding;

@@ -21,9 +21,9 @@
                   <!-- buttons -->
                 <div class="datePickerButton__container" [ngSwitch]="message$" >
                    <!-- Buttons depending on the case to render the trends -->
-                   <button  *ngSwitchCase="'extrusor'" routerLink="trends" type="submit" mat-raised-button  color="bco-activated" (click)="setExtrusorDataSource(newDate)">Select </button>
-                   <button *ngSwitchCase="'die'" routerLink="trends" type="submit" mat-raised-button color="bco-activated" (click)="setDieDataSource(newDate)" >Select </button>
-                   <button *ngSwitchCase="'winder'" routerLink="trends" type="submit" mat-raised-button color="bco-activated" (click)="setWinderDataSource(newDate)" >Select </button>
+                   <button  *ngSwitchCase="'extrusor'" routerLink="trends" type="submit" mat-raised-button  class="mat-bco-activated" (click)="setExtrusorDataSource(newDate)">Select </button>
+                   <button *ngSwitchCase="'die'" routerLink="trends" type="submit" mat-raised-button class="mat-bco-activated" (click)="setDieDataSource(newDate)" >Select </button>
+                   <button *ngSwitchCase="'winder'" routerLink="trends" type="submit" mat-raised-button class="mat-bco-activated" (click)="setWinderDataSource(newDate)" >Select </button>
                    <button  routerLink="trends" type="submit"  mat-raised-button color="bco-activated" > See last month </button>
 
                   </div>
