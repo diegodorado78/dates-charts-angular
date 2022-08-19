@@ -6,6 +6,7 @@ import { tap } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 import zoomPlugin from 'chartjs-plugin-zoom';
+import { DatesService } from '@services/dates.service';
 Chart.register(zoomPlugin);
 
 @Component({
@@ -25,11 +26,16 @@ myChart: any;
 enableState:boolean;
 stateMessage:String;
 enableButton:any;
+selectedDate;
 // winderDataSource$:any
 selectedDates:Dates;
 private unsubscribe$ = new Subject<void>();
 
-  constructor(private winderService:WinderService) {
+  constructor(
+    private winderService:WinderService,
+    private datesService:DatesService,
+
+    ) {
   }
 
   ngOnInit():void {
@@ -37,14 +43,17 @@ private unsubscribe$ = new Subject<void>();
   }
 
   fetchData(){
-    this.winderData = this.winderService.getAllFilmTension()
+    this.datesService.data.subscribe(date=>{
+      this.selectedDate=date
+     });
+
+    this.winderData = this.winderService.getAllTensionControl(this.selectedDate)
     this.winderData.subscribe((dp)=>{
     this.winderData2.push(dp.data)
     return this.createChart()
   })
   }
   createChart(){
-
     this.data1 =this.winderData2[0].map(film=>{return film.rollId});
     this.data2 =this.winderData2[0].map(film=>{return film.filmTension});
     Chart.register(...registerables);

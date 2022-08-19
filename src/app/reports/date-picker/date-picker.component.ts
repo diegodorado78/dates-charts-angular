@@ -1,12 +1,11 @@
-import { Component, OnInit,Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TitleService} from '@services/title.service';
 import { DatesService } from '@services/dates.service';
 import {ExtrusorService} from '@services/extrusor.service';
 import {DieService} from '@services/die.service';
-import {WinderService} from '@services/winder.service';
 import { Dates } from '@models/date.model';
-
+import { formatDate } from '@angular/common';
 @Component({
   selector: 'app-date-picker',
   templateUrl: './date-picker.component.html',
@@ -14,7 +13,7 @@ import { Dates } from '@models/date.model';
 })
 export class DatePickerComponent implements OnInit,OnDestroy {
   subscription: Subscription
-  dateData$= this.datesService.dateData$;
+  // dateData$= this.datesService.dateData$;
   extrusorDataSourceAll:any;
   extrusorDataSourceMain:any=[];
   dieDataSource:any;
@@ -23,7 +22,7 @@ export class DatePickerComponent implements OnInit,OnDestroy {
   winderDataSourceContact:any;
   winderDataSourceFilm:any;
   filteredDataset=[]
-  startDate:string|Date;
+  startDate:Date;
   endDate:string|Date;
   newDate:Dates;
   message$:string;
@@ -32,7 +31,7 @@ export class DatePickerComponent implements OnInit,OnDestroy {
     private datesService:DatesService,
     private extrusorService:ExtrusorService,
     private dieService:DieService,
-    private winderService:WinderService){}
+    ){}
 
   ngOnInit(): void {
    this.subscription = this.titleService.currentTitle$.subscribe(message=>this.message$=message);}
@@ -40,11 +39,11 @@ export class DatePickerComponent implements OnInit,OnDestroy {
   ngOnDestroy(){
      this.subscription.unsubscribe();
    }
-
    // Extrusor source filter method
    setExtrusorDataSource(date:Dates){
     this.newDate={startDate:this.startDate, endDate:this.endDate};
     date=this.newDate
+
     this.datesService.addDate(date);
     const indexStartDate= this.newDate.startDate
     const indexEndDate=this.newDate.endDate
@@ -73,27 +72,11 @@ export class DatePickerComponent implements OnInit,OnDestroy {
    }
 
     // Winder source filter method
-   setWinderDataSource(date:Dates){
-    this.newDate={startDate:this.startDate, endDate:this.endDate};
-    date=this.newDate
-    this.datesService.addDate(date);
-    const indexStartDate= this.newDate.startDate;
-    const indexEndDate=this.newDate.endDate;
-
-    // this.winderDataSourceAll=this.winderService.getAllDataPoints()
-    //  .filter(dataPoint => new Date(dataPoint.date) >= indexStartDate && new Date(dataPoint.date) <= indexEndDate);
-     this.winderDataSourceFilm=this.winderService.getAllFilmTension()
-
-
-
-
-     this.winderDataSourceGap=this.winderService.getAllGapWinding()
-     .filter(gap =>new Date(gap.date) >= indexStartDate && new Date(gap.date) <= indexEndDate)
-
-    this.winderDataSourceContact=this.winderService.getAllContactWinding()
-    .filter(contact =>new Date(contact.date) >= indexStartDate && new Date(contact.date) <= indexEndDate)
-
-    this.filteredDataset= [this.winderDataSourceFilm,this.winderDataSourceGap,this.winderDataSourceContact]
-    this.winderService.addDataSet(this.filteredDataset)
+   setWinderDataSource(){
+    this.newDate={
+      "startDate": formatDate(this.startDate,'yyyy/MM/dd', 'en'),
+      "endDate":formatDate(this.endDate,'yyyy/MM/dd', 'en')
+    }
+    return this.datesService.addDate(this.newDate);
    }
 }

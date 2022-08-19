@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Dates } from '@models/date.model';
  @Injectable({
   providedIn: 'root'
@@ -8,13 +8,14 @@ import { Dates } from '@models/date.model';
 export class DatesService {
 
   constructor() { }
-  currentData:Dates={startDate:"1/6/2022",endDate:"15/6/2022"};
-  private dateData= new BehaviorSubject<Dates>(this.currentData);
-  dateData$=this.dateData.asObservable();
+  currentData:Dates={startDate:"2018/01/01",endDate:"2018/01/03"};
+  dataSource:BehaviorSubject<Dates>= new BehaviorSubject<Dates>({startDate:"",endDate:""});
+  data:Observable<Dates>=this.dataSource.asObservable();
   dateDto:any;
 
-  public addDate(data:Dates){
-    this.dateData.next(data)
+  public addDate(date:any){
+   return this.dataSource.next(date);
   }
+
 }
 
