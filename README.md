@@ -1,10 +1,22 @@
-# Charts2
+# BTAR
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.15.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Run image in local
+docker build -t btar-ui:test .	
+docker run -p 80:80 -it (image name)
+## Create docker image and deploy to server
+docker build -t btar-ui:test .	
+docker save btar-ui:test | gzip > btar-ui.tar.gz
+scp btar-ui.tar.gz dev@172.18.22.81:/home/dev/Downloads
+## In the server
+/home/dev/Downloads zcat btar-ui.tar.gz | docker load
+cd /opt/docker compose up -d
+## check the container status
+docker logs Container-name --tail 300
 
 ## Code scaffolding
 
