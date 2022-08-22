@@ -12,7 +12,7 @@ Chart.register(zoomPlugin);
   templateUrl: './chart4.component.html',
   styleUrls: ['./chart4.component.scss']
 })
-export class Chart4Component implements OnInit {
+export class Chart4Component implements OnInit,OnDestroy {
   chartTitle = 'Contact Winding';
   winderData: any;
   winderData2: any = [];
@@ -31,7 +31,7 @@ export class Chart4Component implements OnInit {
 
   constructor(
     private winderService: WinderService,
-    private datesService: DatesService,
+    private datesService: DatesService
   ) {}
 
   ngOnInit(): void {
@@ -171,6 +171,4 @@ export class Chart4Component implements OnInit {
     this.setState();
     this.chart.update();
   }
-
-
 }

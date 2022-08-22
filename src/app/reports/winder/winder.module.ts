@@ -8,13 +8,17 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/app/material/material.module';
 import { Chart3Component } from './components/chart3/chart3.component';
 import { Chart4Component } from './components/chart4/chart4.component';
+import { Chart5Component } from './components/chart5/chart5.component';
+import { Chart6Component } from './components/chart6/chart6.component';
 @NgModule({
   declarations: [
    WinderComponent,
    Chart2Component,
    Chart1Component,
    Chart3Component,
-   Chart4Component
+   Chart4Component,
+   Chart5Component,
+   Chart6Component
   ],
 
   imports: [
