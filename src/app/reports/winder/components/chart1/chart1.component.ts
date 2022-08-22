@@ -1,12 +1,10 @@
-import { Component,OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 import { WinderService } from '@services/winder.service';
 import { Dates } from '@models/date.model';
-import { tap } from 'rxjs/operators';
-import { Subject } from 'rxjs';
-
-import zoomPlugin from 'chartjs-plugin-zoom';
 import { DatesService } from '@services/dates.service';
+import { Subject } from 'rxjs';
+import zoomPlugin from 'chartjs-plugin-zoom';
 Chart.register(zoomPlugin);
 
 @Component({
@@ -14,97 +12,95 @@ Chart.register(zoomPlugin);
   templateUrl: './chart1.component.html',
   styleUrls: ['./chart1.component.scss']
 })
-export class Chart1Component implements OnInit,OnDestroy {
-public chartTitle="Thickness Control";
-winderData:any;
-winderData2:any=[];
-data1:any;
-data2:any;
-data3:any;
-chart:any
-myChart: any;
-enableState:boolean;
-stateMessage:String;
-enableButton:any;
-selectedDate;
-// winderDataSource$:any
-selectedDates:Dates;
-private unsubscribe$ = new Subject<void>();
+export class Chart1Component implements OnInit, OnDestroy {
+  public chartTitle = "Film Tension";
+  winderData: any;
+  winderData2: any = [];
+  data1: any;
+  data2: any;
+  chart: any
+  myChart: any;
+  enableState: boolean;
+  stateMessage: String;
+  enableButton: any;
+  selectedDate: Dates;
+  private unsubscribe$ = new Subject<void>();
 
   constructor(
-    private winderService:WinderService,
-    private datesService:DatesService,
+    private winderService: WinderService,
+    private datesService: DatesService
+  ) { }
 
-    ) {
+  ngOnInit(): void {
+    this.fetchDate()
   }
 
-  ngOnInit():void {
-    this.fetchData()
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
-  fetchData(){
-    this.datesService.data.subscribe(date=>{
-      this.selectedDate=date
-     });
-
-    this.winderData = this.winderService.getAllTensionControl(this.selectedDate)
-    this.winderData.subscribe((dp)=>{
-    this.winderData2.push(dp.data)
-    return this.createChart()
-  })
+  fetchDate() {
+    this.datesService.data.subscribe(date => {
+    this.selectedDate = date });
+    this.winderData = this.winderService.getAllFilmTension(this.selectedDate)
+    this.winderData.subscribe((dp) => {
+      this.winderData2.push(dp.data)
+      return this.createChart()
+    })
   }
-  createChart(){
-    this.data1 =this.winderData2[0].map(film=>{return film.rollId});
-    this.data2 =this.winderData2[0].map(film=>{return film.filmTension});
+  createChart() {
+    this.data1 = this.winderData2[0].map(film => { return film.rollId });
+    this.data2 = this.winderData2[0].map(film => { return film.filmTension });
     Chart.register(...registerables);
-    this.myChart=document.getElementById('chart1');
-    this.enableButton=document.getElementById('enableButton1')
-    this.chart= new Chart(this.myChart,{
+    this.myChart = document.getElementById('chart1');
+    this.enableButton = document.getElementById('enableButton1')
+    this.chart = new Chart(this.myChart, {
       type: 'line',
       data: {
-          labels: this.data1 ,
-          datasets: [
-              {
-              label: 'Film tension',
-              data: this.data2,
-              borderColor: 'rgba(255, 99, 132, 1)',
-              borderWidth: 3,
-              tension: 0.5,
-              pointRadius:2,
-              pointBorderColor:'rgba(255, 0, 0, 0.8)'
-              }
-              ]
-     },
-      options:{
-        responsive:true,
-        maintainAspectRatio:false,
+        labels: this.data1,
+        datasets: [
+          {
+            label: 'Film tension',
+            data: this.data2,
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 3,
+            tension: 0.5,
+            pointRadius: 2,
+            pointBorderColor: 'rgba(255, 0, 0, 0.8)'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
 
-        scales:{
-          y:{
-            beginAtZero:true,
-            ticks:{
-              font:{
-                size:10
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              font: {
+                size: 10
               }
             }
           },
-          x:{
-            ticks:{
-              font:{
-                size:10
+          x: {
+            ticks: {
+              font: {
+                size: 10
               }
             }
           },
         },
-        plugins:{
+        plugins: {
           legend: {
             labels: {
-                font: {
-                    size: 10
-                }
+              font: {
+                size: 10
+              }
             }
-        },
-          zoom:{
+          },
+          zoom: {
             zoom: {
               wheel: {
                 enabled: false,
@@ -114,42 +110,35 @@ private unsubscribe$ = new Subject<void>();
               },
               mode: 'xy',
             },
-            pan:{
-              enabled:true
+            pan: {
+              enabled: true
             },
           }
         }
       },
     })
-     this.setState()
-   }
-
-  resetZoom(){
-   this.chart.resetZoom();
+    this.setState()
   }
-  ngOnDestroy(): void {
-      this.unsubscribe$.next();
-      this.unsubscribe$.complete();
+
+  resetZoom() {
+    this.chart.resetZoom();
+  }
+
+  setState() {
+    this.enableState = this.chart.options.plugins.zoom.zoom.wheel.enabled;
+    if (this.enableState) {
+      return this.stateMessage = "On"
+    } else {
+      return this.stateMessage = "Off";
     }
-
-  setState(){
-  this.enableState=this.chart.options.plugins.zoom.zoom.wheel.enabled;
-  if(this.enableState){
-    return this.stateMessage="On"
-  }else{
-    return this.stateMessage="Off";
-  }
   }
 
-  enableZoom(){
+  enableZoom() {
     this.chart.options.plugins.zoom.zoom.wheel.enabled = !this.chart.options.plugins.zoom.zoom.wheel.enabled;
     this.setState();
     this.chart.update();
   }
-  createchart(){
 
-
-  }
 }
 
 

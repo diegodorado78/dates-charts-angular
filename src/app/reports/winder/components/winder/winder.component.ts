@@ -1,9 +1,6 @@
-import { Component, OnInit,ElementRef,ViewChild} from '@angular/core';
-// import { HttpClient } from '@angular/common/http';
-// import { Observable } from 'rxjs'
-import {Response} from '@models/response.model' ;
-import { WinderService } from 'src/app/core/services/winder.service';
-import {WResponse} from '@models/winderResponse.model'
+import { Component, OnInit} from '@angular/core';
+import { DatesService } from '@services/dates.service';
+import { Dates } from '@models/date.model';
 
 
 @Component({
@@ -12,16 +9,16 @@ import {WResponse} from '@models/winderResponse.model'
   styleUrls: ['./winder.component.scss']
 })
 export class WinderComponent implements OnInit {
-  filmTensionData:Response[]=[];
-  tensionControlData:Response[]=[];
-  gapWindingData:WResponse[]=[];
-  contactWindingData:WResponse[]=[];
+  selectedDate:Dates;
 
 
-constructor(private winderService:WinderService){}
+constructor(private datesService:DatesService){}
 ngOnInit(){
-
+  this.fetchDate()
 }
-
+fetchDate() {
+  this.datesService.data.subscribe(date => {
+    this.selectedDate = date
+  });
 }
-
+}

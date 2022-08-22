@@ -5,7 +5,6 @@
                   <!-- Start Date -->
                   <mat-form-field >
                       <mat-label>From</mat-label>
-                      <mat-hint>YYYY/MM/DD</mat-hint>
                         <input matInput  [ngModelOptions]="{standalone: true}"[matDatepicker]="pickerStart" [(ngModel)]="startDate" >
                         <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
                         <mat-datepicker touchUi="true" #pickerStart startView="multi-year" ></mat-datepicker>
