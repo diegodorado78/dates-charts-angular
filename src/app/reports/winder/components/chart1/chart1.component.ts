@@ -6,7 +6,6 @@ import { DatesService } from '@services/dates.service';
 import { Subject } from 'rxjs';
 import zoomPlugin from 'chartjs-plugin-zoom';
 Chart.register(zoomPlugin);
-
 @Component({
   selector: 'app-chart1',
   templateUrl: './chart1.component.html',

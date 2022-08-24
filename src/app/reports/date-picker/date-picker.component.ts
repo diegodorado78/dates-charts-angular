@@ -59,16 +59,12 @@ export class DatePickerComponent implements OnInit,OnDestroy {
    }
 
    // Die source filter method
-   setDieDataSource(date:Dates){
-   this.newDate={startDate:this.startDate, endDate:this.endDate};
-   date=this.newDate;
-   this.datesService.addDate(date);
-   const indexStartDate= this.newDate.startDate;
-   const indexEndDate=this.newDate.endDate;
-
-   this.dieDataSource = this.dieService.getAllDataPoints()
-   .filter(dataPoint => new Date(dataPoint.date) >= indexStartDate && new Date(dataPoint.date)<= indexEndDate);
-    this.dieService.addDataSet(this.dieDataSource)
+   setDieDataSource(){
+    this.newDate={
+      "startDate": formatDate(this.startDate,'yyyy/MM/dd', 'en'),
+      "endDate":formatDate(this.endDate,'yyyy/MM/dd', 'en')
+    }
+    return this.datesService.addDate(this.newDate);
    }
 
     // Winder source filter method
@@ -79,6 +75,7 @@ export class DatePickerComponent implements OnInit,OnDestroy {
     }
     return this.datesService.addDate(this.newDate);
    }
+
    setLastMonthDate(){
     const currentDate= new Date(Date.now());
     const initialDate = new Date(currentDate.getTime()-1000*2592000);

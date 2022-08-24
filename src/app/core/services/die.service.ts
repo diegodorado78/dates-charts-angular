@@ -1,5 +1,7 @@
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +45,7 @@ export class DieService {
    private dataSource= new BehaviorSubject({});
    dataSource$=this.dataSource.asObservable();
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   public addDataSet(data:any){
     this.dataSource.next(data)
@@ -62,5 +64,20 @@ export class DieService {
   }
   getDataPoint(id:string){
     return this.dieData.find(item=>id=== item.rollId);
+  }
+  getAllAdapter1(selectedDate){
+    const url = `${environment.url_api}/die/adapter1-layer`;
+    let queryParams = new HttpParams({ fromObject: selectedDate });
+    return this.http.get<any>(url, { params: queryParams });
+  }
+  getAllAdapter2(selectedDate){
+    const url = `${environment.url_api}/die/adapter2-layer`;
+    let queryParams = new HttpParams({ fromObject: selectedDate });
+    return this.http.get<any>(url, { params: queryParams });
+  }
+  getAllAdapter3(selectedDate){
+    const url = `${environment.url_api}/die/adapter3-layer`;
+    let queryParams = new HttpParams({ fromObject: selectedDate });
+    return this.http.get<any>(url, { params: queryParams });
   }
 }
