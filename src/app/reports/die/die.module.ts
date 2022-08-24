@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DieComponent } from './components/die/die..component';
+import { DieComponent } from './components/die/die.component';
 import {DieRoutingModule } from './die-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/app/material/material.module';

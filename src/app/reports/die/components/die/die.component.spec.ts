@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DieComponent } from './die..component';
+import { DieComponent } from './die.component';
 
 describe('DieComponent', () => {
   let component: DieComponent;

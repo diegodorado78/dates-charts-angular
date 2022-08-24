@@ -79,4 +79,14 @@ export class DatePickerComponent implements OnInit,OnDestroy {
     }
     return this.datesService.addDate(this.newDate);
    }
+   setLastMonthDate(){
+    const currentDate= new Date(Date.now());
+    const initialDate = new Date(currentDate.getTime()-1000*2592000);
+    this.newDate={
+      "startDate": formatDate(initialDate,'yyyy/MM/dd', 'en'),
+      "endDate":formatDate(currentDate,'yyyy/MM/dd', 'en')}
+
+    this.datesService.addDate(this.newDate)
+
+   }
 }
